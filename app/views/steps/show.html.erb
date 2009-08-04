@@ -1,0 +1,22 @@
+<p>
+  <b>Rec date:</b>
+  <%=h @step.rec_date %>
+</p>
+
+<p>
+  <b>Steps:</b>
+  <%=h @step.steps %>
+</p>
+
+<p>
+  <b>Mod steps:</b>
+  <%=h @step.mod_steps %>
+</p>
+<p>
+  <b>Mod Minutes:</b>
+  <%=h @step.mod_min %>
+</p>
+
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

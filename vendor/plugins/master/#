@@ -1,0 +1,633 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title>econsultancy's csv_builder at master - GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="http://github.com/fluidicon.png" title="GitHub" />
+
+    
+      <link href="http://assets1.github.com/stylesheets/bundle.css?6f31b78746b7d07b4a33b1593ffd193d896784bd" media="screen" rel="stylesheet" type="text/css" />
+    
+
+    
+      
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="http://assets3.github.com/javascripts/bundle.js?6f31b78746b7d07b4a33b1593ffd193d896784bd" type="text/javascript"></script>
+      
+    
+    
+  
+    
+  
+
+  <link href="http://github.com/feeds/econsultancy/commits/csv_builder/master" rel="alternate" title="Recent Commits to csv_builder:master" type="application/atom+xml" />
+
+    <meta name="description" content="CSV template Rails plugin" />
+
+
+    
+
+    <script type="text/javascript">
+      github_user = null
+    </script>
+  </head>
+
+  
+
+  <body>
+    
+
+    <div id="main">
+      <div id="header" class="">
+        <div class="site">
+          <div class="logo">
+            <a href="http://github.com"><img src="/images/modules/header/logov3.png" alt="github" /></a>
+          </div>
+          
+            <div class="topsearch">
+  <form action="/search" id="top_search_form" method="get">
+    <input type="search" class="search" name="q" /> <input type="submit" value="Search" />
+    <input type="hidden" name="type" value="Everything" />
+    <input type="hidden" name="repo" value="" />
+    <input type="hidden" name="langOverride" value="" />
+    <input type="hidden" name="start_value" value="1" />
+  </form>
+  <div class="links">
+    <a href="/repositories">Browse</a> | <a href="/guides">Guides</a> | <a href="/search">Advanced</a>
+  </div>
+</div>
+          
+            
+              <div class="actions">
+                
+                  <a href="http://github.com">Home</a>
+                  <a href="/plans"><b><u>Pricing and Signup</u></b></a>
+                  <a href="http://github.com/popular/forked">Repositories</a>
+                  
+                  <a href="/blog">Blog</a>
+                
+                <a href="https://github.com/login">Login</a>
+              </div>
+            
+        </div>
+      </div>
+
+      
+        
+    <div id="repo_menu">
+      <div class="site">
+        <ul>
+          
+            <li class="active"><a href="http://github.com/econsultancy/csv_builder/tree/master">Source</a></li>
+
+            <li class=""><a href="http://github.com/econsultancy/csv_builder/commits/master">Commits</a></li>
+
+            
+            <li class=""><a href="/econsultancy/csv_builder/network">Network (6)</a></li>
+
+            
+
+            
+              
+              <li class=""><a href="/econsultancy/csv_builder/issues">Issues (0)</a></li>
+            
+
+            
+              
+              <li class=""><a href="/econsultancy/csv_builder/downloads">Downloads (0)</a></li>
+            
+
+            
+              
+              <li class=""><a href="http://wiki.github.com/econsultancy/csv_builder">Wiki (1)</a></li>
+            
+
+            <li class=""><a href="/econsultancy/csv_builder/graphs">Graphs</a></li>
+
+            
+
+          
+        </ul>
+      </div>
+    </div>
+
+  <div id="repo_sub_menu">
+    <div class="site">
+      <div class="joiner"></div>
+      
+
+      
+
+      
+
+      
+        <ul>
+          <li>
+            <a class="active" href="/econsultancy/csv_builder/tree/master">master</a>
+          </li>
+          <li>
+            <a href="#">all branches</a>
+            <ul>
+              
+                
+                  <li><a href="/econsultancy/csv_builder/tree/master">master</a></li>
+                
+              
+            </ul>
+          </li>
+          <li>
+            <a href="#">all tags</a>
+            
+          </li>
+        </ul>
+
+      
+    </div>
+  </div>
+
+  <div class="site">
+    
+
+
+
+
+
+
+
+<div id="repos">
+  
+
+
+<script type="text/javascript">
+  GitHub.currentCommitRef = "master"
+  GitHub.currentRepoOwner = "econsultancy"
+  GitHub.currentRepo = "csv_builder"
+  
+</script>
+
+
+
+  <div class="repo public" id="repo_details">
+    <div class="title">
+      <div class="path">
+        <a href="/econsultancy">econsultancy</a> / <b><a href="http://github.com/econsultancy/csv_builder/tree">csv_builder</a></b>
+
+        
+
+          <span id="edit_button" style="display:none;">
+            <a href="/econsultancy/csv_builder/edit"><img alt="edit" class="button" src="http://assets0.github.com/images/modules/repos/edit_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+          </span>
+
+          
+            <span id="pull_request_button" style="display:none;">
+              <a href="/econsultancy/csv_builder/pull_request/" class="pull_request_button"><img alt="pull request" class="button" src="http://assets0.github.com/images/modules/repos/pull_request_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+            </span>
+            
+            <span id="fast_forward_button" style="display:none;">
+              <a href="/econsultancy/csv_builder/fast_forward" id="ff_button"><img alt="fast forward" class="button" src="http://assets3.github.com/images/modules/repos/fast_forward_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+            </span>
+
+            <span id="fork_button">
+              <a href="/econsultancy/csv_builder/fork"><img alt="fork" class="button" src="http://assets0.github.com/images/modules/repos/fork_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+            </span>
+          
+
+          <span id="watch_button">
+            <a href="/econsultancy/csv_builder/toggle_watch" class="toggle_watch"><img alt="watch" class="button" src="http://assets3.github.com/images/modules/repos/watch_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+          </span>
+          
+          <span id="unwatch_button" style="display:none;">
+            <a href="/econsultancy/csv_builder/toggle_watch" class="toggle_watch"><img alt="watch" class="button" src="http://assets3.github.com/images/modules/repos/unwatch_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+          </span>
+
+          
+            <a href="#" id="download_button" rel="econsultancy/csv_builder"><img alt="download tarball" class="button" src="http://assets2.github.com/images/modules/repos/download_button.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></a>
+          
+        
+      </div>
+
+      <div class="security private_security" style="display:none">
+        <a href="#private_repo" rel="facebox"><img src="/images/icons/private.png" alt="private" /></a>
+      </div>
+
+      <div id="private_repo" class="hidden">
+        This repository is private.
+        All pages are served over SSL and all pushing and pulling is done over SSH.
+        No one may fork, clone, or view it unless they are added as a <a href="/econsultancy/csv_builder/edit">member</a>.
+
+        <br/>
+        <br/>
+        Every repository with this icon (<img src="/images/icons/private.png" alt="private" />) is private.
+      </div>
+
+      <div class="security public_security" style="">
+        <a href="#public_repo" rel="facebox"><img src="/images/icons/public.png" alt="public" /></a>
+      </div>
+
+      <div id="public_repo" class="hidden">
+        This repository is public.
+        Anyone may fork, clone, or view it.
+
+        <br/>
+        <br/>
+        Every repository with this icon (<img src="/images/icons/public.png" alt="public" />) is public.
+      </div>
+
+      
+
+        <div class="flexipill">
+          <a href="/econsultancy/csv_builder/network">
+          <table cellpadding="0" cellspacing="0">
+            <tr><td><img alt="Forks" src="http://assets1.github.com/images/modules/repos/pills/forks.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></td><td class="middle"><span>6</span></td><td><img alt="Right" src="http://assets1.github.com/images/modules/repos/pills/right.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></td></tr>
+          </table>
+          </a>
+        </div>
+
+        <div class="flexipill">
+          <a href="/econsultancy/csv_builder/watchers">
+          <table cellpadding="0" cellspacing="0">
+            <tr><td><img alt="Watchers" src="http://assets0.github.com/images/modules/repos/pills/watchers.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></td><td class="middle"><span>32</span></td><td><img alt="Right" src="http://assets1.github.com/images/modules/repos/pills/right.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /></td></tr>
+          </table>
+          </a>
+        </div>
+      </div>
+
+    <div class="meta">
+      <table>
+        
+        <tr>
+          <td class="label">Description:</td>
+          <td>
+            <span id="repository_description" rel="/econsultancy/csv_builder/edit/update">CSV template Rails plugin</span>
+            <a href="#description" class="edit_link action" style="display:none;">edit</a>
+          </td>
+        </tr>
+
+        
+            <tr>
+              <td class="label">Homepage:</td>
+              <td>
+                                
+                <span id="repository_homepage" rel="/econsultancy/csv_builder/edit/update">
+                  <a href="http://"></a>
+                </span>
+                <a href="#homepage" class="edit_link action" style="display:none;">edit</a>
+              </td>
+            </tr>
+
+          
+            <tr>
+              <td class="label"><span id="public_clone_text" style="display:none;">Public&nbsp;</span>Clone&nbsp;URL:</td>
+              
+              <td>
+                <a href="git://github.com/econsultancy/csv_builder.git" class="git_url_facebox" rel="#git-clone">git://github.com/econsultancy/csv_builder.git</a>
+                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+              width="110"
+              height="14"
+              class="clippy"
+              id="clippy" >
+      <param name="movie" value="/flash/clippy.swf"/>
+      <param name="allowScriptAccess" value="always" />
+      <param name="quality" value="high" />
+      <param name="scale" value="noscale" />
+      <param NAME="FlashVars" value="text=git://github.com/econsultancy/csv_builder.git">
+      <param name="bgcolor" value="#F0F0F0">
+      <param name="wmode" value="opaque">
+      <embed src="/flash/clippy.swf"
+             width="110"
+             height="14"
+             name="clippy"
+             quality="high"
+             allowScriptAccess="always"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer"
+             FlashVars="text=git://github.com/econsultancy/csv_builder.git"
+             bgcolor="#F0F0F0"
+             wmode="opaque"
+      />
+      </object>
+
+                <div id="git-clone" style="display:none;">
+                  Give this clone URL to anyone.
+                  <br/>
+                  <code>git clone git://github.com/econsultancy/csv_builder.git </code>
+                </div>
+              </td>
+            </tr>
+          
+          
+          <tr id="private_clone_url" style="display:none;">
+            <td class="label">Your Clone URL:</td>
+            
+            <td>
+
+              <div id="private-clone-url">
+                <a href="git@github.com:econsultancy/csv_builder.git" class="git_url_facebox" rel="#your-git-clone">git@github.com:econsultancy/csv_builder.git</a>
+                <input type="text" value="git@github.com:econsultancy/csv_builder.git" style="display: none;" />
+                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+              width="110"
+              height="14"
+              class="clippy"
+              id="clippy" >
+      <param name="movie" value="/flash/clippy.swf"/>
+      <param name="allowScriptAccess" value="always" />
+      <param name="quality" value="high" />
+      <param name="scale" value="noscale" />
+      <param NAME="FlashVars" value="text=git@github.com:econsultancy/csv_builder.git">
+      <param name="bgcolor" value="#F0F0F0">
+      <param name="wmode" value="opaque">
+      <embed src="/flash/clippy.swf"
+             width="110"
+             height="14"
+             name="clippy"
+             quality="high"
+             allowScriptAccess="always"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer"
+             FlashVars="text=git@github.com:econsultancy/csv_builder.git"
+             bgcolor="#F0F0F0"
+             wmode="opaque"
+      />
+      </object>
+
+              </div>
+
+              <div id="your-git-clone" style="display:none;">
+                Use this clone URL yourself.
+                <br/>
+                <code>git clone git@github.com:econsultancy/csv_builder.git </code>
+              </div>
+            </td>
+          </tr>
+          
+          
+
+          
+
+          
+      </table>
+
+          </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+  <div id="commit">
+    <div class="group">
+        
+  <div class="envelope commit">
+    <div class="human">
+      
+        <div class="message"><pre><a href="/econsultancy/csv_builder/commit/8ffabf990a4927ccc5eb70affe2d923747ee2b45">Added CSV generator options</a> </pre></div>
+      
+
+      <div class="actor">
+        <div class="gravatar">
+          
+          <img alt="" height="30" src="http://www.gravatar.com/avatar/87cee4ccee0b5f4c442d039a9bd0b432?s=30&amp;d=http%3A%2F%2Fgithub.com%2Fimages%2Fgravatars%2Fgravatar-30.png" width="30" />
+        </div>
+        <div class="name"><a href="/mocoso">mocoso</a> <span>(author)</span></div>
+          <div class="date">
+            <abbr class="relatize" title="2009-05-28 03:57:37">Thu May 28 03:57:37 -0700 2009</abbr> 
+          </div>
+      </div>
+  
+      
+  
+    </div>
+    <div class="machine">
+      <span>c</span>ommit&nbsp;&nbsp;<a href="/econsultancy/csv_builder/commit/8ffabf990a4927ccc5eb70affe2d923747ee2b45" hotkey="c">8ffabf990a4927ccc5eb70affe2d923747ee2b45</a><br />
+      <span>t</span>ree&nbsp;&nbsp;&nbsp;&nbsp;<a href="/econsultancy/csv_builder/tree/8ffabf990a4927ccc5eb70affe2d923747ee2b45" hotkey="t">53053c1efbdf89e60f335b55749dd8f02d8c292b</a><br />
+  
+      
+        <span>p</span>arent&nbsp;
+        
+        <a href="/econsultancy/csv_builder/tree/2de29d7d349c5ee7a429b5e25ac007b65406638b" hotkey="p">2de29d7d349c5ee7a429b5e25ac007b65406638b</a>
+      
+  
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+
+
+  
+    <div id="path">
+      <b><a href="/econsultancy/csv_builder/tree/master">csv_builder</a></b> / 
+    </div>
+
+    
+      
+
+  <script type="text/javascript">
+    GitHub.currentTreeSHA = "8ffabf990a4927ccc5eb70affe2d923747ee2b45"
+    GitHub.commitSHA = "8ffabf990a4927ccc5eb70affe2d923747ee2b45"
+    GitHub.currentPath = ""
+  </script>
+
+
+<div id="browser">
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>age</th>
+      <th>
+        <div class="history">
+          <a href="/econsultancy/csv_builder/commits/master/">history</a>
+        </div>
+        message
+      </th>
+    </tr>
+
+    
+
+    
+      <tr class="alt">
+        <td class="icon"> <img alt="file" src="http://assets0.github.com/images/icons/txt.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/blob/8ffabf990a4927ccc5eb70affe2d923747ee2b45/.gitignore" id="4dfaa2ab84f711605814b1baaa3255e08edbf38e">.gitignore</a></td>
+        
+        <td class="age"> <span class="relatize">Thu Jun 26 02:35:33 -0700 2008</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/948ebf07ce0e8f1608cf3df65d950dd339dfa8f6" class="message" title="Added README, license, and rdoc rake task">Added README, license, and rdoc rake task</a> [Joel Chippindale] </td>
+      </tr>
+    
+      <tr class="">
+        <td class="icon"> <img alt="file" src="http://assets0.github.com/images/icons/txt.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/blob/8ffabf990a4927ccc5eb70affe2d923747ee2b45/MIT-LICENSE" id="afd5079d4982fb5cdc51db10bcd1f70b88b2734b">MIT-LICENSE</a></td>
+        
+        <td class="age"> <span class="relatize">Thu Jun 26 02:35:33 -0700 2008</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/948ebf07ce0e8f1608cf3df65d950dd339dfa8f6" class="message" title="Added README, license, and rdoc rake task">Added README, license, and rdoc rake task</a> [Joel Chippindale] </td>
+      </tr>
+    
+      <tr class="alt">
+        <td class="icon"> <img alt="file" src="http://assets0.github.com/images/icons/txt.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/blob/8ffabf990a4927ccc5eb70affe2d923747ee2b45/README" id="06cb5182cd44c52f392b03a395eca6519867b009">README</a></td>
+        
+        <td class="age"> <span class="relatize">Thu May 28 03:57:37 -0700 2009</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/8ffabf990a4927ccc5eb70affe2d923747ee2b45" class="message" title="Added CSV generator options">Added CSV generator options</a> [<a href="/mocoso">mocoso</a>] </td>
+      </tr>
+    
+      <tr class="">
+        <td class="icon"> <img alt="file" src="http://assets0.github.com/images/icons/txt.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/blob/8ffabf990a4927ccc5eb70affe2d923747ee2b45/Rakefile" id="d7777d52740cc41c78b6eada7136901ffb044ff6">Rakefile</a></td>
+        
+        <td class="age"> <span class="relatize">Thu Jun 26 02:35:33 -0700 2008</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/948ebf07ce0e8f1608cf3df65d950dd339dfa8f6" class="message" title="Added README, license, and rdoc rake task">Added README, license, and rdoc rake task</a> [Joel Chippindale] </td>
+      </tr>
+    
+      <tr class="alt">
+        <td class="icon"> <img alt="file" src="http://assets0.github.com/images/icons/txt.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/blob/8ffabf990a4927ccc5eb70affe2d923747ee2b45/init.rb" id="b703de17da97268c778f2bd0eaabf50c3a52e763">init.rb</a></td>
+        
+        <td class="age"> <span class="relatize">Thu Jun 26 02:34:00 -0700 2008</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/598ea6d37dfdc3656435b7a330981dffcd173e59" class="message" title="Initial commit">Initial commit</a> [Joel Chippindale] </td>
+      </tr>
+    
+      <tr class="">
+        <td class="icon"> <img alt="directory" src="http://assets3.github.com/images/icons/dir.png?6f31b78746b7d07b4a33b1593ffd193d896784bd" /> </td>
+        <td class="content"> <a href="/econsultancy/csv_builder/tree/8ffabf990a4927ccc5eb70affe2d923747ee2b45/lib" id="f038d4d9c4b48c7ed83efe906db47b9f026f52c9">lib/</a></td>
+        
+        <td class="age"> <span class="relatize">Thu May 28 03:57:37 -0700 2009</span> </td>
+        <td class="message"> <a href="/econsultancy/csv_builder/commit/8ffabf990a4927ccc5eb70affe2d923747ee2b45" class="message" title="Added CSV generator options">Added CSV generator options</a> [<a href="/mocoso">mocoso</a>] </td>
+      </tr>
+    
+  </table>
+</div>
+    
+    
+  
+
+
+
+  
+
+
+
+  <div id="readme" class="announce"><span class="name"></span><div class="plain"><pre>= CSV Builder
+
+The CSV Builder Rails plugin provides a simple templating system for serving
+dynamically generated CSV files from your application.
+
+
+== Requirements
+
+CSV Builder requires Rails v2.1.
+
+It also depends upon the FasterCSV gem <a href="http://fastercsv.rubyforge.org">http://fastercsv.rubyforge.org</a>,
+which you can install with
+
+  $ sudo gem install fastercsv
+  
+Encoding conversions are done with Iconv, so make sure you have it on your
+development/production machine.
+
+== Example
+
+CSV template files are suffixed with '.csv.csvbuilder', for example
+'index.csv.csvbuilder'
+
+Add rows to your CSV file in the template by pushing arrays of columns into the
+csv object.
+
+   # First row
+   csv &lt;&lt; [ 'cell 1', 'cell 2' ]
+   # Second row
+   csv &lt;&lt; [ 'another cell value', 'and another' ]
+   # etc...
+
+You can set the default filename for that a browser will use for 'save as' by
+setting &lt;tt&gt;@filename&lt;/tt&gt; instance variable in your controller's action method
+e.g.
+
+  @filename = 'report.csv'
+
+You can set the input encoding and output encoding by setting
+&lt;tt&gt;@input_encoding&lt;/tt&gt; and &lt;tt&gt;@output_encoding&lt;/tt&gt; instance variables.
+These default to 'UTF-8' and 'LATIN1' respectively. e.g.
+
+  @output_encoding = 'UTF-8'
+
+You can set &lt;tt&gt;@csv_options&lt;/tt&gt; instance variable to define options for
+FasterCSV generator. For example:
+
+  @csv_options = { :force_quotes =&gt; true, :col_sep =&gt; ';' }
+
+You can also attach a csv file to mail sent out by your application by
+including a snippet like the following in your mailer method
+
+  attachment &quot;text/csv&quot; do |attachment|
+    attachment.body = render(:file =&gt; 'example/index.csv.csvbuilder')
+    attachment.filename = 'report.csv'
+  end
+
+
+Copyright (c) 2008 Econsultancy.com and 2009 Vidmantas Kabošis, released under
+the MIT license.
+</pre></div></div>
+
+  </div>
+
+      
+
+      <div class="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="site">
+        <div class="info">
+          <div class="links">
+            <a href="http://github.com/blog"><b>Blog</b></a> |
+            <a href="http://support.github.com/">Support</a> |
+            <a href="http://github.com/training">Training</a> |
+            <a href="http://github.com/contact">Contact</a> |
+            <a href="http://develop.github.com">API</a> |
+            <a href="http://twitter.com/github">Status</a> |
+            <a href="http://twitter.com/github">GitHub on Twitter</a> |
+            <a href="http://github.com/guides/home">Help</a>
+
+         </div>
+          <div class="company">
+            <span id="_rrt" title="0.17576s from xc88-s00008">GitHub</span>&trade;
+            is <a href="http://logicalawesome.com/">Logical Awesome</a> &copy;2009 | <a href="/site/terms">Terms of Service</a> | <a href="/site/privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="sponsor">
+          <a href="http://engineyard.com"><img src="/images/modules/footer/ey-rubyhosting.png" alt="Engine Yard" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="coming_soon" style="display:none;">
+      This feature is coming soon.  Sit tight!
+    </div>
+
+    
+        <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-3769691-2");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+    </script>
+
+    
+  </body>
+</html>
+

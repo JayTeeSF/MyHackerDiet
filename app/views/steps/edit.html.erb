@@ -1,0 +1,28 @@
+<h1>Editing step</h1>
+
+<% form_for(@step) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :rec_date %><br />
+    <%= f.date_select :rec_date %>
+  </p>
+  <p>
+    <%= f.label :steps %><br />
+    <%= f.text_field :steps %>
+  </p>
+  <p>
+    <%= f.label :mod_steps %><br />
+    <%= f.text_field :mod_steps %>
+  </p>
+  <p>
+    <%= f.label :mod_min %><br />
+    <%= f.text_field :mod_min %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @step %> |
+<%= link_to 'Back', steps_path %>

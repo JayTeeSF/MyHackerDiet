@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rec_date: 2009-08-03 15:11:33
+  steps: 1
+  mod_steps: 1
+
+two:
+  rec_date: 2009-08-03 15:11:33
+  steps: 1
+  mod_steps: 1
