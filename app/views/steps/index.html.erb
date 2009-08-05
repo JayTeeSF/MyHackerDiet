@@ -26,20 +26,36 @@
 
 <br />
 <%
-  @sdata = [10,20,30]
+  @sdata = []
+  @mod_steps = []
+  @dates = []
+
   @steps.each do |s|
     @sdata.push(s.steps)
+    @mod_steps.push(s.mod_steps)
+    @dates.push(s.rec_date)
   end
+
+  @sdata = @sdata.reverse
+  @mod_steps = @mod_steps.reverse
+  @dates = @dates.reverse
+
 %>
 <%= link_to 'New step', new_step_path %>
 <br /><br />
-<img src="<%=h Gchart.bar(
-    :size => '600x300',
-    :title => "example title",
-    :chx1 => "axis1",
-    :bg => 'efefef',
-    :legend => ['first'],
-    :data => @sdata) %>" />
+<%= Gchart.bar(
+  :size => '1000x300',
+  :axis_with_labels => 'x,y',
+  :title => "example title",
+  :bg => 'FFFFFF',
+  :legend => ['moderate', 'total'],
+  :bar_colors => 'FF0000,00FF00',
+  :axis_labels => [@dates, [0,20000]],
+  :stacked => false,
+  :bar_width_and_spacing => [25,50],
+  :max_value => 20000,
+  :format => 'image_tag',
+  :data => [@sdata, @mod_steps]) %>
 <br /><br />
 test <%= Gchart.line(:data => [0, 40, 10, 70, 20]) %>  /test
 
