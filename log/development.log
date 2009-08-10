@@ -6226,3 +6226,38 @@ ActionController::RoutingError (No route matches "/javascript/ProtoChart.js" wit
   /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
 
 Rendering rescues/layout (not_found)
+
+
+Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:00:22) [GET]
+  [4;36;1mStep Load (4.0ms)[0m   [0;1mSELECT * FROM "steps" [0m
+Rendering template within layouts/steps
+Rendering steps/index
+Completed in 224ms (View: 132, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
+
+
+Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:01:58) [GET]
+  [4;36;1mStep Load (4.0ms)[0m   [0;1mSELECT * FROM "steps" [0m
+Rendering template within layouts/steps
+Rendering steps/index
+Completed in 232ms (View: 140, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
+
+
+Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:02:06) [GET]
+  [4;35;1mStep Load (4.0ms)[0m   [0mSELECT * FROM "steps" [0m
+Rendering template within layouts/steps
+Rendering steps/index
+Completed in 116ms (View: 24, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
+
+
+Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:04:08) [GET]
+  [4;36;1mStep Load (4.0ms)[0m   [0;1mSELECT * FROM "steps" [0m
+Rendering template within layouts/steps
+Rendering steps/index
+Completed in 244ms (View: 152, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
+
+
+Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:05:42) [GET]
+  [4;36;1mStep Load (4.0ms)[0m   [0;1mSELECT * FROM "steps" [0m
+Rendering template within layouts/steps
+Rendering steps/index
+Completed in 264ms (View: 164, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
