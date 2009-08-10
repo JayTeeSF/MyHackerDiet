@@ -31,32 +31,34 @@ class StepsController < ApplicationController
     Gnuplot.open do |gp|
       Gnuplot::Plot.new( gp ) do |plot|
 
-        plot.title  "Steps Histogram Test"
-        plot.terminal "png transparent size 800 600"
-        plot.ylabel "steps"
-        plot.xlabel "date"
+        plot.terminal "png transparent nocrop enhanced size 800 600"
+        #plot.ylabel "steps"
+        #plot.xlabel "date"
         plot.output "public/fruity.png"
+        plot.boxwidth "0.2 absolute"
         plot.style "fill solid 1.00 border -1"
-        plot.style "data histograms rowstacked #title offset character 0, 0, 0"
+        plot.style "histogram rowstacked"
+        plot.style "data histograms"
         plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
+        plot.title  "Steps for Jon Gaudette"
 
         x = []
         y = []
         z = []
         @steps.each do |s|
           x.push(s.rec_date)
-          y.push(s.steps.to_f-s.mod_steps.to_f)
-          z.push(s.mod_steps.to_f)
+          y.push(s.steps - s.mod_steps)
+          z.push(s.mod_steps)
+
+          puts "test: " + s.rec_date.to_s + " -> " + (s.steps - s.mod_steps).to_s + " -> " + s.mod_steps.to_s
         end
         
 
-        plot.data << Gnuplot::DataSet.new( [x, y, z] ) do |ds|
-          #ds.with = "using 3:xtic(1) t 'moderate', '' using 2 t 'normal'"
-          ds.using = "3:xtic(1) t 'moderate', 2 t 'normal'"
-          #ds.using = "3:xtic(1) t 'moderate', ''"
-          #ds.using = "2 t 'normal'"
-          #ds.using = "3:xtic(1) t 'moderate'"
-          #ds.using = "2 t 'normal'"
+        plot.data << Gnuplot::DataSet.new( [x, z] ) do |ds|
+          ds.using = "2:xtic(1) t 'moderate'"
+        end
+        plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
+          ds.using = "2:xtic(1) t 'normal'"
         end
       end
     end
