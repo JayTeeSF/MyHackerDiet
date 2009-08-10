@@ -6,6 +6,8 @@ class StepsController < ApplicationController
   def index
     @steps = Step.all
 
+    genGnu()
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @steps }
@@ -24,6 +26,64 @@ class StepsController < ApplicationController
       end
     end
   end
+
+  def genGnu
+    Gnuplot.open do |gp|
+      Gnuplot::Plot.new( gp ) do |plot|
+
+        plot.title  "Steps Histogram Test"
+        plot.terminal "png transparent size 800 600"
+        plot.ylabel "steps"
+        plot.xlabel "date"
+        plot.output "public/fruity.png"
+        plot.style "fill solid 1.00 border -1"
+        plot.style "data histograms rowstacked #title offset character 0, 0, 0"
+        plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
+
+        x = []
+        y = []
+        z = []
+        @steps.each do |s|
+          x.push(s.rec_date)
+          y.push(s.steps.to_f-s.mod_steps.to_f)
+          z.push(s.mod_steps.to_f)
+        end
+        
+
+        plot.data << Gnuplot::DataSet.new( [x, y, z] ) do |ds|
+          #ds.with = "using 3:xtic(1) t 'moderate', '' using 2 t 'normal'"
+          ds.using = "3:xtic(1) t 'moderate', 2 t 'normal'"
+          #ds.using = "3:xtic(1) t 'moderate', ''"
+          #ds.using = "2 t 'normal'"
+          #ds.using = "3:xtic(1) t 'moderate'"
+          #ds.using = "2 t 'normal'"
+        end
+      end
+    end
+  end
+
+  def genChart
+    step = []
+    mod_step = []
+    labels = []
+
+    @steps.each do |s|
+      step << s.steps
+      mod_step << s.mod_steps
+      labels << s.rec_date
+    end
+
+    g = Gruff::Bar.new
+    g.title="Steps Taken"
+    g.data("Steps", step)
+    g.data("Moderate Steps", mod_step);
+    g.theme_37signals()
+    #g.render_transparent_background()
+    #g.render_background ('transparent')
+    #g.labels = {0=>'2003', 2 => '2004', 4=>'2005'}
+    g.write('public/fruity.png')
+  end
+
 
   # GET /steps/1
   # GET /steps/1.xml
