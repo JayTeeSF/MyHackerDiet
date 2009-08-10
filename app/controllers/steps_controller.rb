@@ -34,7 +34,7 @@ class StepsController < ApplicationController
         plot.terminal "png transparent nocrop enhanced size 800 600"
         #plot.ylabel "steps"
         #plot.xlabel "date"
-        plot.output "public/fruity.png"
+        plot.output "public/myPlot.png"
         plot.boxwidth "0.2 absolute"
         plot.style "fill solid 1.00 border -1"
         plot.style "histogram rowstacked"
