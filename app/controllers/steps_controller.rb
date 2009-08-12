@@ -45,12 +45,13 @@ class StepsController < ApplicationController
         x = []
         y = []
         z = []
+        @steps = @steps.sort_by { |step| step['rec_date'] }
         @steps.each do |s|
           x.push(s.rec_date)
           y.push(s.steps - s.mod_steps)
           z.push(s.mod_steps)
 
-          puts "test: " + s.rec_date.to_s + " -> " + (s.steps - s.mod_steps).to_s + " -> " + s.mod_steps.to_s
+          #puts "test: " + s.rec_date.to_s + " -> " + (s.steps - s.mod_steps).to_s + " -> " + s.mod_steps.to_s
         end
         
 
