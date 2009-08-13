@@ -6261,3 +6261,2534 @@ Processing StepsController#index (for 199.166.186.1 at 2009-08-10 16:05:42) [GET
 Rendering template within layouts/steps
 Rendering steps/index
 Completed in 264ms (View: 164, DB: 4) | 200 OK [http://dev.digital-drip.com/steps]
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSteps (20090803152744)
+Migrating to ModifyStepsAddModDur (20090803173607)
+Migrating to CreateWeights (20090812235523)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE "weights" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rec_date" date, "weight" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090812235523')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("steps")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("weights")[0m
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-12 23:55:36) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#new (for 68.118.239.12 at 2009-08-12 23:55:38) [GET]
+Rendering template within layouts/weights
+Rendering weights/new
+Completed in 148ms (View: 136, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/new]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-12 23:55:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "weight"=>{"weight"=>"191.4", "rec_date(1i)"=>"2009", "rec_date(2i)"=>"8", "rec_date(3i)"=>"12"}}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-12 23:55:45', '2009-08-12 23:55:45', 191.4, '2009-08-12')[0m
+Redirected to http://dev.digital-drip.com:3000/weights/1
+Completed in 76ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-12 23:55:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 1) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/1]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-12 23:55:47) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#new (for 68.118.239.12 at 2009-08-12 23:55:48) [GET]
+Rendering template within layouts/weights
+Rendering weights/new
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/new]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-12 23:56:00) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "weight"=>{"weight"=>"191.6", "rec_date(1i)"=>"2009", "rec_date(2i)"=>"8", "rec_date(3i)"=>"11"}}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-12 23:56:00', '2009-08-12 23:56:00', 191.6, '2009-08-11')[0m
+Redirected to http://dev.digital-drip.com:3000/weights/2
+Completed in 28ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-12 23:56:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 2) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/2]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-12 23:56:02) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-12 23:56:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 1) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/1]
+
+
+Processing ApplicationController#index (for 68.118.239.12 at 2009-08-12 23:57:48) [GET]
+
+SyntaxError (/home/jon/src/ruby/rails/mhd/app/controllers/weights_controller.rb:101: syntax error, unexpected $end, expecting kEND):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-12 23:58:06) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-12 23:59:23) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-12 23:59:27) [GET]
+  Parameters: {"id"=>"import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-12 23:59:33) [GET]
+  Parameters: {"id"=>"import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-12 23:59:48) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-12 23:59:55) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:00:01) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:00:15) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights?action=csv_import]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:00:19) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:00:25) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:00:32) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/]
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-13 00:00:43) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-13 00:00:47) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:00:54) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:01:05) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:01:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 1) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 104ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/1]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:01:18) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:01:43) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:01:48) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-13 00:01:54) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:02:01) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:02:56) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:03:01) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 112ms (View: 100, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:03:20) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:03:36) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing ApplicationController#index (for 68.118.239.12 at 2009-08-13 00:03:41) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-pea0a8-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+
+ActionController::RoutingError (No route matches "/weight" with {:method=>:post}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:04:14) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:04:16) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-pzbbvn-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:04:16', '2009-08-13 00:04:16', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/3
+Completed in 40ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:04:16) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 3) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/3]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:21) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:04:28) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"3"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 3) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 3[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/3]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:29) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:04:33) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"1"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 1) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 1[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/1]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:33) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:04:34) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"2"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 2) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 2[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 24ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/2]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:34) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:04:39) [GET]
+  Parameters: {"id"=>"import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:04:42) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:04:50) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-2ngbns-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:04:50', '2009-08-13 00:04:50', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/4
+Completed in 68ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:04:50) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 4) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/4]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:51) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#edit (for 68.118.239.12 at 2009-08-13 00:04:56) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 4) [0m
+Rendering template within layouts/weights
+Rendering weights/edit
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/4/edit]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:04:59) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"4"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 4) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 4[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 96ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/4]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:04:59) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 84ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:05:28) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:05:32) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:05:33) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-upvhc9-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:05:33', '2009-08-13 00:05:33', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/5
+Completed in 56ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:05:34) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 5) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/5]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:05:35) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:05:53) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"5"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 5) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 5[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 136ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/5]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:05:53) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#new (for 68.118.239.12 at 2009-08-13 00:05:54) [GET]
+Rendering template within layouts/weights
+Rendering weights/new
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/new]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:06:02) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:06:04) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-m8ks4m-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:06:04', '2009-08-13 00:06:04', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/6
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:06:04) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 6) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/6]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:06:05) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 116ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:06:07) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"6"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 6) [0m
+  [4;36;1mWeight Destroy (4.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 6[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 36ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/6]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:06:07) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:09:09) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:09:10) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-15kibs6-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:09:10', '2009-08-13 00:09:10', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/7
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:09:10) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 7) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/7]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:09:41) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:09:42) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-19um03t-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:09:42', '2009-08-13 00:09:42', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/8
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:09:43) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 8) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/8]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:09:44) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:10:12) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:10:13) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-h6glb6-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:10:13', '2009-08-13 00:10:13', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/9
+Completed in 24ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:10:13) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 9) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 88ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/9]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:10:14) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:10:40) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:10:45) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-u4xchn-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:10:45', '2009-08-13 00:10:45', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/10
+Completed in 32ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:10:45) [GET]
+  Parameters: {"id"=>"10"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 10) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/10]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:10:49) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:10:50) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-11nw8hy-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:10:50', '2009-08-13 00:10:50', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/11
+Completed in 112ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:10:50) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 11) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/11]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:11:55) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:11:56) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-152pq52-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:11:56', '2009-08-13 00:11:56', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/12
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:11:56) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 12) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/12]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:12:59) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:13:00) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32240-14p9odp-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:13:00', '2009-08-13 00:13:00', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/13
+Completed in 120ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:13:00) [GET]
+  Parameters: {"id"=>"13"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 13) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/13]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:13:31) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 92ms (View: 88, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:13:42) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32285-3ptx9s-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:13:42', '2009-08-13 00:13:42', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/14
+Completed in 64ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:13:42) [GET]
+  Parameters: {"id"=>"14"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 14) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/14]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:15:19) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:15:21) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32285-wbp06o-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:15:21', '2009-08-13 00:15:21', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/15
+Completed in 32ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:15:21) [GET]
+  Parameters: {"id"=>"15"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 15) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 96ms (View: 80, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/15]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:16:57) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:16:58) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32285-1aawmzw-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:16:58', '2009-08-13 00:16:58', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/16
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:16:58) [GET]
+  Parameters: {"id"=>"16"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 16) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/16]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:17:10) [GET]
+  Parameters: {"id"=>"66"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/66]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:17:16) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32285-1i8wtrr-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:17:16', '2009-08-13 00:17:16', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/17
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:17:17) [GET]
+  Parameters: {"id"=>"17"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 17) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/17]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:17:21) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 48ms (View: 28, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:17:28) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+/!\ FAILSAFE /!\  Thu Aug 13 00:18:13 +0000 2009
+  Status: 500 Internal Server Error
+  undefined local variable or method `csv_import' for main:Object
+    /home/jon/src/ruby/rails/mhd/config/routes.rb:3
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:226:in `draw'
+    /home/jon/src/ruby/rails/mhd/config/routes.rb:1
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.3.3/lib/active_support/dependencies.rb:145:in `load'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:281:in `reload'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:59:in `reload_application'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:28:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/webrick.rb:46:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/webrick.rb:13:in `run'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+    /usr/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:02) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:06) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:08) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:18) [GET]
+  Parameters: {"id"=>"import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:20) [GET]
+  Parameters: {"id"=>"import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (120.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:20:22) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 24ms (View: 16, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:20:32) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1xsg420-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:20:32', '2009-08-13 00:20:32', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/18
+Completed in 56ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:20:33) [GET]
+  Parameters: {"id"=>"18"}
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 18) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 24ms (View: 8, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/18]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:21:10) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 16ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:21:15) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1eafi6f-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:21:15', '2009-08-13 00:21:15', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/19
+Completed in 28ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:21:15) [GET]
+  Parameters: {"id"=>"19"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 19) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/19]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:21:42) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:21:43) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-156ji3r-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:21:43', '2009-08-13 00:21:43', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/20
+Completed in 44ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:21:43) [GET]
+  Parameters: {"id"=>"20"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 20) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 0, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/20]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:45) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 52ms (View: 32, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:49) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"20"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 20) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 20[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 16ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/20]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:49) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 48ms (View: 32, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:50) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"19"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 19) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 19[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/19]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:50) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 36ms (View: 24, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:51) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"18"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 18) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 18[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 20ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/18]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:51) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 40ms (View: 24, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:52) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"17"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 17) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 17[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 20ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/17]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:52) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 36ms (View: 20, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:21:52) [GET]
+  Parameters: {"id"=>"16"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 16) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/16]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:54) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 120ms (View: 108, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:55) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"7"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 7) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 7[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 80ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/7]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:55) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 32ms (View: 20, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:56) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"8"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 8) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 8[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 60ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/8]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:57) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 36ms (View: 20, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:57) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"9"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 9) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 9[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 52ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/9]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:58) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 36ms (View: 20, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:58) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"10"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 10) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 10[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/10]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:58) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:21:59) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"11"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 11) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 11[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/11]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:21:59) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:01) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"12"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 12) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 12[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 24ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/12]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:01) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:02) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"13"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 13) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 13[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 52ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/13]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:02) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:03) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"14"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 14) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 14[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 44ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/14]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:04) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:05) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"15"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 15) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 15[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 84ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/15]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:05) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:06) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"16"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 16) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 16[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 24ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/16]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:06) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:22:09) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:22:20) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-4fdxmb-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:22:20', '2009-08-13 00:22:20', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/21
+Completed in 76ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:22:21) [GET]
+  Parameters: {"id"=>"21"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 21) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/21]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:23) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:22:32) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"21"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 21) [0m
+  [4;36;1mWeight Destroy (4.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 21[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 20ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/21]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:32) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 12ms (View: 0, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:22:34) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:22:37) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:22:38) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1cnxqwd-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:22:38', '2009-08-13 00:22:38', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/22
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:22:39) [GET]
+  Parameters: {"id"=>"22"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 22) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/22]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:23:02) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:23:05) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-k5t202-0>}, "commit"=>"Submit", "method"=>"csv_import", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:23:05', '2009-08-13 00:23:05', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/23
+Completed in 44ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights?method=csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:23:05) [GET]
+  Parameters: {"id"=>"23"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 23) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 20ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/23]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:23:07) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:23:10) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"23"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 23) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 23[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 40ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/23]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:23:10) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:26:16) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#import (for 68.118.239.12 at 2009-08-13 00:26:19) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/weights
+Rendering weights/import
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/import/1]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:26:20) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1ixb5st-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+
+NoMethodError (undefined method `debug' for #<WeightsController:0x7f17de5bd040>):
+  app/controllers/weights_controller.rb:90:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:26:31) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-16k0ur1-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:31', '2009-08-13 00:26:31', 100.0, '2009-01-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:31', '2009-08-13 00:26:31', 100.0, '2009-01-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:31', '2009-08-13 00:26:31', 100.0, '2009-01-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:31', '2009-08-13 00:26:31', 100.0, '2009-01-01')[0m
+
+ActionView::MissingTemplate (Missing template weights/csv_import.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:26:58) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-cqoahn-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:58', '2009-08-13 00:26:58', 100.0, '2009-01-01')[0m
+  [4;35;1mWeight Create (4.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:58', '2009-08-13 00:26:58', 100.0, '2009-01-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:58', '2009-08-13 00:26:58', 100.0, '2009-01-01')[0m
+  [4;35;1mWeight Create (4.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:26:58', '2009-08-13 00:26:58', 100.0, '2009-01-01')[0m
+Rendering template within layouts/weights
+Rendering weights/csv_import
+Completed in 100ms (View: 8, DB: 8) | 200 OK [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:27:24) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-5a6dco-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:24', '2009-08-13 00:27:24', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (4.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:24', '2009-08-13 00:27:24', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:24', '2009-08-13 00:27:24', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:24', '2009-08-13 00:27:24', NULL, NULL)[0m
+Rendering template within layouts/weights
+Rendering weights/csv_import
+Completed in 76ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:27:31) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1l5uxss-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:31', '2009-08-13 00:27:31', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (4.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:31', '2009-08-13 00:27:31', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:31', '2009-08-13 00:27:31', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:27:31', '2009-08-13 00:27:31', NULL, NULL)[0m
+Rendering template within layouts/weights
+Rendering weights/csv_import
+Completed in 76ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:28:20) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-ap073o-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (8.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:20', '2009-08-13 00:28:20', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:20', '2009-08-13 00:28:20', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:20', '2009-08-13 00:28:20', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:20', '2009-08-13 00:28:20', NULL, NULL)[0m
+Rendering template within layouts/weights
+Rendering weights/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #9 of app/views/weights/index.html.erb:
+6:     <th>Weight</th>
+7:   </tr>
+8: 
+9: <% @weights.each do |weight| %>
+10:   <tr>
+11:     <td><%=h weight.rec_date %></td>
+12:     <td><%=h weight.weight %></td>
+
+    app/views/weights/index.html.erb:9
+    app/controllers/weights_controller.rb:101:in `csv_import'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (52.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:28:35) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-j9isy0-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:35', '2009-08-13 00:28:35', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:35', '2009-08-13 00:28:35', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:35', '2009-08-13 00:28:35', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:35', '2009-08-13 00:28:35', NULL, NULL)[0m
+Rendering template within layouts/weights
+Rendering weights/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #9 of app/views/weights/index.html.erb:
+6:     <th>Weight</th>
+7:   </tr>
+8: 
+9: <% @weights.each do |weight| %>
+10:   <tr>
+11:     <td><%=h weight.rec_date %></td>
+12:     <td><%=h weight.weight %></td>
+
+    app/views/weights/index.html.erb:9
+    app/controllers/weights_controller.rb:101:in `csv_import'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (160.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:28:58) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1xdn6cc-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:58', '2009-08-13 00:28:58', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:58', '2009-08-13 00:28:58', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:58', '2009-08-13 00:28:58', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:28:58', '2009-08-13 00:28:58', NULL, NULL)[0m
+
+NoMethodError (undefined method `redirect_to_page' for #<WeightsController:0x7f17de716158>):
+  app/controllers/weights_controller.rb:101:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:29:21) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-19figi9-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (4.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:29:21', '2009-08-13 00:29:21', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:29:21', '2009-08-13 00:29:21', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:29:21', '2009-08-13 00:29:21', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:29:21', '2009-08-13 00:29:21', NULL, NULL)[0m
+
+NoMethodError (undefined method `index_url' for #<WeightsController:0x7f17de4d9f48>):
+  app/controllers/weights_controller.rb:101:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (136.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#csv_import (for 68.118.239.12 at 2009-08-13 00:29:49) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-bymp5v-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+
+SyntaxError (/home/jon/src/ruby/rails/mhd/app/controllers/weights_controller.rb:101: syntax error, unexpected tIDENTIFIER, expecting kEND
+    redirect_to :show id=>1
+                        ^):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:30:16) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-14npjaj-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:16', '2009-08-13 00:30:16', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:16', '2009-08-13 00:30:16', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:16', '2009-08-13 00:30:16', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:16', '2009-08-13 00:30:16', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights/list
+Completed in 84ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:30:16) [GET]
+  Parameters: {"id"=>"list"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=list):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (144.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:30:29) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-wwviji-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:29', '2009-08-13 00:30:29', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:29', '2009-08-13 00:30:29', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:29', '2009-08-13 00:30:29', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (4.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:30:29', '2009-08-13 00:30:29', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 88ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:30:30) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 104ms (View: 84, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:30:36) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"22"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 22) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 22[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 40ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/22]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:30:36) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 208ms (View: 188, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:30:38) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"24"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 24) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 24[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 44ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/24]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:30:38) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 100ms (View: 80, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:30:40) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"25"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 25) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 25[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 28ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/25]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:30:40) [GET]
+  [4;36;1mWeight Load (8.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 176ms (View: 156, DB: 8) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:30:42) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"26"}
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 26) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 26[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 52ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/26]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:30:42) [GET]
+  [4;35;1mWeight Load (8.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 100ms (View: 76, DB: 8) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:31:06) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:31:11) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (128.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:31:18) [GET]
+  Parameters: {"id"=>"import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:31:23) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-13 00:31:29) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:31:34) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:32:02) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:32:05) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:32:11) [GET]
+  Parameters: {"id"=>"2"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:32:15) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (128.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#new (for 68.118.239.12 at 2009-08-13 00:32:22) [GET]
+Rendering template within layouts/weights
+Rendering weights/new
+Completed in 140ms (View: 128, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/new]
+
+
+Processing WeightsController#create (for 68.118.239.12 at 2009-08-13 00:32:23) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "weight"=>{"weight"=>"", "rec_date(1i)"=>"2009", "rec_date(2i)"=>"8", "rec_date(3i)"=>"13"}}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:32:23', '2009-08-13 00:32:23', NULL, '2009-08-13')[0m
+Redirected to http://dev.digital-drip.com:3000/weights/64
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:32:23) [GET]
+  Parameters: {"id"=>"64"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 64) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/64]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:32:31) [GET]
+  Parameters: {"id"=>"64"}
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/weights_controller.rb:89:in `csv_import'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:32:37) [GET]
+  Parameters: {"id"=>"64"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 64) [0m
+Rendering template within layouts/weights
+Rendering weights/show
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/64]
+
+
+Processing WeightsController#64 (for 68.118.239.12 at 2009-08-13 00:32:42) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 64. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:32:50) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (148.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:33:12) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (36.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:33:14) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#action (for 68.118.239.12 at 2009-08-13 00:35:05) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to action. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#show (for 68.118.239.12 at 2009-08-13 00:35:16) [GET]
+  Parameters: {"id"=>"csv_import"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Weight with ID=csv_import):
+  app/controllers/weights_controller.rb:18:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#1 (for 68.118.239.12 at 2009-08-13 00:35:22) [GET]
+  Parameters: {"id"=>"csv_import"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, csv_import, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:00) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/]
+
+
+Processing ApplicationController#csv_import (for 68.118.239.12 at 2009-08-13 00:37:07) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1ox099u-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+
+NameError (uninitialized constant WeightController):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:32) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights/]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:37:33) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1g8ld2s-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:37:33', '2009-08-13 00:37:33', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:37:33', '2009-08-13 00:37:33', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:37:33', '2009-08-13 00:37:33', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:37:33', '2009-08-13 00:37:33', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 92ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:33) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 16, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:37:46) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"68"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 68) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 68[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 20ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/68]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:46) [GET]
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:55) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:37:57) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"67"}
+  [4;36;1mWeight Load (4.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 67) [0m
+  [4;35;1mWeight Destroy (0.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 67[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 128ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/67]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:58) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:37:59) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"66"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 66) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 66[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 36ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/66]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:37:59) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 8, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:38:00) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"65"}
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" WHERE ("weights"."id" = 65) [0m
+  [4;35;1mWeight Destroy (4.0ms)[0m   [0mDELETE FROM "weights" WHERE "id" = 65[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 40ms (DB: 4) | 302 Found [http://dev.digital-drip.com/weights/65]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:38:00) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 20ms (View: 8, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:38:01) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"64"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 64) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 64[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 48ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/64]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:38:01) [GET]
+  [4;35;1mWeight Load (4.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 16ms (View: 4, DB: 4) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#csv_import (for 68.118.239.12 at 2009-08-13 00:38:07) [POST]
+  Parameters: {"dump"=>{"file"=>#<File:/tmp/RackMultipart20090813-32291-1r698wz-0>}, "commit"=>"Submit", "authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc="}
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:38:07', '2009-08-13 00:38:07', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:38:07', '2009-08-13 00:38:07', 212.0, '2009-08-01')[0m
+  [4;36;1mWeight Create (0.0ms)[0m   [0;1mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:38:07', '2009-08-13 00:38:07', 212.0, '2009-08-01')[0m
+  [4;35;1mWeight Create (0.0ms)[0m   [0mINSERT INTO "weights" ("created_at", "updated_at", "weight", "rec_date") VALUES('2009-08-13 00:38:07', '2009-08-13 00:38:07', NULL, NULL)[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 60ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/csv_import]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:38:07) [GET]
+  [4;36;1mWeight Load (0.0ms)[0m   [0;1mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]
+
+
+Processing WeightsController#destroy (for 68.118.239.12 at 2009-08-13 00:38:09) [DELETE]
+  Parameters: {"authenticity_token"=>"LKImWp/b83NO7TUm+VyO2bu/gq8tc+xXnkLySg8p6sc=", "id"=>"72"}
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" WHERE ("weights"."id" = 72) [0m
+  [4;36;1mWeight Destroy (0.0ms)[0m   [0;1mDELETE FROM "weights" WHERE "id" = 72[0m
+Redirected to http://dev.digital-drip.com:3000/weights
+Completed in 40ms (DB: 0) | 302 Found [http://dev.digital-drip.com/weights/72]
+
+
+Processing WeightsController#index (for 68.118.239.12 at 2009-08-13 00:38:09) [GET]
+  [4;35;1mWeight Load (0.0ms)[0m   [0mSELECT * FROM "weights" [0m
+Rendering template within layouts/weights
+Rendering weights/index
+Completed in 28ms (View: 12, DB: 0) | 200 OK [http://dev.digital-drip.com/weights]

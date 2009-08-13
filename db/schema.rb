@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090803173607) do
+ActiveRecord::Schema.define(:version => 20090812235523) do
 
   create_table "steps", :force => true do |t|
     t.date     "rec_date"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20090803173607) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mod_min"
+  end
+
+  create_table "weights", :force => true do |t|
+    t.date     "rec_date"
+    t.decimal  "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

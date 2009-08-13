@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :weights
+  #map.connect 'weights/csv_import', :controller => 'weight', :action => 'csv_import'
+
   map.resources :steps
 
   map.resources :step
