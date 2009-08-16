@@ -6,7 +6,7 @@ class StepsController < ApplicationController
     before_filter :maintain_session_and_user
     before_filter :ensure_login
   def index
-    @steps = Step.all
+    @steps = Step.find_all_by_person_id(@user.id)
 
     genGnu()
 

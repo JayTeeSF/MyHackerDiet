@@ -6,6 +6,7 @@
     <th>Steps</th>
     <th>Mod steps</th>
     <th>Mod minutes</th>
+    <th>Person</th>
   </tr>
 
   <% @steps = @steps.sort_by { |step| step['rec_date'] }.reverse %>
@@ -17,6 +18,7 @@
     <td><%=h step.steps %></td>
     <td><%=h step.mod_steps %></td>
     <td><%=h step.mod_min %></td>
+    <td><%=h step.person_id %></td>
     <!-- <td><%= link_to 'Show', step %></td> -->
     <td><%= link_to 'Edit', edit_step_path(step) %></td>
     <td><%= link_to 'Destroy', step, :confirm => 'Are you sure?', :method => :delete %></td>
