@@ -42,7 +42,7 @@ class StepsController < ApplicationController
         plot.style "histogram rowstacked"
         plot.style "data histograms"
         plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
-        plot.title  "Steps for ahhh"
+        plot.title  "Steps for " + @user.name
 
         x = []
         y = []
