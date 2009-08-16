@@ -3,6 +3,8 @@ class StepsController < ApplicationController
   # GET /steps
   # GET /steps.xml
   # GET /steps.csv
+    before_filter :maintain_session_and_user
+    before_filter :ensure_login
   def index
     @steps = Step.all
 
@@ -40,7 +42,7 @@ class StepsController < ApplicationController
         plot.style "histogram rowstacked"
         plot.style "data histograms"
         plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
-        plot.title  "Steps for Jon Gaudette"
+        plot.title  "Steps for ahhh"
 
         x = []
         y = []
