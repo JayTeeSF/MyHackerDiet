@@ -7,8 +7,10 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :people
   #map.resources :sessions
   map.resources :weights
-  
   map.resources :steps
+  
+  map.import_weight_csv '/importWeight', :controller => 'weights', :action => 'csv_import'
+  
   #map.resources :step
   #map.resources :demo
   #map.resources :demos
