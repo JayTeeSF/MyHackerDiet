@@ -2,7 +2,7 @@
 
 <% form_for(@weight) do |f| %>
   <%= f.error_messages %>
-
+  <%= f.hidden_field :person_id, :value => @user.id %>
   <p>
     <%= f.label :rec_date %><br />
     <%= f.date_select :rec_date %>

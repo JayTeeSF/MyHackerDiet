@@ -3,8 +3,10 @@ require 'csv'
 class WeightsController < ApplicationController
   # GET /weights
   # GET /weights.xml
+  before_filter :maintain_session_and_user
+  before_filter :ensure_login
   def index
-    @weights = Weight.all
+    @weights = Weight.find_all_by_person_id(@user.id)
 
     respond_to do |format|
       format.html # index.html.erb

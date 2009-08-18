@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
 
   has_many :sessions, :dependent => :destroy
   has_many :steps
+  has_many :weights
 
   validates_uniqueness_of :name, :message => "is already in use by another person"
 
