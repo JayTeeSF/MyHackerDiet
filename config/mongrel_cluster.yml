@@ -1,7 +1,7 @@
 --- 
 #address: 127.0.0.1
-log_file: /srv/mhd/current/log/mongrel.log
+log_file: log/mongrel.log
 port: "3000"
 environment: production
-pid_file: /srv/mhd/current/tmp/pids/mongrel.pid
+pid_file: tmp/pids/mongrel.pid
 servers: 3
