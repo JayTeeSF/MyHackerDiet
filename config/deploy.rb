@@ -25,6 +25,7 @@ set :repository,  "jon@horder.digital-drip.com:/home/jon/git/myhackerdiet.git"
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :deploy_to, "/srv/#{application}"
+set :use_sudo, "false"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -36,5 +37,4 @@ set :branch, "master"
 role :web, "www.myhackerdiet.com"
 
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
-set :use_sudo, "false"
 
