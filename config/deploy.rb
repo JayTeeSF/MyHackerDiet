@@ -1,8 +1,10 @@
 require 'mongrel_cluster/recipes'
 
 set :application, "mhd"
+set :domain, "myhackerdiet.com"
 set :repository,  "jon@horder.digital-drip.com:/home/jon/git/myhackerdiet.git"
 
+role :app, application role :web, application role :db, application
 # If you have previously been relying upon the code to start, stop 
 # and restart your mongrel application, or if you rely on the database
 # migration code, please uncomment the lines you require below
@@ -25,7 +27,6 @@ set :repository,  "jon@horder.digital-drip.com:/home/jon/git/myhackerdiet.git"
 # servers (which is the default), you can specify the actual location
 # via the :deploy_to variable:
 set :deploy_to, "/srv/#{application}"
-set :use_sudo, "false"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -37,4 +38,5 @@ set :branch, "master"
 role :web, "www.myhackerdiet.com"
 
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+
 
