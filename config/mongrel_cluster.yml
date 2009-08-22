@@ -3,5 +3,5 @@
 log_file: log/mongrel.log
 port: "3000"
 environment: production
-pid_file: tmp/pids/mongrel.pid
+pid_file: /srv/mhd/current/tmp/pids/mongrel.pid
 servers: 3
