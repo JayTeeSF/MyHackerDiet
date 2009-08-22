@@ -36,4 +36,5 @@ set :branch, "master"
 role :web, "www.myhackerdiet.com"
 
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+set :sudo, "sudo"
 
