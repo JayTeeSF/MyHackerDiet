@@ -1,4 +1,5 @@
 require 'csv'
+require 'fastercsv'
 
 class WeightsController < ApplicationController
   # GET /weights
@@ -11,6 +12,19 @@ class WeightsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @weights }
+      format.csv do
+        csv_string = FasterCSV.generate do |csv|
+          # header row
+          csv << ["rec_date", "weight"]
+        
+          #data rows
+          @weights.each do |s|
+            csv << [s.rec_date, s.weight]
+          end
+        end
+
+        send_data csv_string, :type => 'text/csv; charset=iso-8859-1; header=present', :disposition => "attachment; filename=weights.csv"
+      end
     end
   end
 
@@ -29,7 +43,7 @@ class WeightsController < ApplicationController
   # GET /weights/new.xml
   def new
     @weight = Weight.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @weight }
@@ -94,6 +108,8 @@ class WeightsController < ApplicationController
       c=Weight.new
       c.rec_date=row[0]
       c.weight=row[1]
+      c.person_id = @user.id
+
       if c.save
         n=n+1
         GC.start if n%50==0
