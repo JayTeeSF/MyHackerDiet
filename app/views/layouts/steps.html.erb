@@ -15,7 +15,11 @@
   <script language="javascript" type="text/javascript" src="/javascripts/ProtoChart.js"></script>
 </head>
 <body>
+  <%=link_to 'Home', '/' %> -
+  <%=link_to '&lt;Steps&gt;', '/steps/' %> -
+  <%=link_to 'Weights', '/weights/' %>
 
+  <br />
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield %>

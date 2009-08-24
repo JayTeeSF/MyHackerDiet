@@ -3,14 +3,16 @@
 
 <html>
   <head>
-    <title>Simple and RESTful Authentication</title>
+    <title>MyHackerDiet.com | Login</title>
   </head>
 
   <body>
     <%= link_to "Home", root_url %> -
     <% if @user %>
       <%= link_to "Edit Account", edit_person_path('account') %> -
-      <%= link_to "Logout", @application_session, :method => :delete %>
+      <%= link_to "Logout", @application_session, :method => :delete %> -
+      <%= link_to "Log Steps", '/steps/' %> -
+      <%= link_to "Log Weights", '/weights/' %> -
     <% else %>
       <%= link_to "Login", new_session_path %> -
       <%= link_to "Register", new_person_path %>

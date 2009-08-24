@@ -8,7 +8,9 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-
+  <%=link_to 'Home', '/' %> -
+  <%=link_to 'Steps', '/steps/' %> -
+  <%=link_to '&lt;Weights&gt;', '/weights/' %>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield %>
