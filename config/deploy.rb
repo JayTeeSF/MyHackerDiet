@@ -1,10 +1,9 @@
 require 'mongrel_cluster/recipes'
 
 set :application, "mhd"
-set :domain, "myhackerdiet.com"
+#set :domain, "myhackerdiet.com"
 set :repository,  "jon@horder.digital-drip.com:/home/jon/git/myhackerdiet.git"
 
-role :app, application role :web, application role :db, application
 # If you have previously been relying upon the code to start, stop 
 # and restart your mongrel application, or if you rely on the database
 # migration code, please uncomment the lines you require below
@@ -35,7 +34,8 @@ set :user, "jon"
 set :branch, "master"
 # see a full list by running "gem contents capistrano | grep 'scm/'"
 
-role :web, "www.myhackerdiet.com"
+#role :web, "www.myhackerdiet.com"
+role :app, "www.myhackerdiet.com"
 
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
