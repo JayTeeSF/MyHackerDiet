@@ -36,7 +36,11 @@ class ApplicationController < ActionController::Base
   def maintain_session_and_user
     if session[:id]
       if @application_session = Session.find_by_id(session[:id])
-        @application_session.update_attributes(:ip_address => request.remote_addr, :path => request.path_info)
+        # Check if apache mod_proxy header exists for user IP address
+        # if not, fallback to using the direct path
+        ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_addr
+        
+        @application_session.update_attributes(:ip_address => ip, :path => request.path_info)
         @user = @application_session.person
       else
         session[:id] = nil
