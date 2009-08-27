@@ -1,8 +1,9 @@
 --- 
-#address: 127.0.0.1
+cwd: /srv/mhd/current/
+address: 127.0.0.1
 log_file: /srv/mhd/shared/log/mongrel.log
 port: "3000"
 environment: production
 pid_file: /srv/mhd/shared/pids/mongrel.pid
-docroot: /srv/mhd/current/public
+#docroot: /srv/mhd/current/public
 servers: 3
