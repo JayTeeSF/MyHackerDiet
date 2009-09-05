@@ -1,25 +1,27 @@
 <h1>Listing weights</h1>
 
-<table>
+<%= link_to 'New weight', new_weight_path %><% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
+<table border="1">
   <tr>
+    <th>&nbsp;</th>
     <th>Rec date</th>
     <th>Weight</th>
+    <th>&nbsp;</th>
   </tr>
 
 <% @weights.each do |weight| %>
   <tr>
+    <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
     <td><%=h weight.rec_date %></td>
     <td><%=h weight.weight %></td>
-    <td><%= link_to 'Show', weight %></td>
     <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-    <td><%= link_to 'Destroy', weight, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
+<%= will_paginate(@weights) %>
 
 <br /><br />
 
-<%= link_to 'New weight', new_weight_path %><% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
   <table>
     <tr>
       <td>
