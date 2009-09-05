@@ -9,7 +9,6 @@ class WeightsController < ApplicationController
   
   
   def index
-    #@weights = Weight.find_all_by_person_id(@user.id)
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
 
     respond_to do |format|
