@@ -6,7 +6,7 @@ class StepsController < ApplicationController
     before_filter :maintain_session_and_user
     before_filter :ensure_login
   def index
-    @steps = Step.find_all_by_person_id(@user.id)
+    @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
 
     genGnu()
 
@@ -34,8 +34,6 @@ class StepsController < ApplicationController
       Gnuplot::Plot.new( gp ) do |plot|
 
         plot.terminal "png transparent nocrop enhanced size 800 600"
-        #plot.ylabel "steps"
-        #plot.xlabel "date"
         plot.output "public/myPlot.png"
         plot.boxwidth "0.2 absolute"
         plot.style "fill solid 1.00 border -1"
@@ -47,8 +45,8 @@ class StepsController < ApplicationController
         x = []
         y = []
         z = []
-        @steps = @steps.sort_by { |step| step['rec_date'] }
-        @steps.each do |s|
+        
+	@steps.each do |s|
           x.push(s.rec_date)
           y.push(s.steps - s.mod_steps)
           z.push(s.mod_steps)
@@ -66,29 +64,6 @@ class StepsController < ApplicationController
       end
     end
   end
-
-  def genChart
-    step = []
-    mod_step = []
-    labels = []
-
-    @steps.each do |s|
-      step << s.steps
-      mod_step << s.mod_steps
-      labels << s.rec_date
-    end
-
-    g = Gruff::Bar.new
-    g.title="Steps Taken"
-    g.data("Steps", step)
-    g.data("Moderate Steps", mod_step);
-    g.theme_37signals()
-    #g.render_transparent_background()
-    #g.render_background ('transparent')
-    #g.labels = {0=>'2003', 2 => '2004', 4=>'2005'}
-    g.write('public/fruity.png')
-  end
-
 
   # GET /steps/1
   # GET /steps/1.xml

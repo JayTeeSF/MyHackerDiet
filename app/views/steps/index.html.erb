@@ -1,35 +1,38 @@
 <h1>Steps Data</h1>
 
-<table border="1">
-  <tr>
-    <th>Rec date</th>
-    <th>Steps</th>
-    <th>Mod steps</th>
-    <th>Mod minutes</th>
-    <th>Person</th>
-  </tr>
+<table border="0" width="100%">
+  <tr valign="top">
+    <td>
+      <%= link_to 'New step', new_step_path %>
+      <table border="1">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Rec date</th>
+          <th>Steps</th>
+          <th>Mod steps</th>
+          <th>Mod min</th>
+          <th>Person</th>
+          <th>&nbsp;</th>
+        </tr>
 
-  <% @steps = @steps.sort_by { |step| step['rec_date'] }.reverse %>
-  <% @steps.each do |step| %>
-  <tr>
-	  <td>
-		  <%= link_to h(step.rec_date), step %>
-	  </td>
-    <td><%=h step.steps %></td>
-    <td><%=h step.mod_steps %></td>
-    <td><%=h step.mod_min %></td>
-    <td><%=h step.person_id %></td>
-    <!-- <td><%= link_to 'Show', step %></td> -->
-    <td><%= link_to 'Edit', edit_step_path(step) %></td>
-    <td><%= link_to 'Destroy', step, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% @steps.each do |step| %>
+          <tr>
+            <td><%= link_to 'X', step, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to h(step.rec_date), step %></td>
+            <td><%=h step.steps %></td>
+            <td><%=h step.mod_steps %></td>
+            <td><%=h step.mod_min %></td>
+            <td><%=h step.person_id %></td>
+            <td><%= link_to 'Edit', edit_step_path(step) %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= will_paginate(@steps) %>
+
+    </td>
+    <td>  
+      <img src="/myPlot.png" />
+    </td>
   </tr>
-<% end %>
 </table>
-
-<br />
-<%= link_to 'New step', new_step_path %>
-
-<br /><br />
-
-<img src="/myPlot.png" />
 
