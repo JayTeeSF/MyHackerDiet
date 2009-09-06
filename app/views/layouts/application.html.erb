@@ -43,7 +43,11 @@
         </div>
       <% end %>
     </div>
-    <div align="right" width="97%"><%= @user.name %></div>
+    <div align="right" width="97%">
+      <% if @user != null %>
+        <%= @user.name %>
+      <% end %>
+    </div>
 
 
     <div id="main">
