@@ -10,6 +10,7 @@ class WeightsController < ApplicationController
   
   def index
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+    gnuPlot();
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,6 +30,50 @@ class WeightsController < ApplicationController
       end
     end
   end
+
+  def gnuPlot
+    @allWeights = Weight.all(:all);
+
+    Gnuplot.open do |gp|
+      Gnuplot::Plot.new(gp) do |plot|
+
+        plot.terminal "png transparent nocrop enhanced size 800 600"
+        plot.output "public/myWeight.png"
+        plot.boxwidth "0.2 absolute"
+        plot.grid ""
+        plot.key "spacing 1.3"
+        plot.xtics "1,30"
+        plot.xdata "date"
+        plot.style "fill solid 1.00 border -1"
+        plot.style "data line"
+        plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
+        plot.title "MyHackerDiet.com Weight Chart for " + @user.name
+
+        x = [];
+        y = [];
+
+        @allWeights.each do |w|
+          x.push(w.rec_date)
+          y.push(w.weight)
+        end
+
+        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
+          #ds.using = "2:xtic(1) t 'moderate'"
+          #ds.using = "1:2:($3+$1/50.) w filledcurves above title 'Above' lt rgb 'red'"
+        #end
+        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
+          #ds.using = "1:2:($3+$1/50.) w filledcurves below title 'Below' lt rgb 'green'"
+        #end
+        plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
+          ds.using = "2:xtic(1) lt -1 lw 2 title 'curve 1'"
+        end
+        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
+          #ds.using = "1:($3+$1/50.) lt 3 lw 2 title 'curve 2'"
+        #end
+      end
+    end
+  end
+
 
   # GET /weights/1
   # GET /weights/1.xml
