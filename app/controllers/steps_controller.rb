@@ -7,6 +7,7 @@ class StepsController < ApplicationController
     before_filter :ensure_login
   def index
     @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
+    @step = Step.new
 
     genGnu()
 
@@ -46,7 +47,7 @@ class StepsController < ApplicationController
         y = []
         z = []
         
-	@steps.each do |s|
+	@steps.reverse.each do |s|
           x.push(s.rec_date)
           y.push(s.steps - s.mod_steps)
           z.push(s.mod_steps)
@@ -64,6 +65,7 @@ class StepsController < ApplicationController
       end
     end
   end
+
 
   # GET /steps/1
   # GET /steps/1.xml
@@ -100,7 +102,7 @@ class StepsController < ApplicationController
     respond_to do |format|
       if @step.save
         flash[:notice] = 'Step was successfully created.'
-        format.html { redirect_to(@step) }
+        format.html { redirect_to(steps_url) }
         format.xml  { render :xml => @step, :status => :created, :location => @step }
       else
         format.html { render :action => "new" }
@@ -117,7 +119,7 @@ class StepsController < ApplicationController
     respond_to do |format|
       if @step.update_attributes(params[:step])
         flash[:notice] = 'Step was successfully updated.'
-        format.html { redirect_to(@step) }
+        format.html { redirect_to(steps_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
