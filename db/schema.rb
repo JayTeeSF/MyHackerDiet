@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090906170749) do
+ActiveRecord::Schema.define(:version => 20090927153059) do
+
+  create_table "eppas", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -39,11 +44,11 @@ ActiveRecord::Schema.define(:version => 20090906170749) do
 
   create_table "weights", :force => true do |t|
     t.date     "rec_date"
-    t.decimal  "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "person_id"
     t.decimal  "bodyfat"
+    t.decimal  "weight",     :precision => 2, :scale => 2
   end
 
 end
