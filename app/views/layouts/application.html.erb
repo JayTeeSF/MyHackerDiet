@@ -39,17 +39,19 @@
           <hr class="noscreen" />
         </div>
       </div>
-
       <% if flash[:notice] %>
-        <div class="rbroundbox">
-          <div class="rbtop"><div></div></div>
-          <div class="rbcontent">
-            <div class="content">
-              <%= "- Message: #{flash[:notice]}" %>
-            </div>
+        <center>
+          <div id="message">
+            <%= "- #{flash[:notice]}" %>
           </div>
-          <div class="rbbot"><div></div></div>
-        </div>
+        </center>
+      <% end %>
+      <% if flash[:warn] %>
+        <center>
+          <div id="message">
+            <%= "- #{flash[:warn]}" %>
+          </div>
+        </center>
       <% end %>
     </div>
     <div align="right" width="97%">
