@@ -39,37 +39,25 @@ class WeightsController < ApplicationController
 
         plot.terminal "png transparent nocrop enhanced size 800 600"
         plot.output "public/myWeight.png"
-        plot.boxwidth "0.2 absolute"
-        plot.grid ""
-        plot.key "spacing 1.3"
-        plot.xtics "1,30"
-        plot.xdata "date"
-        plot.style "fill solid 1.00 border -1"
-        plot.style "data line"
-        plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
+        #plot.xdata "time"
+        plot.timefmt "'%Y-%m-%d'"
+        plot.style "fill solid 1.00 noborder"
+        plot.style "data lines"
+        plot.format "x '%m-%d'"
         plot.title "MyHackerDiet.com Weight Chart for " + @user.name
 
-        x = [];
-        y = [];
+        x = []
+        y = []
 
         @allWeights.each do |w|
           x.push(w.rec_date)
           y.push(w.weight)
         end
 
-        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          #ds.using = "2:xtic(1) t 'moderate'"
-          #ds.using = "1:2:($3+$1/50.) w filledcurves above title 'Above' lt rgb 'red'"
-        #end
-        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          #ds.using = "1:2:($3+$1/50.) w filledcurves below title 'Below' lt rgb 'green'"
-        #end
         plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          ds.using = "2:xtic(1) lt -1 lw 2 title 'curve 1'"
+          #ds.using = "2:xtic(1) lt -1 lw 2 title 'curve 1'"
+          ds.using = "2:xtic(1) lt -1 lw 2 title 'weight'"
         end
-        #plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          #ds.using = "1:($3+$1/50.) lt 3 lw 2 title 'curve 2'"
-        #end
       end
     end
   end
@@ -155,6 +143,7 @@ class WeightsController < ApplicationController
       c=Weight.new
       c.rec_date=row[0]
       c.weight=row[1]
+      c.bodyfat=row[2]
       c.person_id = @user.id
 
       if c.save
