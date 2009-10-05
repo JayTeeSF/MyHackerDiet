@@ -47,14 +47,17 @@ class StepsController < ApplicationController
         y = []
         z = []
         
-	@steps.reverse.each do |s|
+        @steps.reverse.each do |s|
+          if(s.mod_steps == nil) then
+            s.mod_steps = 0
+          end
           x.push(s.rec_date)
           y.push(s.steps - s.mod_steps)
           z.push(s.mod_steps)
 
           #puts "test: " + s.rec_date.to_s + " -> " + (s.steps - s.mod_steps).to_s + " -> " + s.mod_steps.to_s
         end
-        
+
 
         plot.data << Gnuplot::DataSet.new( [x, z] ) do |ds|
           ds.using = "2:xtic(1) t 'moderate'"
