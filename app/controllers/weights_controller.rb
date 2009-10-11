@@ -9,6 +9,7 @@ class WeightsController < ApplicationController
   
   
   def index
+    @weight = Weight.new # new empty weight if user wants to create a new record
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
     gnuPlot();
 
@@ -98,7 +99,7 @@ class WeightsController < ApplicationController
     respond_to do |format|
       if @weight.save
         flash[:notice] = 'Weight was successfully created.'
-        format.html { redirect_to(@weight) }
+        format.html { redirect_to(weights_url) }
         format.xml  { render :xml => @weight, :status => :created, :location => @weight }
       else
         format.html { render :action => "new" }
