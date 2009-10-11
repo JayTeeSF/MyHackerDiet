@@ -3,7 +3,6 @@
 <table border="1">
   <tr>
     <td>
-      <%= link_to 'New weight', new_weight_path %><% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
         <table border="1">
           <tr>
             <th>&nbsp;</th>
@@ -13,20 +12,38 @@
             <th>&nbsp;</th>
           </tr>
 
-          <% @weights.each do |weight| %>
-            <tr>
-              <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
-              <td><%=h weight.rec_date %></td>
-              <td><%=h weight.weight %></td>
-              <td><%=h weight.bodyfat %></td>
-              <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-            </tr>
+          <tr>
+            <% form_for(@weight) do |f| %>
+              <%= f.hidden_field :person_id, :value=>@user.id %>
+              <td>&nbsp;</td>
+              <!-- <td><%= f.date_select :rec_date %></td> -->
+              <td><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>Date.today.to_s %>
+              <td><%= f.text_field :weight, :size=>3 %></td>
+              <td><%= f.text_field :bodyfat, :size=>3 %></td>
+              <td><%= f.submit 'Create' %></td>
+            <% end %>
+          </tr>
+
+          <% if @weights.size > 0 %>
+            <% @weights.each do |weight| %>
+              <tr>
+                <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
+                <td><%=h weight.rec_date %></td>
+                <td><%=h weight.weight %></td>
+                <td><%=h weight.bodyfat %></td>
+                <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <br /><br />
+            --- no weight records found ---
           <% end %>
         </table>
         <%= will_paginate(@weights) %>
 
         <br /><br />
 
+        <% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
         <table>
           <tr>
             <td>
