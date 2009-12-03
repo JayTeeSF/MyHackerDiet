@@ -17,6 +17,8 @@ class WeightsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @weights }
       format.csv do
+        @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
+
         csv_string = FasterCSV.generate do |csv|
           # header row
           csv << ["rec_date", "weight"]
@@ -144,7 +146,7 @@ class WeightsController < ApplicationController
       c=Weight.new
       c.rec_date=row[0]
       c.weight=row[1]
-      c.bodyfat=row[2]
+      c.bodyfat=row[3]
       c.person_id = @user.id
 
       if c.save
