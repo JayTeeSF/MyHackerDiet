@@ -15,6 +15,7 @@ class StepsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @steps }
       format.csv do
+        @steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date");
         csv_string = FasterCSV.generate do |csv|
           # header row
           csv << ["rec_date", "steps", "mod_steps"]
