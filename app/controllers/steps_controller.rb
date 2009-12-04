@@ -18,11 +18,11 @@ class StepsController < ApplicationController
         @steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date");
         csv_string = FasterCSV.generate do |csv|
           # header row
-          csv << ["rec_date", "steps", "mod_steps"]
+          csv << ["rec_date", "steps", "mod_steps", "mod_min"]
 
           # data rows
           @steps.each do |s|
-            csv << [s.rec_date, s.steps, s.mod_steps]
+            csv << [s.rec_date, s.steps, s.mod_steps, s.mod_min]
           end
         end
 
@@ -144,4 +144,23 @@ class StepsController < ApplicationController
     end
   end
 
+  def csv_import 
+    @parsed_file=CSV::Reader.parse(params[:dump][:file])
+    n=0
+    @parsed_file.each  do |row|
+      c=Step.new
+      c.rec_date=row[0]
+      c.steps=row[1]
+      c.mod_steps=row[2]
+      c.mod_min=row[3]
+      c.person_id = @user.id
+
+      if c.save
+        n=n+1
+        GC.start if n%50==0
+      end
+      flash.now[:message]="CSV Import Successful,  #{n} new records added to data base"
+    end
+    redirect_to :action=>"index"
+  end
 end

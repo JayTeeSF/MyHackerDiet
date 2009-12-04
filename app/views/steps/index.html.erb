@@ -37,9 +37,29 @@
         <% end %>
       </table>
       <%= will_paginate(@steps) %>
+      
+      <% form_for :dump, :url=>{:controller=>"steps", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
+        <table>
+          <tr>
+            <td>
+              <label for="dump_file">
+                Select a CSV File :
+              </label>
+            </td>
+            <td >
+              <%= f.file_field :file -%>
+            </td>
+          </tr>
+          <tr>
+            <td colspan='2'>
+              <%= submit_tag 'Submit' -%>
+            </td>
+          </tr>
+        </table>
+      <% end -%>
 
     </td>
-    <td>  
+    <td width="100%">  
       <img src="/myPlot.png" />
     </td>
   </tr>
