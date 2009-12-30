@@ -1,16 +1,18 @@
 require 'csv'
 require 'fastercsv'
+require 'gchart'
 
 class WeightsController < ApplicationController
   # GET /weights
   # GET /weights.xml
   before_filter :maintain_session_and_user
   before_filter :ensure_login
-  
-  
+
+
   def index
     @weight = Weight.new # new empty weight if user wants to create a new record
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+    
     gnuPlot();
 
     respond_to do |format|
@@ -22,7 +24,7 @@ class WeightsController < ApplicationController
         csv_string = FasterCSV.generate do |csv|
           # header row
           csv << ["rec_date", "weight"]
-        
+
           #data rows
           @weights.each do |s|
             csv << [s.rec_date, s.weight]
@@ -34,35 +36,67 @@ class WeightsController < ApplicationController
     end
   end
 
+  def graph_code
+    # based on this example - http://teethgrinder.cookies.uk/open-flash-chart-2/data-lines-2.php
+    title = Title.new("MyHackerDiet.com Weight Chart For ME!")
+
+    weightDates  = []
+    weightValues = []
+
+    @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
+    @weights.each do |c|
+      weightDates  << c.rec_date
+      weightValues << c.weight
+    end
+
+    line = Line.new
+    line.text = "Weight"
+    line.width = 1
+    line.colour = '#0000CD'
+    line.dot_size = 0
+    line.values = weightValues
+
+    y = YAxis.new
+    y.set_range(weightValues.min-5,weightValues.max+5,10)
+
+
+    xl = XAxisLabels.new;
+    xl.set_vertical()
+    xl.set_labels(weightDates)
+
+    x = XAxis.new
+    x.set_labels(xl)
+
+    x_legend = XLegend.new("Recorded Date")
+    x_legend.set_style('{font-size: 20px; color: #000000}')
+
+    y_legend = YLegend.new("Recorded Weight")
+    y_legend.set_style('{font-size: 20px; color: #000000}')
+
+    chart =OpenFlashChart.new
+    chart.set_title(title)
+    chart.set_x_legend(x_legend)
+    chart.set_y_legend(y_legend)
+    chart.y_axis = y
+    chart.x_axis = x
+    chart.set_bg_colour( '#FFFFFF' )
+
+    chart.add_element(line)
+
+    render :text => chart.to_s
+  end
+
+
   def gnuPlot
     @allWeights = Weight.all(:all);
+    weights = []
 
-    Gnuplot.open do |gp|
-      Gnuplot::Plot.new(gp) do |plot|
-
-        plot.terminal "png transparent nocrop enhanced size 800 600"
-        plot.output "public/myWeight.png"
-        #plot.xdata "time"
-        plot.timefmt "'%Y-%m-%d'"
-        plot.style "fill solid 1.00 noborder"
-        plot.style "data lines"
-        plot.format "x '%m-%d'"
-        plot.title "MyHackerDiet.com Weight Chart for " + @user.name
-
-        x = []
-        y = []
-
-        @allWeights.each do |w|
-          x.push(w.rec_date)
-          y.push(w.weight)
-        end
-
-        plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          #ds.using = "2:xtic(1) lt -1 lw 2 title 'curve 1'"
-          ds.using = "2:xtic(1) lt -1 lw 2 title 'weight'"
-        end
-      end
+    @allWeights.each do |s|
+      weights << s.weight
     end
+
+    @graph = open_flash_chart_object(1000,600, "/graph_code")
+
   end
 
 
@@ -81,7 +115,7 @@ class WeightsController < ApplicationController
   # GET /weights/new.xml
   def new
     @weight = Weight.new
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @weight }
