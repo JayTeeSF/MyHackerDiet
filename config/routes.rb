@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.import_steps_csv  '/importStep', :controller => 'steps', :action => 'csv_import'
 
   map.graph_code '/graph_code', :controller => 'weights', :action => 'graph_code'
+  map.step_graph '/step_graph', :controller => 'steps',   :action => 'graph_code'
   
   #map.resources :step
   #map.resources :demo

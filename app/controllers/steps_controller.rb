@@ -9,7 +9,7 @@ class StepsController < ApplicationController
     @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
     @step = Step.new
 
-    genGnu()
+    @graph = open_flash_chart_object(1000,600, "/step_graph")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -31,44 +31,67 @@ class StepsController < ApplicationController
     end
   end
 
-  def genGnu
-    Gnuplot.open do |gp|
-      Gnuplot::Plot.new( gp ) do |plot|
+  def graph_code
+    # based on this example - http://teethgrinder.cookies.uk/open-flash-chart-2/data-lines-2.php
+    title = Title.new("MyHackerDiet.com Steps Chart For ME!")
 
-        plot.terminal "png transparent nocrop enhanced size 800 600"
-        plot.output "public/myPlot.png"
-        plot.boxwidth "0.2 absolute"
-        plot.style "fill solid 1.00 border -1"
-        plot.style "histogram rowstacked"
-        plot.style "data histograms"
-        plot.xtics "border in scale 1,0.5 nomirror rotate -45 offset character 0, 0, 0"
-        plot.title  "Steps for " + @user.name
+    chart =OpenFlashChart.new
+    recDates  = []
+    totalSteps = []
 
-        x = []
-        y = []
-        z = []
-        
-        @steps.reverse.each do |s|
-          if(s.mod_steps == nil) then
-            s.mod_steps = 0
-          end
-          x.push(s.rec_date)
-          y.push(s.steps - s.mod_steps)
-          z.push(s.mod_steps)
+    stack = BarStack.new
+    #stack.set_keys( ['hi', 'bye'] )
+    @steps = Step.find(:all, :conditions => ["person_id = ? and rec_date between ? and ?", @user.id, 1.month.ago.to_s, Date.today], :order => "rec_date DESC")   # get all the weights, not just this page
+    @steps.each do |c|
+      recDates  << c.rec_date
+      totalSteps << c.steps
 
-          #puts "test: " + s.rec_date.to_s + " -> " + (s.steps - s.mod_steps).to_s + " -> " + s.mod_steps.to_s
-        end
+      stack.append_stack ( [ c.mod_steps, c.steps-c.mod_steps ])
 
-
-        plot.data << Gnuplot::DataSet.new( [x, z] ) do |ds|
-          ds.using = "2:xtic(1) t 'moderate'"
-        end
-        plot.data << Gnuplot::DataSet.new( [x, y] ) do |ds|
-          ds.using = "2:xtic(1) t 'normal'"
-        end
-      end
     end
+
+    chart.add_element(stack)
+
+    y = YAxis.new
+    y.set_range(0,totalSteps.max+5,500)
+
+
+    xl = XAxisLabels.new;
+    xl.set_vertical()
+    xl.set_labels(recDates)
+
+    x = XAxis.new
+    x.set_labels(xl)
+
+    x_legend = XLegend.new("Recorded Date")
+    x_legend.set_style('{font-size: 20px; color: #000000}')
+
+    y_legend = YLegend.new("Steps Taken")
+    y_legend.set_style('{font-size: 20px; color: #000000}')
+
+    chart.set_title(title)
+    chart.set_x_legend(x_legend)
+    chart.set_y_legend(y_legend)
+    chart.y_axis = y
+    chart.x_axis = x
+    chart.set_bg_colour( '#FFFFFF' )
+
+    render :text => chart.to_s
   end
+
+
+  def gnuPlot
+    @allWeights = Weight.all(:all);
+    weights = []
+
+    @allWeights.each do |s|
+      weights << s.weight
+    end
+
+
+  end
+
+   
 
 
   # GET /steps/1
