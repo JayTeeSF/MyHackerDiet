@@ -12,7 +12,7 @@ class WeightsController < ApplicationController
     @weight = Weight.new # new empty weight if user wants to create a new record
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
     
-    gnuPlot();
+    @graph = open_flash_chart_object(1000,600, "/graph_code")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,17 +86,7 @@ class WeightsController < ApplicationController
   end
 
 
-  def gnuPlot
-    @allWeights = Weight.all(:all);
-    weights = []
 
-    @allWeights.each do |s|
-      weights << s.weight
-    end
-
-    @graph = open_flash_chart_object(1000,600, "/graph_code")
-
-  end
 
 
   # GET /weights/1
