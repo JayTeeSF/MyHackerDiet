@@ -1,6 +1,5 @@
 require 'csv'
 require 'fastercsv'
-require 'gchart'
 
 class WeightsController < ApplicationController
   # GET /weights
