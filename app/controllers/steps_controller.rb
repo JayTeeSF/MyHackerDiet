@@ -46,7 +46,7 @@ class StepsController < ApplicationController
       recDates  << c.rec_date
       totalSteps << c.steps
 
-      stack.append_stack ( [ c.mod_steps, c.steps-c.mod_steps ])
+      stack.append_stack([ c.mod_steps, c.steps-c.mod_steps ])
 
     end
 
