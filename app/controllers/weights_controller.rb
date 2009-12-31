@@ -12,7 +12,7 @@ class WeightsController < ApplicationController
     @weight = Weight.new # new empty weight if user wants to create a new record
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
     
-    @graph = open_flash_chart_object(1000,600, "/graph_code")
+    @graph = open_flash_chart_object(1000,600, "/weight_graph.json")
 
     respond_to do |format|
       format.html # index.html.erb
