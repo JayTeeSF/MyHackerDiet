@@ -63,6 +63,7 @@
         <p id="dont-delete-this">Design by <a href="http://www.davidkohout.cz">David Kohout</a> | Our tip: <a href="http://www.goodmood.cz" title="Absinthe, Becherovka, Slivovitz store">Absinthe Store</a></p>
     </div><div style="clear: both;"></div></div>
   </div>
+  <%= render :partial => 'shared/analytics' if RAILS_ENV == 'production' %>
 </body>
 </html>
 
