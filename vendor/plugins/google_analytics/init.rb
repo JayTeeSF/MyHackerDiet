@@ -11,7 +11,7 @@ GoogleAnalytics.id = "UA-8541470-3"
 # attributes to be present in the static HTML but instead have them added
 # through javascript dynamically. (note that this is currently limited in that
 # the map_regexps feature won't be used.)
-# GoogleAnalytics.use_javascript_links = true
+GoogleAnalytics.use_javascript_links = true
 
 # optional: regular expression matching map. see the readme file for details
 # GoogleAnalytics.map_regexps = {}
