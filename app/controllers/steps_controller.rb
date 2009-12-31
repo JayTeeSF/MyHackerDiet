@@ -9,7 +9,7 @@ class StepsController < ApplicationController
     @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
     @step = Step.new
 
-    @graph = open_flash_chart_object(1000,600, "/step_graph")
+    @graph = open_flash_chart_object(800,400, "/step_graph")
 
     respond_to do |format|
       format.html # index.html.erb
