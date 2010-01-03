@@ -1,5 +1,4 @@
 require 'csv'
-require 'fastercsv'
 
 class WeightsController < ApplicationController
   # GET /weights
@@ -20,7 +19,7 @@ class WeightsController < ApplicationController
       format.csv do
         @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
 
-        csv_string = FasterCSV.generate do |csv|
+        csv_string = CSV.generate do |csv|
           # header row
           csv << ["rec_date", "weight"]
 

@@ -1,5 +1,6 @@
 class StepsController < ApplicationController
   require 'csv'
+
   # GET /steps
   # GET /steps.xml
   # GET /steps.csv
@@ -9,14 +10,15 @@ class StepsController < ApplicationController
     @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
     @step = Step.new
 
-    @graph = open_flash_chart_object(800,400, "/step_graph.json")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        @graph = graph_code()
+      end
       format.xml  { render :xml => @steps }
       format.csv do
         @steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date");
-        csv_string = FasterCSV.generate do |csv|
+        csv_string = CSV.generate do |csv|
           # header row
           csv << ["rec_date", "steps", "mod_steps", "mod_min"]
 
@@ -32,66 +34,39 @@ class StepsController < ApplicationController
   end
 
   def graph_code
-    # based on this example - http://teethgrinder.cookies.uk/open-flash-chart-2/data-lines-2.php
-    title = Title.new("MyHackerDiet.com Steps Chart For ME!")
-
-    chart =OpenFlashChart.new
     recDates  = []
     totalSteps = []
+    modSteps = []
 
-    stack = BarStack.new
-    #stack.set_keys( ['hi', 'bye'] )
-    @steps = Step.find(:all, :conditions => ["person_id = ? and rec_date between ? and ?", @user.id, 1.month.ago.to_s, Date.today], :order => "rec_date DESC")   # get all the weights, not just this page
-    @steps.each do |c|
+    @steps.reverse.each do |c|
       recDates  << c.rec_date
-      totalSteps << c.steps
-
-      stack.append_stack([ c.mod_steps, c.steps-c.mod_steps ])
-
+      totalSteps << c.steps-c.mod_steps
+      modSteps << c.mod_steps
     end
 
-    chart.add_element(stack)
+    manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=MyHackerDiet.com+Step+Chart+for+' + @user.name + '&chs=1000x300&chd=t:'
+    manchart_suffix = '&chco=4d89f9,c6d9fd&chds=0,20000&chbh=20&chxt=x,y&chxl=1:|0|5k|10k|15k|20k|0:'
 
-    y = YAxis.new
-    y.set_range(0,totalSteps.max+5,500)
+    dates = ''
+    data = ''
+    data1 = ''
 
-
-    xl = XAxisLabels.new;
-    xl.set_vertical()
-    xl.set_labels(recDates)
-
-    x = XAxis.new
-    x.set_labels(xl)
-
-    x_legend = XLegend.new("Recorded Date")
-    x_legend.set_style('{font-size: 20px; color: #000000}')
-
-    y_legend = YLegend.new("Steps Taken")
-    y_legend.set_style('{font-size: 20px; color: #000000}')
-
-    chart.set_title(title)
-    chart.set_x_legend(x_legend)
-    chart.set_y_legend(y_legend)
-    chart.y_axis = y
-    chart.x_axis = x
-    chart.set_bg_colour( '#FFFFFF' )
-
-    render :text => chart.to_s
-  end
-
-
-  def gnuPlot
-    @allWeights = Weight.all(:all);
-    weights = []
-
-    @allWeights.each do |s|
-      weights << s.weight
+    recDates.each do |rd|
+      dates << '|' + rd.to_date.day.to_s
     end
 
+    totalSteps.each do |ts|
+      data << ts.to_s + ','
+    end
 
-  end
+    modSteps.each do |ms|
+      data1 << ms.to_s + ','
+    end
 
-   
+    return manchart + data1.chop + '|' + data.chop + manchart_suffix + dates
+#return url
+
+end
 
 
   # GET /steps/1
