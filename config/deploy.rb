@@ -1,5 +1,3 @@
-require 'mongrel_cluster/recipes'
-
 set :application, "mhd"
 #set :domain, "myhackerdiet.com"
 set :repository,  "jon@horder.digital-drip.com:/home/jon/git/myhackerdiet.git"
@@ -37,6 +35,6 @@ set :branch, "master"
 role :app, "www.myhackerdiet.com"
 #role :app, "www.propertywatcher.org"
 
-set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
+#set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 
