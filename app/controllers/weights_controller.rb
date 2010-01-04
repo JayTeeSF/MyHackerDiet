@@ -11,10 +11,11 @@ class WeightsController < ApplicationController
     @weight = Weight.new # new empty weight if user wants to create a new record
     @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
     
-    @graph = open_flash_chart_object(1000,600, "/weight_graph.json")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        @graph = graph_code()
+      end
       format.xml  { render :xml => @weights }
       format.csv do
         @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
@@ -35,53 +36,33 @@ class WeightsController < ApplicationController
   end
 
   def graph_code
-    # based on this example - http://teethgrinder.cookies.uk/open-flash-chart-2/data-lines-2.php
-    title = Title.new("MyHackerDiet.com Weight Chart For ME!")
+    weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
+    weightDates = ''
+    weightValues = ''
+    min = 1000;
+    max = 0;
 
-    weightDates  = []
-    weightValues = []
-
-    @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
-    @weights.each do |c|
-      weightDates  << c.rec_date
-      weightValues << c.weight
+    weights.each do |c|
+      unless c.rec_date == nil then
+        if c.rec_date.to_date >= 2.months.ago.to_date then
+          weightDates  << '|' + c.rec_date.to_date.day.to_s
+          weightValues << c.weight.round.to_s + ','
+          if c.weight.round < min then min = c.weight.round end
+          if c.weight.round > max then max = c.weight.round end
+        end
+      end
     end
 
-    line = Line.new
-    line.text = "Weight"
-    line.width = 1
-    line.colour = '#0000CD'
-    line.dot_size = 0
-    line.values = weightValues
+    manchart = 'http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+' + @user.name + '&chs=1000x300&chd=t:'
+    manchart_suffix = '&chco=4d89f9,c6d9fd&chds=' + min.to_s + ',' + max.to_s + '&chbh=20&chxt=x,y&chxl=1:|' + min.to_s + '|' + (max-((max-min)/2)).to_s + '|' + max.to_s + '|0:'
 
-    y = YAxis.new
-    y.set_range(weightValues.min-5,weightValues.max+5,10)
+    url = manchart + weightValues.chop() + manchart_suffix + weightDates
+    puts "Weight URL is: " + url.to_s
+    puts "max is: " + max.to_s + "  min is: " + min.to_s
+
+    return url
 
 
-    xl = XAxisLabels.new;
-    xl.set_vertical()
-    xl.set_labels(weightDates)
-
-    x = XAxis.new
-    x.set_labels(xl)
-
-    x_legend = XLegend.new("Recorded Date")
-    x_legend.set_style('{font-size: 20px; color: #000000}')
-
-    y_legend = YLegend.new("Recorded Weight")
-    y_legend.set_style('{font-size: 20px; color: #000000}')
-
-    chart =OpenFlashChart.new
-    chart.set_title(title)
-    chart.set_x_legend(x_legend)
-    chart.set_y_legend(y_legend)
-    chart.y_axis = y
-    chart.x_axis = x
-    chart.set_bg_colour( '#FFFFFF' )
-
-    chart.add_element(line)
-
-    render :text => chart.to_s
   end
 
 
@@ -162,7 +143,7 @@ class WeightsController < ApplicationController
   end
 
   def csv_import 
-    @parsed_file=CSV::Reader.parse(params[:dump][:file])
+    @parsed_file=CSV.parse(params[:dump][:file])
     n=0
     @parsed_file.each  do |row|
       c=Weight.new

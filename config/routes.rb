@@ -10,9 +10,6 @@ ActionController::Routing::Routes.draw do |map|
   map.import_weight_csv '/importWeight', :controller => 'weights', :action => 'csv_import'
   map.import_steps_csv  '/importStep', :controller => 'steps', :action => 'csv_import'
 
-  map.graph_code '/weight_graph.json', :controller => 'weights', :action => 'graph_code'
-  map.step_graph '/step_graph.json', :controller => 'steps',   :action => 'graph_code'
-  
   #map.resources :step
   #map.resources :demo
   #map.resources :demos
