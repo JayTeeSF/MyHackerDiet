@@ -1,11 +1,22 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
-load 'config/deploy'
+                               load 'config/deploy'
 
 namespace :deploy do
-  task :restart, :roles => [ :app ] do
-    #run "sudo mongrel_rails cluster::restart -C /srv/mhd/current/mongrel_cluster.yml --clean"
-    run "thin -e production -d -s 3 -p 3200 restart -c /srv/mhd/current/"
+  %w(start stop restart).each do |action| 
+    desc "#{action} the Thin processes"  
+    task action.to_sym do
+      find_and_execute_task("thin:#{action}")
+    end
+  end 
+end
+
+namespace :thin do  
+  %w(start stop restart).each do |action| 
+    desc "#{action} the app's Thin Cluster"  
+    task action.to_sym, :roles => :app do  
+      run "thin #{action} -c #{deploy_to}/current -C #{deploy_to}/current/config/thin.yml" 
+    end
   end
 end
 
