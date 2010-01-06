@@ -32,7 +32,7 @@ set :user, "jon"
 set :branch, "master"
 # see a full list by running "gem contents capistrano | grep 'scm/'"
 
-role :app, "www.myhackerdiet.com"
+role :app, "myhackerdiet.com"
 #role :app, "www.propertywatcher.org"
 
 #set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
