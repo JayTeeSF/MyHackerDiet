@@ -1,11 +1,11 @@
 environment: production
-chdir: /srv/mhd/
+chdir: /srv/mhd/current/
 #address: 127.0.0.1
 port: 3200
 servers: 3
-pid: shared/pids/thin.pid
-rackup: shared/log/config.ru
-log: shared/log/thin.log
+#pid: shared/pids/thin.pid
+#rackup: shared/log/config.ru
+#log: shared/log/thin.log
 max_conns: 1024
 timeout: 30
 max_persistent_conns: 512
