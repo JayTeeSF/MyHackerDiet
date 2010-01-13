@@ -17,7 +17,7 @@
         <tr>
           <%= f.hidden_field :person_id, :value => @user.id %>
           <td>&nbsp;</td>
-          <td><%= select :step, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>Date.today.to_s %></td>
+          <td><%= select :step, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>(Date.today-1).to_s %></td>
           <td><%= f.text_field :steps, :size=>5 %></td>
           <td><%= f.text_field :mod_steps, :size=>5 %></td>
           <td><%= f.text_field :mod_min, :size=>5%></td>
@@ -28,7 +28,7 @@
         <% @steps.each do |step| %>
           <tr>
             <td><%= link_to 'X', step, :confirm => 'Are you sure?', :method => :delete %></td>
-            <td nowrap="nowrap"><%= link_to h(step.rec_date), step %></td>
+            <td nowrap="nowrap"><%=h step.rec_date %></td>
             <td><%=h step.steps %></td>
             <td><%=h step.mod_steps %></td>
             <td><%=h step.mod_min %></td>

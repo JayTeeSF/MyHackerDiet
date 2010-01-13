@@ -7,7 +7,7 @@ class StepsController < ApplicationController
     before_filter :maintain_session_and_user
     before_filter :ensure_login
   def index
-    @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
+    @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
     @step = Step.new
 
 
