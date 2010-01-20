@@ -42,11 +42,19 @@ class WeightsController < ApplicationController
     min = 1000;
     max = 0;
 
+    weightedDates = ''
+    weighted_weights = []
+
     weights.each do |c|
       unless c.rec_date == nil then
         if c.rec_date.to_date >= 2.months.ago.to_date then
+          weighted_weights.push(c.weight.round);
+          if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
+
           weightDates  << '|' + c.rec_date.to_date.day.to_s
-          weightValues << c.weight.round.to_s + ','
+          weightValues << c.weight.to_s + ','
+          weightedDates << averageweight(weighted_weights).to_s + ','
+
           if c.weight.round < min then min = c.weight.round end
           if c.weight.round > max then max = c.weight.round end
         end
@@ -56,16 +64,26 @@ class WeightsController < ApplicationController
     manchart = 'http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
     manchart_suffix = '&chco=4d89f9,c6d9fd&chds=' + min.to_s + ',' + max.to_s + '&chbh=20&chxt=x,y&chxl=1:|' + min.to_s + '|' + (max-((max-min)/2)).to_s + '|' + max.to_s + '|0:'
 
-    url = manchart + weightValues.chop() + manchart_suffix + weightDates
+    url = manchart + weightValues.chop() + '|' + weightedDates.chop() + manchart_suffix + weightDates
     puts "Weight URL is: " + url.to_s
     puts "max is: " + max.to_s + "  min is: " + min.to_s
 
     return url
-
-
   end
 
 
+  def averageweight(weights)
+    total = 0
+
+    weights.each do |weight|
+      total += weight
+    end
+
+    total = total / weights.length
+
+    return total;
+
+  end
 
 
 
