@@ -31,7 +31,7 @@ common: &default_settings
   # "All UI" then specify a semicolon separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 
   # capitalized RAILS_ENV (i.e., Production, Staging, etc)
-  app_name: My Application
+  app_name: My Hacker Diet (PROD)
 
   # When "true", the agent collects performance data about your 
   # application and reports this data to the NewRelic RPM service at 
@@ -55,7 +55,7 @@ common: &default_settings
   # encryption involved in SSL communication, but this work is done
   # asynchronously to the threads that process your application code,
   # so it should not impact response times.
-  ssl: false
+  ssl: true
 
   # EXPERIMENTAL: enable verification of the SSL certificate sent by
   # the server. This setting has no effect unless SSL is enabled
