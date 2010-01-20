@@ -26,4 +26,5 @@ production:
   username: jon
   password: password
   socket: /var/run/mysqld/mysqld.sock
+  reconnect: true
   timeout: 5000
