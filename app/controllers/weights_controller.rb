@@ -38,7 +38,8 @@ class WeightsController < ApplicationController
   def graph_code
     weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
-    weightValues = ''
+    weightValues_below = ''
+    weightValues_above = ''
     min = 1000;
     max = 0;
 
@@ -51,9 +52,20 @@ class WeightsController < ApplicationController
           weighted_weights.push(c.weight.round);
           if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
+          # For each weight keep a running string for each of the lines (below average, average, above average)
+          # our strings will each end with an extra comma, which will need to be chopped when appended to the full
+          # google chart string
           weightDates  << '|' + c.rec_date.to_date.day.to_s
-          weightValues << c.weight.to_s + ','
-          weightedDates << averageweight(weighted_weights).to_s + ','
+          average = averageweight(weighted_weights)
+          weightedDates << average.to_s + ','
+          
+          if c.weight < average then
+            weightValues_below << c.weight.to_s + ','
+            weightValues_above << average.to_s  + ','
+          else
+            weightValues_above << c.weight.to_s + ','
+            weightValues_below << average.to_s + ','
+          end
 
           if c.weight.round < min then min = c.weight.round end
           if c.weight.round > max then max = c.weight.round end
@@ -63,8 +75,9 @@ class WeightsController < ApplicationController
 
     manchart = 'http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
     manchart_suffix = '&chco=4d89f9,c6d9fd&chds=' + min.to_s + ',' + max.to_s + '&chbh=20&chxt=x,y&chxl=1:|' + min.to_s + '|' + (max-((max-min)/2)).to_s + '|' + max.to_s + '|0:'
+    manchart_areafill = '&chm=d,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 
-    url = manchart + weightValues.chop() + '|' + weightedDates.chop() + manchart_suffix + weightDates
+    url = manchart + weightValues_below.chop() + '|' + weightedDates.chop() + '|' + weightValues_above.chop() + manchart_suffix + weightDates + manchart_areafill
     puts "Weight URL is: " + url.to_s
     puts "max is: " + max.to_s + "  min is: " + min.to_s
 
@@ -80,8 +93,10 @@ class WeightsController < ApplicationController
     end
 
     total = total / weights.length
+    total = total * 100
+    total = total.round()
 
-    return total;
+    return total / 100;
 
   end
 
