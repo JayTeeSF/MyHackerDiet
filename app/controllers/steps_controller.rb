@@ -38,14 +38,15 @@ class StepsController < ApplicationController
     totalSteps = []
     modSteps = []
 
-    @steps.reverse.each do |c|
+    steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date DESC", :limit => 20);
+    steps.reverse.each do |c|
       recDates  << c.rec_date
       totalSteps << c.steps-c.mod_steps
       modSteps << c.mod_steps
     end
 
     manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=MyHackerDiet.com+Step+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
-    manchart_suffix = '&chco=4d89f9,c6d9fd&chds=0,20000&chbh=20&chxt=x,y&chxl=1:|0|5k|10k|15k|20k|0:'
+    manchart_suffix = '&chco=4d89f9,c6d9fd&chds=0,20000&chbh=20&chxt=x,y&chm=r,000000,0,0.498,0.501&chxl=1:|0|5k|10k|15k|20k|0:'
 
     dates = ''
     data = ''
