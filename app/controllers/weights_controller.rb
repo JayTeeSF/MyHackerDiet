@@ -48,10 +48,10 @@ class WeightsController < ApplicationController
 
     weights.each do |c|
       unless c.rec_date == nil then
-        if c.rec_date.to_date >= 2.months.ago.to_date then
-          weighted_weights.push(c.weight.round);
-          if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
+        weighted_weights.push(c.weight.round);
+        if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
+        if c.rec_date.to_date >= 2.months.ago.to_date then
           # For each weight keep a running string for each of the lines (below average, average, above average)
           # our strings will each end with an extra comma, which will need to be chopped when appended to the full
           # google chart string
