@@ -9,11 +9,15 @@ class WeightsController < ApplicationController
 
   def index
     @weight = Weight.new # new empty weight if user wants to create a new record
-    @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
     
 
     respond_to do |format|
       format.html do
+        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+        @graph = graph_code()
+      end
+      format.mobile do
+        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.xml  { render :xml => @weights }
@@ -47,7 +51,7 @@ class WeightsController < ApplicationController
     weighted_weights = []
 
     weights.each do |c|
-      unless c.rec_date == nil then
+      unless c.rec_date == nil || c.weight == nil then
         weighted_weights.push(c.weight.round);
         if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
@@ -81,8 +85,6 @@ class WeightsController < ApplicationController
     manchart_areafill = '&chm=d,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 
     url = manchart + weightValues_below.chop() + '|' + weightedDates.chop() + '|' + weightValues_above.chop() + manchart_suffix + weightDates + manchart_areafill
-    puts "Weight URL is: " + url.to_s
-    puts "max is: " + max.to_s + "  min is: " + min.to_s
 
     return url
   end
@@ -125,6 +127,7 @@ class WeightsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @weight }
     end
+
   end
 
   # GET /weights/1/edit
@@ -141,9 +144,11 @@ class WeightsController < ApplicationController
       if @weight.save
         flash[:notice] = 'Weight was successfully created.'
         format.html { redirect_to(weights_url) }
+        format.mobile { render :action => 'index' }
         format.xml  { render :xml => @weight, :status => :created, :location => @weight }
       else
         format.html { render :action => "new" }
+        format.mobile { render :action => "index" }
         format.xml  { render :xml => @weight.errors, :status => :unprocessable_entity }
       end
     end

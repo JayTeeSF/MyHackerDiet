@@ -7,12 +7,16 @@ class StepsController < ApplicationController
     before_filter :maintain_session_and_user
     before_filter :ensure_login
   def index
-    @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
     @step = Step.new
 
 
     respond_to do |format|
       format.html do
+        @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
+        @graph = graph_code()
+      end
+      format.mobile do
+        @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 5, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.xml  { render :xml => @steps }

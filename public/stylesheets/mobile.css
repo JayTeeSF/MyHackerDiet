@@ -1,0 +1,20 @@
+body {
+  background-color: #FFF;
+  font-size: 15pt;
+}
+
+#container {
+  width: 90%;
+  min-width: none;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 0;
+  border: none;
+  margin-top: 20px;
+  font-size: 15pt;
+}
+
+mobile {
+  size: 10pt;
+  font-size: 15pt;
+}

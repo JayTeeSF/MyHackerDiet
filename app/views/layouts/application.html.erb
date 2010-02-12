@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>MyHackerDiet.com | Login</title>
-    <%=stylesheet_link_tag "redfire" %>
+    <%= stylesheet_link_tag "redfire" %>
     <meta name="google-site-verification" content="I9Gso7D25pSU-cTWdKdnhSA5l1wAqjeJU2wdbDUEDCs" />
   </head>
 
@@ -22,6 +22,11 @@
               <li><%= link_to "Log Steps", '/steps/' %></li>
               <li><%= link_to "Log Weights", '/weights/' %></li>
               <li><%= link_to "Logout", @application_session, :method => :delete %></li>
+                <% if mobile_device? %>
+                  <li><%= link_to "Full Site", :mobile => 0 %></li>
+                <% else %>
+                  <li><%= link_to "Mobile Site", :mobile => 1 %></li>
+                <% end %>
             <% else %>
               <li><%= link_to "Login", new_session_path %></li>
               <li><%= link_to "Register", new_person_path %></li>
