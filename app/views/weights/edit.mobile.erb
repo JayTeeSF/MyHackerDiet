@@ -1,0 +1,15 @@
+<h1>Editing weight</h1>
+
+<% form_for(@weight) do |f| %>
+  <%= f.error_messages %>
+
+  <ul>
+    <li><%= f.date_select :rec_date %></li>
+    <li>Weight: <%= f.text_field :weight %></li>
+    <li>BodyFat: <%= f.text_field :bodyfat %></li>
+    <li><%= link_to 'Update', nil, :class => 'whiteButton submit' %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Show', @weight %> |
+<%= link_to 'Back', weights_path %>

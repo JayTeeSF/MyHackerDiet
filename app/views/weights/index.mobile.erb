@@ -4,12 +4,14 @@
   <%= f.hidden_field :person_id, :value=>@user.id %>
     <ul class="rounded">
       <li><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :size=>20, :selected=>Date.today.to_s %></li>
-      <li><%= f.text_field :weight,  :placeholder => 'Weight' %></li>
-      <li><%= f.text_field :bodyfat, :placeholder => 'Body Fat' %></li>
+      <li><%= f.text_field :weight,  :placeholder => 'Enter Your Weight' %></li>
+      <li><%= f.text_field :bodyfat, :placeholder => 'Enter Your Body Fat %' %></li>
       <li><%= link_to "Submit", nil, :class => "whiteButton submit" %></li>
     </ul>
   <% end %>
 
+  <!--
 <ul>
   <li class="arrow"><%= link_to "Weight Graph", '/weights/', :class => 'round' %></li>
 </ul>
+  -->

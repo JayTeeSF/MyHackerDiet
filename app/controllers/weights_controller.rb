@@ -114,6 +114,7 @@ class WeightsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.mobile # show.mobile.erb
       format.xml  { render :xml => @weight }
     end
   end
@@ -144,7 +145,8 @@ class WeightsController < ApplicationController
       if @weight.save
         flash[:notice] = 'Weight was successfully created.'
         format.html { redirect_to(weights_url) }
-        format.mobile { render :action => 'index' }
+        #format.mobile { redirect_to(root_url)  }
+        format.mobile { render :action => 'edit' }
         format.xml  { render :xml => @weight, :status => :created, :location => @weight }
       else
         format.html { render :action => "new" }
