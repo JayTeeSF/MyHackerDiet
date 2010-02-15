@@ -1,8 +1,11 @@
 <% title 'MyHackerDiet.COM' %>
   <div align="left">
     <% if !@user %>
+
     <h1>Please Login To Continue</h1>
-    <ul><li class="button">Login Now</li></ul>
+    <ul>
+      <li class="arrow"><%= link_to "Login Now", "/sessions/new", :rel => 'external'%></li>
+    </ul>
 
     <% else %>
 

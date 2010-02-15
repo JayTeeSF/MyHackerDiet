@@ -1,0 +1,16 @@
+<%= error_messages_for :session %>
+
+<fieldset>
+  <legend>Login</legend>
+
+  <% form_for @session do |f| %>
+
+  <ul>
+    <li><%= f.text_field :name, :placeholder => 'Enter Your Username' %><br />
+    <li><%= f.password_field :password, :placeholder => 'Enter Your Password' %><br />
+    <li><%= link_to 'Login', nil, :class => 'whiteButton submit' %></li>
+  </ul>
+
+  <% end %>
+
+</fieldset>

@@ -24,8 +24,6 @@
               <li><%= link_to "Logout", @application_session, :method => :delete %></li>
                 <% if mobile_device? %>
                   <li><%= link_to "Full Site", :mobile => 0 %></li>
-                <% else %>
-                  <li><%= link_to "Mobile Site", :mobile => 1 %></li>
                 <% end %>
             <% else %>
               <li><%= link_to "Login", new_session_path %></li>
