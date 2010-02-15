@@ -43,7 +43,11 @@ class StepsController < ApplicationController
     modSteps = []
 
     steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date DESC", :limit => 20);
+
     steps.reverse.each do |c|
+      c.steps = c.steps == nil ? 0 : c.steps
+      c.mod_steps = c.mod_steps == nil ? 0 : c.mod_steps
+
       recDates  << c.rec_date
       totalSteps << c.steps-c.mod_steps
       modSteps << c.mod_steps
@@ -110,6 +114,7 @@ end
       if @step.save
         flash[:notice] = 'Step was successfully created.'
         format.html { redirect_to(steps_url) }
+        format.mobile { render :action => 'edit' }
         format.xml  { render :xml => @step, :status => :created, :location => @step }
       else
         format.html { render :action => "new" }

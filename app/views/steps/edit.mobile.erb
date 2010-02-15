@@ -1,0 +1,15 @@
+<h1>Editing step</h1>
+
+<% form_for(@step) do |f| %>
+  <%= f.error_messages %>
+  <ul>
+    <li><%= f.date_select :rec_date %></li>
+    <li>Steps: <%= f.text_field :steps %></li>
+    <li>Mod Steps: <%= f.text_field :mod_steps %></li>
+    <li>Mod Min: <%= f.text_field :mod_min %></li>
+    <li><%= link_to 'Update', nil, :class => 'whiteButton submit' %></li>
+  </ul>
+<% end %>
+
+<%= link_to 'Show', @step %> |
+<%= link_to 'Back', steps_path %>
