@@ -82,7 +82,7 @@ class WeightsController < ApplicationController
 
     manchart = 'http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
     manchart_suffix = '&chco=4d89f9,c6d9fd&chds=' + min.to_s + ',' + max.to_s + '&chbh=20&chxt=x,y&chxl=1:|' + min.to_s + '|' + (max-((max-min)/2)).to_s + '|' + max.to_s + '|0:'
-    manchart_areafill = '&chm=d,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
+    manchart_areafill = '&chm=b,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 
     url = manchart + weightValues_below.chop() + '|' + weightedDates.chop() + '|' + weightValues_above.chop() + manchart_suffix + weightDates + manchart_areafill
 
