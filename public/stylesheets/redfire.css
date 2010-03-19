@@ -168,7 +168,7 @@ p { margin:15px 0; line-height: 24px; font-size: 95%}
 .content p {color: #fff; margin-top: 10px;}
 
 /* tabulky --------------------------------------------------------------------- */
-table { margin:15px 0; border: 1px solid #cdcdcd; border-collapse:collapse; border-spacing:0; font-size:100%; width: 100%;}
+table { margin:15px 0; border: 1px solid #cdcdcd; border-collapse:collapse; border-spacing:0; font-size:100%;}
 th { text-align:center; font-weight:bold; border: 1px solid #cdcdcd;}
 th, td { padding:4px 6px; border: 1px solid #cdcdcd;}
 tr.table-top {background: #e5e5e5; font-weight: bold;}
