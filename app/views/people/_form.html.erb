@@ -1,14 +1,33 @@
 <% form_for @person do |f| %>
 
-  <label for="person_name">Name:</label><br />
-  <%= f.text_field :name %><br />
-
-  <label for="person_password">Password:</label><br />
-  <%= f.password_field :password %><br />
-
-  <label for="person_password_confirmation">Password Confirmation:</label><br />
-  <%= f.password_field :password_confirmation %><br />
-
-  <%= submit_tag "Submit" %>
+  <table border="0">
+  <tr>
+    <td><label for="person_name">Name:</label></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><label for="person_password">Password:</label></td>
+    <td><%= f.password_field :password %></td>
+  </tr>
+  <tr>
+    <td><label for="person_password_confirmation">Password Confirmation:</label></td>
+    <td><%= f.password_field :password_confirmation %></td>
+  </tr>
+  <tr>
+    <td><label for="person_age">Age:</label>
+    <td><%= f.text_field :age %>
+  </tr>
+  <tr>
+    <td><label for="person_sex">Sex:</label>
+    <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
+  </tr>
+  <tr>
+    <td><label for="person_height">Height (inches):</label>
+    <td><%= f.text_field :height %>
+  </tr>
+  <tr>
+    <td colspan="2"><%= submit_tag "Submit" %></td>
+  </tr>
+  </table>
 
 <% end %>
