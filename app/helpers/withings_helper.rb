@@ -1,0 +1,2 @@
+module WithingsHelper
+end

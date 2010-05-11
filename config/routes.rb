@@ -6,9 +6,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :weights
   map.resources :steps
-  
+
   map.import_weight_csv '/importWeight', :controller => 'weights', :action => 'csv_import'
   map.import_steps_csv  '/importStep', :controller => 'steps', :action => 'csv_import'
+  map.withings '/withings', :controller => 'withings', :action => 'log'
 
   #map.resources :step
   #map.resources :demo
