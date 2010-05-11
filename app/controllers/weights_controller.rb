@@ -39,6 +39,7 @@ class WeightsController < ApplicationController
     end
   end
 
+
   def graph_code
     weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
@@ -61,6 +62,8 @@ class WeightsController < ApplicationController
           # google chart string
           weightDates  << '|' + c.rec_date.to_date.day.to_s
           average = averageweight(weighted_weights)
+          c.avg_weight = average
+          c.save
           weightedDates << average.to_s + ','
           
           if c.weight < average then
@@ -71,6 +74,7 @@ class WeightsController < ApplicationController
             weightValues_below << average.to_s + ','
           end
 
+          # Set the minimum and maximum values for the chart
           if c.weight.round < min then min = c.weight.round end
           if c.weight.round > max then max = c.weight.round end
         end
@@ -104,7 +108,6 @@ class WeightsController < ApplicationController
     return total / 100;
 
   end
-
 
 
   # GET /weights/1

@@ -9,6 +9,7 @@
             <th>&nbsp;</th>
             <th>Rec date</th>
             <th>Weight</th>
+            <th>Avg Weight</th>
             <th>Body Fat %</th>
             <th>&nbsp;</th>
           </tr>
@@ -20,6 +21,7 @@
               <!-- <td><%= f.date_select :rec_date %></td> -->
               <td><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>Date.today.to_s %>
               <td><%= f.text_field :weight, :size=>6 %></td>
+              <td>&nbsp;</td>
               <td><%= f.text_field :bodyfat, :size=>6 %></td>
               <td><%= f.submit 'Create' %></td>
             <% end %>
@@ -31,6 +33,7 @@
                 <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
                 <td><%=h weight.rec_date %></td>
                 <td><%=h weight.weight %></td>
+                <td><%=h weight.avg_weight %></td>
                 <td><%=h weight.bodyfat %></td>
                 <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
               </tr>

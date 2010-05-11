@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319002144) do
+ActiveRecord::Schema.define(:version => 20100511191344) do
 
   create_table "eppas", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20100319002144) do
     t.integer  "person_id",                                 :null => false
     t.decimal  "weight",     :precision => 12, :scale => 2, :null => false
     t.decimal  "bodyfat",    :precision => 2,  :scale => 2, :null => false
+    t.decimal  "avg_weight",                                :null => false
   end
 
 end
