@@ -1,4 +1,6 @@
 class WithingsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def log
     @withings_userid = params[:userid]
     @withings_startdate = params[:startdate]
