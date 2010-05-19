@@ -1,7 +1,12 @@
 <fieldset>
   <legend>Log Weights</legend>
 
-<table border="1">
+<table border="1" width="100%">
+  <tr>
+    <td width="100%" valign="top">
+      <img src="<%= @graph.to_s %>" />
+    </td>
+  </tr>
   <tr>
     <td>
         <table border="1">
@@ -39,8 +44,9 @@
               </tr>
             <% end %>
           <% else %>
-            <br /><br />
+            <tr><td colspan='6'>
             --- no weight records found ---
+            </td></tr>
           <% end %>
         </table>
         <%= will_paginate(@weights) %>
@@ -66,9 +72,6 @@
           </tr>
         </table>
       <% end -%>
-    </td>
-    <td width="100%" valign="top">
-      <img src="<%= @graph.to_s %>" />
     </td>
   </tr>
 </table>
