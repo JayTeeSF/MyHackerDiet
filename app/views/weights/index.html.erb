@@ -17,6 +17,9 @@
             <th>Avg Weight</th>
             <th>Body Fat %</th>
             <th>&nbsp;</th>
+            <th>Avg. BMI</th>
+            <th>Avg. RMR</th>
+            <th>Avg. TDEE</th>
           </tr>
 
           <tr>
@@ -29,6 +32,9 @@
               <td>&nbsp;</td>
               <td><%= f.text_field :bodyfat, :size=>6 %></td>
               <td><%= f.submit 'Create' %></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
             <% end %>
           </tr>
 
@@ -40,6 +46,10 @@
                 <td><%=h weight.weight %></td>
                 <td><%=h weight.avg_weight %></td>
                 <td><%=h weight.bodyfat %></td>
+                <td>&nbsp;</td>
+                <td><%=h weight.bmi %></td>
+                <td><%=h weight.rmr %></td>
+                <td><%=h weight.tdee %></td>
                 <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
               </tr>
             <% end %>
