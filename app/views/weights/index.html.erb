@@ -47,9 +47,9 @@
                 <td><%=h weight.avg_weight %></td>
                 <td><%=h weight.bodyfat %></td>
                 <td>&nbsp;</td>
-                <td><%=h weight.bmi %></td>
-                <td><%=h weight.rmr %></td>
-                <td><%=h weight.tdee %></td>
+                <td><%=h weight.bmi || 0 %></td>
+                <td><%=h weight.rmr || 0 %></td>
+                <td><%=h weight.tdee || 0 %></td>
                 <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
               </tr>
             <% end %>
