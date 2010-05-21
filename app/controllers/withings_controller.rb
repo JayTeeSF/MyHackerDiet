@@ -5,6 +5,6 @@ class WithingsController < ApplicationController
     withings_userid = params[:userid]
     withings_startdate = params[:startdate]
     withings_enddate = params[:enddate]
-    Emailer.deliver_contact('jondigital-drip.com', "MyHackerDiet Event for User #{withings_userid}", "#{withings_userid} - #{withings_startdate} -> #{withings_enddate}")
+    Emailer.deliver_contact('jon@digital-drip.com', "MyHackerDiet Event for User #{withings_userid}", "#{withings_userid} - #{withings_startdate} -> #{withings_enddate}")
   end
 end
