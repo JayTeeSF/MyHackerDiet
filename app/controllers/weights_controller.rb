@@ -143,6 +143,7 @@ class WeightsController < ApplicationController
   # POST /weights.xml
   def create
     @weight = Weight.new(params[:weight])
+    graph_code()
 
     respond_to do |format|
       if @weight.save
@@ -167,6 +168,7 @@ class WeightsController < ApplicationController
     respond_to do |format|
       if @weight.update_attributes(params[:weight])
         flash[:notice] = 'Weight was successfully updated.'
+        graph_code()
         format.html { redirect_to(@weight) }
         format.xml  { head :ok }
       else
