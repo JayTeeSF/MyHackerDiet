@@ -13,12 +13,12 @@ class WeightsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
+        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
-        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
+        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
       format.csv do
@@ -143,7 +143,6 @@ class WeightsController < ApplicationController
   # POST /weights.xml
   def create
     @weight = Weight.new(params[:weight])
-    graph_code()
 
     respond_to do |format|
       if @weight.save
@@ -168,7 +167,6 @@ class WeightsController < ApplicationController
     respond_to do |format|
       if @weight.update_attributes(params[:weight])
         flash[:notice] = 'Weight was successfully updated.'
-        graph_code()
         format.html { redirect_to(@weight) }
         format.xml  { head :ok }
       else
