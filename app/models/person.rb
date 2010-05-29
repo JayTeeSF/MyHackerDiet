@@ -38,6 +38,13 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def age
+    age = Time.now.year - dob.year
+    age -= 1 if Time.now < dob
+
+    return age
+  end
+
   private
 
   def scrub_name

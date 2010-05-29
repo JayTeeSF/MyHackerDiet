@@ -9,65 +9,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100517181841) do
-
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0, :null => false
-    t.integer  "attempts",   :default => 0, :null => false
-    t.text     "handler",                   :null => false
-    t.text     "last_error",                :null => false
-    t.datetime "run_at",                    :null => false
-    t.datetime "locked_at",                 :null => false
-    t.datetime "failed_at",                 :null => false
-    t.string   "locked_by",                 :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority", :unique => true
+ActiveRecord::Schema.define(:version => 20100529143435) do
 
   create_table "eppas", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", :force => true do |t|
-    t.string   "name",                              :null => false
-    t.string   "salt",                              :null => false
-    t.string   "encrypted_password",                :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.integer  "age",                               :null => false
-    t.string   "sex",                :limit => nil, :null => false
-    t.integer  "height",                            :null => false
+    t.string   "name"
+    t.string   "salt"
+    t.string   "encrypted_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "sex"
+    t.integer  "height"
+    t.date     "dob"
   end
 
   create_table "sessions", :force => true do |t|
-    t.integer  "person_id",  :null => false
-    t.string   "ip_address", :null => false
-    t.string   "path",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "person_id"
+    t.string   "ip_address"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "steps", :force => true do |t|
-    t.date     "rec_date",   :null => false
-    t.integer  "steps",      :null => false
-    t.integer  "mod_steps",  :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "mod_min",    :null => false
-    t.integer  "person_id",  :null => false
+    t.date     "rec_date"
+    t.integer  "steps"
+    t.integer  "mod_steps"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "mod_min"
+    t.integer  "person_id"
   end
 
   create_table "weights", :force => true do |t|
-    t.date     "rec_date",                                  :null => false
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.integer  "person_id",                                 :null => false
-    t.decimal  "weight",     :precision => 12, :scale => 2, :null => false
-    t.decimal  "bodyfat",    :precision => 2,  :scale => 2, :null => false
-    t.decimal  "avg_weight", :precision => 12, :scale => 2, :null => false
+    t.date     "rec_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "person_id"
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 2,  :scale => 2
+    t.decimal  "avg_weight", :precision => 12, :scale => 2
   end
 
 end

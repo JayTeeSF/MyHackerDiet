@@ -14,8 +14,8 @@
     <td><%= f.password_field :password_confirmation %></td>
   </tr>
   <tr>
-    <td><label for="person_age">Age:</label>
-    <td><%= f.text_field :age %>
+    <td><label for="person_dob">Date of Birth:</label>
+      <td><%= f.date_select :dob, {:start_year => 1920} %>
   </tr>
   <tr>
     <td><label for="person_sex">Sex:</label>
