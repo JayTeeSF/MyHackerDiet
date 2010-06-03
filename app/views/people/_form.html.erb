@@ -14,17 +14,20 @@
     <td><%= f.password_field :password_confirmation %></td>
   </tr>
   <tr>
-    <td><label for="person_dob">Date of Birth:</label>
+    <td><label for="person_dob">Date of Birth:</label></td>
       <td><%= f.date_select :dob, {:start_year => 1920} %>
   </tr>
   <tr>
-    <td><label for="person_sex">Sex:</label>
+    <td><label for="person_sex">Sex:</label></td>
     <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
   </tr>
   <tr>
-    <td><label for="person_height">Height (inches):</label>
-    <td><%= f.text_field :height %>
+    <td><label for="person_height">Height (inches):</label></td>
+    <td><%= f.text_field :height %></td>
   </tr>
+  <tr>
+    <td><label for="withings_uid">Withings UID:</label></td>
+    <td><%= f.text_field :withings_uid %></td>
   <tr>
     <td colspan="2"><%= submit_tag "Submit" %></td>
   </tr>
