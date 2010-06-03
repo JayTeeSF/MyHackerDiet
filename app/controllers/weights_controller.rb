@@ -56,14 +56,18 @@ class WeightsController < ApplicationController
         weighted_weights.push(c.weight.round);
         if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
+        # Calculate the average no matter what in case something changed with
+        # recs before the threshold.
+        # TODO this can be more efficient
+        average = averageweight(weighted_weights)
+        c.avg_weight = average
+        c.save
+
         if c.rec_date.to_date >= 2.months.ago.to_date then
           # For each weight keep a running string for each of the lines (below average, average, above average)
           # our strings will each end with an extra comma, which will need to be chopped when appended to the full
           # google chart string
           weightDates  << '|' + c.rec_date.to_date.day.to_s
-          average = averageweight(weighted_weights)
-          c.avg_weight = average
-          c.save
           weightedDates << average.to_s + ','
           
           if c.weight < average then
