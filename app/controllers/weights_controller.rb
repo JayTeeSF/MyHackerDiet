@@ -26,11 +26,11 @@ class WeightsController < ApplicationController
 
         csv_string = CSV.generate do |csv|
           # header row
-          csv << ["rec_date", "weight"]
+          csv << ["rec_date", "weight", "avg_weight", "bodyfat"]
 
           #data rows
           @weights.each do |s|
-            csv << [s.rec_date, s.weight]
+            csv << [s.rec_date, s.weight, s.avg_weight, s.bodyfat]
           end
         end
 
@@ -202,7 +202,7 @@ class WeightsController < ApplicationController
         n=n+1
         GC.start if n%50==0
       end
-      flash.now[:message]="CSV Import Successful,  #{n} new records added to data base"
+      flash[:notice]="CSV Import Successful,  #{n} new records added to data base"
     end
     redirect_to :action=>"index"
   end
