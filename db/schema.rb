@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20100603163729) do
     t.integer  "height"
     t.date     "dob"
     t.integer  "withings_uid"
-    t.integer  "withings_publickey"
+    t.string   "withings_publickey"
   end
 
   create_table "sessions", :force => true do |t|
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(:version => 20100603163729) do
     t.decimal  "weight",     :precision => 12, :scale => 2
     t.decimal  "bodyfat",    :precision => 4,  :scale => 2
     t.decimal  "avg_weight", :precision => 12, :scale => 2
+  end
+
+  create_table "withings", :force => true do |t|
+    t.integer  "userid"
+    t.datetime "rec_date"
+    t.decimal  "weight"
+    t.decimal  "bodyfat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "withings_logs", :force => true do |t|
