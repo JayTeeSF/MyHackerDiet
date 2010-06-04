@@ -1,6 +1,6 @@
 class AddWithingsPublickey < ActiveRecord::Migration
   def self.up
-    add_column :people, :withings_publickey, :integer,
+    add_column :people, :withings_publickey, :string,
   end
 
   def self.down
