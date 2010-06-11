@@ -56,26 +56,19 @@ class WeightsController < ApplicationController
         weighted_weights.push(c.weight.round);
         if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
-        # Calculate the average no matter what in case something changed with
-        # recs before the threshold.
-        # TODO this can be more efficient
-        average = averageweight(weighted_weights)
-        c.avg_weight = average
-        c.save
-
         if c.rec_date.to_date >= 2.months.ago.to_date then
           # For each weight keep a running string for each of the lines (below average, average, above average)
           # our strings will each end with an extra comma, which will need to be chopped when appended to the full
           # google chart string
           weightDates  << '|' + c.rec_date.to_date.day.to_s
-          weightedDates << average.to_s + ','
+          weightedDates << c.avg_weight.to_s + ','
           
-          if c.weight < average then
+          if c.weight < c.avg_weight then
             weightValues_below << c.weight.to_s + ','
-            weightValues_above << average.to_s  + ','
+            weightValues_above << c.avg_weight.to_s  + ','
           else
             weightValues_above << c.weight.to_s + ','
-            weightValues_below << average.to_s + ','
+            weightValues_below << c.avg_weight.to_s + ','
           end
 
           # Set the minimum and maximum values for the chart
@@ -96,24 +89,7 @@ class WeightsController < ApplicationController
 
     return url
   end
-
-
-  def averageweight(weights)
-    total = 0
-
-    weights.each do |weight|
-      total += weight
-    end
-
-    total = total / weights.length
-    total = total * 100
-    total = total.round()
-
-    return total / 100;
-
-  end
-
-
+  #
   # GET /weights/1
   # GET /weights/1.xml
   def show
@@ -147,6 +123,7 @@ class WeightsController < ApplicationController
   # POST /weights.xml
   def create
     @weight = Weight.new(params[:weight])
+    @weight.avg_weight = @weight.calc_avg_weight
 
     respond_to do |format|
       if @weight.save

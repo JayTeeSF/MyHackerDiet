@@ -21,4 +21,29 @@ class Weight < ActiveRecord::Base
   def tdee
     return (rmr * 1.2).round(2)
   end
+
+  def calc_avg_weight
+    weights = Weight.find_all_by_person_id(person_id, :limit => 20, :order => 'rec_date DESC')   # get all the weights, not just this page
+    p weights
+    avg_weight  = 0
+
+    avg_weight = averageweight(weights)
+    return avg_weight
+  end
+
+
+  def averageweight(weights)
+    total = 0
+
+    weights.each do |weight|
+      total += weight.weight
+    end
+
+    total = total / weights.length
+    total = total * 100
+    total = total.round()
+
+    return total / 100;
+  end
+
 end
