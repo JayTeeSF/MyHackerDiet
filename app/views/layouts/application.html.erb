@@ -19,8 +19,8 @@
             <li><%= link_to "Home", "/" %></li>
             <% if @user %>
               <li><%= link_to "Edit Account", edit_person_path('account') %></li>
-              <li><%= link_to "Log Steps", '/steps/' %></li>
-              <li><%= link_to "Log Weights", '/weights/' %></li>
+              <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
+              <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
               <li><%= link_to "Logout", @application_session, :method => :delete %></li>
                 <% if mobile_device? %>
                   <li><%= link_to "Full Site", :mobile => 0 %></li>
