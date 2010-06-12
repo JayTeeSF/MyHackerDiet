@@ -123,7 +123,9 @@ class WeightsController < ApplicationController
   # POST /weights.xml
   def create
     @weight = Weight.new(params[:weight])
-    @weight.avg_weight = @weight.calc_avg_weight
+    @weight.calc_avg_weight
+
+
 
     respond_to do |format|
       if @weight.save
@@ -144,11 +146,19 @@ class WeightsController < ApplicationController
   # PUT /weights/1.xml
   def update
     @weight = Weight.find(params[:id])
+    @weight.calc_avg_weight
+
+    weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
+    p "WEIGHTS AFTER: #{weights_after.inspect}"
+    weights_after.each do |w|
+      w.calc_avg_weight
+      w.save
+    end
 
     respond_to do |format|
       if @weight.update_attributes(params[:weight])
         flash[:notice] = 'Weight was successfully updated.'
-        format.html { redirect_to(@weight) }
+        format.html { redirect_to(weights_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

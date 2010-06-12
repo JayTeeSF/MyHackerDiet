@@ -1,6 +1,6 @@
 class Weight < ActiveRecord::Base
   belongs_to :person
-
+  #before_save :calc_avg_weight
 
   def bmi
     begin
@@ -23,17 +23,16 @@ class Weight < ActiveRecord::Base
   end
 
   def calc_avg_weight
-    weights = Weight.find_all_by_person_id(person_id, :limit => 20, :order => 'rec_date DESC')   # get all the weights, not just this page
-    p weights
-    avg_weight  = 0
-
-    avg_weight = averageweight(weights)
-    return avg_weight
+    datapool = Weight.find_all_by_person_id(person_id, :limit => 20, :conditions => ["rec_date <= ?", rec_date], :order => 'rec_date DESC')
+    self[:avg_weight] = averageweight datapool
   end
 
+  private
 
   def averageweight(weights)
     total = 0
+
+    return 0 if weights.length == 0
 
     weights.each do |weight|
       total += weight.weight
