@@ -1,41 +1,63 @@
 <% form_for @person do |f| %>
 
   <table border="0">
-  <tr>
-    <td><label for="person_name">Name:</label></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td><label for="person_password">Password:</label></td>
-    <td><%= f.password_field :password %></td>
-  </tr>
-  <tr>
-    <td><label for="person_password_confirmation">Password Confirmation:</label></td>
-    <td><%= f.password_field :password_confirmation %></td>
-  </tr>
-  <tr>
-    <td><label for="person_dob">Date of Birth:</label></td>
-      <td><%= f.date_select :dob, {:start_year => 1920} %>
-  </tr>
-  <tr>
-    <td><label for="person_sex">Sex:</label></td>
-    <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
-  </tr>
-  <tr>
-    <td><label for="person_height">Height (inches):</label></td>
-    <td><%= f.text_field :height %></td>
-  </tr>
-  <tr>
-    <td><label for="withings_uid">Withings UID:</label></td>
-    <td><%= f.text_field :withings_uid %></td>
-  </tr>
-  <tr>
-    <td><label for="withings_publickey">Withings Publickey:</label></td>
-    <td><%= f.text_field :withings_publickey %></td>
-  </tr>
-  <tr>
-    <td colspan="2"><%= submit_tag "Submit" %></td>
-  </tr>
-  </table>
+    <tr><td>
+        <fieldset>
+          <legend>Login Credentials</legend>
+          <table border="0">
+            <tr>
+              <td><label for="person_name">Name:</label></td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td><label for="person_password">Password:</label></td>
+              <td><%= f.password_field :password %></td>
+            </tr>
+            <tr>
+              <td><label for="person_password_confirmation">Password Confirmation:</label></td>
+              <td><%= f.password_field :password_confirmation %></td>
+            </tr>
+          </table>
+        </fieldset>
 
-<% end %>
+        <fieldset>
+          <legend>General Health</legend>
+          <table border="0">
+            <tr>
+              <td><label for="person_dob">Date of Birth:</label></td>
+              <td><%= f.date_select :dob, {:start_year => 1920} %>
+              </tr>
+              <tr>
+                <td><label for="person_sex">Sex:</label></td>
+                <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
+              </tr>
+              <tr>
+                <td><label for="person_height">Height (inches):</label></td>
+                <td><%= f.text_field :height %></td>
+              </tr>
+            </table>
+          </fieldset>
+
+        </td>
+        <td valign="top">
+
+          <fieldset>
+            <legend><a href="http://withings.com">Withings</a> Account Information</legend>
+            <table border="0">
+              <tr>
+                <td><label for="withings_uid">Withings UID:</label></td>
+                <td><%= f.text_field :withings_uid %></td>
+              </tr>
+              <tr>
+                <td><label for="withings_publickey">Withings Publickey:</label></td>
+                <td><%= f.text_field :withings_publickey %></td>
+              </tr>
+            </table>
+          </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= submit_tag "Confirm Changes" %></td>
+      </tr>
+    </table>
+  <% end %>
