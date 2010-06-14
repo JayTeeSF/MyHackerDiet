@@ -13,11 +13,11 @@ class WeightsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @graph = graph_code()
+        @graph = graph_code( 2.months.ago, '800x300' )
         @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
-        @graph = graph_code()
+        @graph = graph_code( 7.days.ago, '800x300' )
         @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
@@ -40,7 +40,7 @@ class WeightsController < ApplicationController
   end
 
 
-  def graph_code
+  def graph_code( show_days, graph_size )
     weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
     weightValues_below = ''
@@ -56,7 +56,7 @@ class WeightsController < ApplicationController
         weighted_weights.push(c.weight.round);
         if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
 
-        if c.rec_date.to_date >= 2.months.ago.to_date then
+        if c.rec_date.to_date >= show_days.to_date then
           # For each weight keep a running string for each of the lines (below average, average, above average)
           # our strings will each end with an extra comma, which will need to be chopped when appended to the full
           # google chart string
@@ -81,8 +81,8 @@ class WeightsController < ApplicationController
     # minimum should be less than all the weights
     min = min - 1
 
-    manchart = 'http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
-    manchart_suffix = '&chco=4d89f9,c6d9fd&chds=' + min.to_s + ',' + max.to_s + '&chbh=20&chxt=x,y&chxl=1:|' + min.to_s + '|' + (max-((max-min)/2)).to_s + '|' + max.to_s + '|0:'
+    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+#{@user.name}&chs=#{graph_size}&chd=t:"
+    manchart_suffix = "&chco=4d89f9,c6d9fd&chds=#{min},#{max}&chbh=20&chxt=x,y&chxl=1:|#{min}|#{max-((max-min)/2)}|#{max}|0:"
     manchart_areafill = '&chm=b,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 
     url = manchart + weightValues_below.chop() + '|' + weightedDates.chop() + '|' + weightValues_above.chop() + manchart_suffix + weightDates + manchart_areafill
