@@ -1,0 +1,29 @@
+<fieldset>
+  <legend>Withings Communication Logs</legend>
+
+  <% if @logs.size == 0 then %>
+    --- no logs present ---
+
+  <% else %>
+    <table border="0">
+      <tr>
+        <th>ID</td>
+        <th>UserID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Withings Notification Time</th>
+      </tr>
+      <% @logs.each do |f| %>
+
+        <tr>
+          <td><%=h f.id %></td>
+          <td><%=h f.userid %></td>
+          <td><%=h f.sdate %></td>
+          <td><%=h f.edate %></td>
+          <td><%=h f.created_at %></td>
+        </tr>
+
+      <% end %>
+    </table>
+  <% end %>
+</fieldset>
