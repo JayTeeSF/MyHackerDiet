@@ -10,5 +10,10 @@ class WithingsController < ApplicationController
 
     @wlog.save
     Emailer.deliver_contact('jon@digital-drip.com', "MyHackerDiet Event for User #{@wlog.userid}", "#{@wlog.userid} - #{@wlog.sdate} -> #{@wlog.edate}")
+    
+    user = Person.find_by_withings_uid(@wlog.userid)
+    if user != nil then
+      Withings.get_withings_single_date(@wlog.userid, user.withings_publickey, @wlog.sdate.to_i, @wlog.edate.to_i)
+    end
   end
 end
