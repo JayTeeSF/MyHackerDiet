@@ -27,3 +27,37 @@
     </table>
   <% end %>
 </fieldset>
+
+
+
+<fieldset>
+  <legend>Withings Measurements</legend>
+
+  <% if @withings_logs.size == 0 then %>
+    --- no logs present ---
+
+  <% else %>
+    <table border="0">
+      <tr>
+        <th>ID</td>
+        <th>UserID</th>
+        <th>Recorded Date</th>
+        <th>Weight (lbs)</th>
+        <th>Bodyfat</th>
+        <th>Timestamp</th>
+      </tr>
+      <% @withings_logs.reverse.each do |f| %>
+
+        <tr>
+          <td><%=h f.id %></td>
+          <td><%=h f.userid %></td>
+          <td><%=h f.rec_date %></td>
+          <td><%=h f.weight %></td>
+          <td><%=h f.bodyfat %></td>
+          <td><%=h f.created_at %></td>
+        </tr>
+
+      <% end %>
+    </table>
+  <% end %>
+</fieldset>
