@@ -21,6 +21,7 @@
               <li><%= link_to "Edit Account", edit_person_path('account') %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
+              <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
               <li><%= link_to "Logout", @application_session, :method => :delete %></li>
                 <% if mobile_device? %>
                   <li><%= link_to "Full Site", :mobile => 0 %></li>
@@ -50,7 +51,7 @@
     </div>
     <div align="right" width="97%">
       <% if @user != nil %>
-        <%= @user.name %>
+        Current User: <%=link_to @user.name, edit_person_path('account') %>
       <% end %>
     </div>
 
