@@ -13,7 +13,11 @@ class WithingsController < ApplicationController
     
     user = Person.find_by_withings_uid(@wlog.userid)
     if user != nil then
-      Withings.get_withings_single_date(@wlog.userid, user.withings_publickey, @wlog.sdate.to_i, @wlog.edate.to_i)
+      Withings.get_withings_single_date(@wlog.userid, user.withings_publickey, @wlog.sdate, @wlog.edate)
     end
+  end
+
+  def import
+    Withings.import_withings(@user.withings_uid, @user.withings_publickey)
   end
 end
