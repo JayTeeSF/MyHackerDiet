@@ -125,8 +125,6 @@ class WeightsController < ApplicationController
     @weight = Weight.new(params[:weight])
     @weight.calc_avg_weight
 
-
-
     respond_to do |format|
       if @weight.save
         flash[:notice] = 'Weight was successfully created.'
