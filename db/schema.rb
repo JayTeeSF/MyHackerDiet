@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100603163729) do
+ActiveRecord::Schema.define(:version => 20100616003959) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20100603163729) do
   create_table "withings", :force => true do |t|
     t.integer  "userid"
     t.datetime "rec_date"
-    t.decimal  "weight"
-    t.decimal  "bodyfat"
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 12, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
