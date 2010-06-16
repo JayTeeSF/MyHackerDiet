@@ -21,7 +21,9 @@
               <li><%= link_to "Edit Account", edit_person_path('account') %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
-              <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
+              <% if @user.withings_uid && @user.withings_publickey %>
+                <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
+              <% end %>
               <li><%= link_to "Logout", @application_session, :method => :delete %></li>
                 <% if mobile_device? %>
                   <li><%= link_to "Full Site", :mobile => 0 %></li>
