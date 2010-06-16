@@ -43,7 +43,7 @@ class Withings < ActiveRecord::Base
 
     # Combine like-records
     recdates = data_points.collect { |p| p.rec_date }
-    recdates.each do |recdate|
+    recdates.reverse.each do |recdate|
     
       logs = Withings.find_all_by_rec_date(recdate)
 
@@ -60,18 +60,15 @@ class Withings < ActiveRecord::Base
     end
 
     recdates = Withings.find_all_by_userid(userid).collect{ |p| p.rec_date.to_date }
-    p "RECDATES IS: #{recdates.size}"
+
     # Insert weight records if they dont already exist
     recdates.each do |recdate|
-      p "Recdate is #{recdate}"
       weights = Weight.find(:all, :conditions => ["person_id = ? and rec_date = ?", 1, recdate], :order => 'rec_date ASC')
-      p "weights was: #{weights}"
 
-      #TODO average multiple rec_dates and remove outliers
+      #TODO remove outliers
       logged = Withings.find(:all, :conditions => ["rec_date between ? and ?", recdate, (recdate+1)])
 
       if weights.size == 0 && logged.size > 0 then
-        p "Finding average and inserting"
         avg_weight = Withings.average(:weight, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
         avg_bodyfat = Withings.average(:bodyfat, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
 
