@@ -43,7 +43,7 @@ class Withings < ActiveRecord::Base
 
     # Combine like-records
     recdates = data_points.collect { |p| p.rec_date }
-    recdates.reverse.each do |recdate|
+    recdates.each do |recdate|
     
       logs = Withings.find_all_by_rec_date(recdate)
 
