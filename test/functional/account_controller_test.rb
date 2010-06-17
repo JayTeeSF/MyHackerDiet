@@ -5,9 +5,9 @@ require 'account_controller'
 class AccountController; def rescue_action(e) raise e end; end
 
 class AccountControllerTest < Test::Unit::TestCase
-  self.use_instantiated_fixtures  = true
+  #self.use_instantiated_fixtures  = true
   
-  fixtures :users
+  #fixtures :users
   
   def setup
 
