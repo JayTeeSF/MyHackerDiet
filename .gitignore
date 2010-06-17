@@ -1,3 +1,2 @@
-log/development.log
-db/development.sqlite3
-log/newrelic_agent.log
+db/*.sqlite3
+log
