@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100616003959) do
+ActiveRecord::Schema.define(:version => 20100617171632) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20100616003959) do
     t.date     "dob"
     t.integer  "withings_uid"
     t.string   "withings_publickey"
+    t.string   "email"
   end
 
   create_table "sessions", :force => true do |t|
