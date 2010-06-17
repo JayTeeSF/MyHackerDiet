@@ -6,15 +6,15 @@
           <legend>Login Credentials</legend>
           <table border="0">
             <tr>
-              <td><label for="person_name">Name:</label></td>
+              <td><strong><label for="person_name">*Name:</label></strong></td>
               <td><%= f.text_field :name %></td>
             </tr>
             <tr>
-              <td><label for="person_password">Password:</label></td>
+              <td><strong><label for="person_password">*Password:</label></strong></td>
               <td><%= f.password_field :password %></td>
             </tr>
             <tr>
-              <td><label for="person_password_confirmation">Password Confirmation:</label></td>
+              <td><strong><label for="person_password_confirmation">*Password Confirmation:</label></strong></td>
               <td><%= f.password_field :password_confirmation %></td>
             </tr>
           </table>
@@ -24,15 +24,15 @@
           <legend>General Health</legend>
           <table border="0">
             <tr>
-              <td><label for="person_dob">Date of Birth:</label></td>
+              <td><strong><label for="person_dob">*Date of Birth:</label></strong></td>
               <td><%= f.date_select :dob, {:start_year => 1920} %>
               </tr>
               <tr>
-                <td><label for="person_sex">Sex:</label></td>
+                <td><strong><label for="person_sex">*Sex:</label></strong></td>
                 <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
               </tr>
               <tr>
-                <td><label for="person_height">Height (inches):</label></td>
+                <td><strong><label for="person_height">*Height (inches):</label></strong></td>
                 <td><%= f.text_field :height %></td>
               </tr>
             </table>
