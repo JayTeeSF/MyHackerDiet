@@ -1,11 +1,9 @@
-Hi!
+Hi <%=h @wlog.userid %>!<br /><br />
 
-We have been notified by Withings of a new scale event for user '<%= @withings_userid %>'
+Withings has contacted us with a new measurements record at <%=h @wlog.sdate %>.<br />
+Please see your <%= link_to 'Weights Log', weights_url %> to see how well you are doing!<br /><br />
 
-and following is the message:
-<%= @message %>
+Your Friends,<br />
 
-Thanks
-
---MyHackerDiet.com
+&nbsp;&nbsp;&nbsp;-- MyHackerDiet.com
 

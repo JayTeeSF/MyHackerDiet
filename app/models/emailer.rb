@@ -1,14 +1,15 @@
 class Emailer < ActionMailer::Base
 
-  def contact(recipient, subject, message, sent_at = Time.now)
+  def contact(recipient, wlog, subject, sent_at = Time.now)
+    @wlog = wlog
     @subject = subject
     @recipients = recipient
     @from = 'no-reply@digital-drip.com'
     @sent_on = sent_at
-    @body["title"] = 'MyHackerDiet.com Withings Event'
-    @body["email"] = 'jon@digital-drip.com'
-    @body["message"] = message
-    @headers = {}
+    @content_type = 'text/html'
+    @headers = { }
+
+    default_url_options[:host] = 'myhackerdiet.com'
   end
 
 
