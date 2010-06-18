@@ -147,7 +147,6 @@ class WeightsController < ApplicationController
     @weight.calc_avg_weight
 
     weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
-    p "WEIGHTS AFTER: #{weights_after.inspect}"
     weights_after.each do |w|
       w.calc_avg_weight
       w.save
@@ -187,7 +186,11 @@ class WeightsController < ApplicationController
       c.bodyfat=row[3]
       c.person_id = @user.id
 
-      if c.save
+      valid = true
+      valid=false if c.weight == nil || c.weight == 0
+      valid=false if c.bodyfat == nil || c.bodyfat == 0
+
+      if valid && c.save
         n=n+1
         GC.start if n%50==0
       end
