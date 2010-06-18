@@ -78,6 +78,7 @@ class Withings < ActiveRecord::Base
         w.weight = avg_weight.round(2)
         w.bodyfat = avg_bodyfat.round(2)
         w.calc_avg_weight
+        w.manual = false
         w.save
       end
     end

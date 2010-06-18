@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100617171632) do
+ActiveRecord::Schema.define(:version => 20100618091048) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20100617171632) do
     t.decimal  "weight",     :precision => 12, :scale => 2
     t.decimal  "bodyfat",    :precision => 4,  :scale => 2
     t.decimal  "avg_weight", :precision => 12, :scale => 2
+    t.boolean  "manual",                                    :default => true
   end
 
   create_table "withings", :force => true do |t|
