@@ -196,6 +196,15 @@ class WeightsController < ApplicationController
       end
       flash[:notice]="CSV Import Successful,  #{n} new records added to data base"
     end
+
+    # Recalculate the average weight
+    first_weight = Weight.find_by_person_id(@user.id, :order => 'created_at ASC')
+    weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
+    weights_after.each do |w|
+      w.calc_avg_weight
+      w.save
+    end
+
     redirect_to :action=>"index"
   end
 end
