@@ -18,7 +18,7 @@
                 <th>End Date</th>
                 <th>Withings Notification Time</th>
               </tr>
-              <% @logs.reverse.each do |f| %>
+              <% @logs.each do |f| %>
 
                 <tr>
                   <td><%=h f.id %></td>
@@ -50,7 +50,7 @@
                 <th>Bodyfat</th>
                 <th>Timestamp</th>
               </tr>
-              <% @withings_logs.reverse.each do |f| %>
+              <% @withings_logs.each do |f| %>
 
                 <tr>
                   <td><%=h f.id %></td>
