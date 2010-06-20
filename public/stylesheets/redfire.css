@@ -168,7 +168,7 @@ p { margin:15px 0; line-height: 24px; font-size: 95%}
 .content p {color: #fff; margin-top: 10px;}
 
 /* tabulky --------------------------------------------------------------------- */
-table { margin:15px 0; border: 1px solid #cdcdcd; border-collapse:collapse; border-spacing:0; font-size:100%;}
+table { margin:5px 0; border: 1px solid #cdcdcd; border-collapse:collapse; border-spacing:0; font-size:100%;}
 th { text-align:center; font-weight:bold; border: 1px solid #cdcdcd;}
 th, td { padding:4px 6px; border: 1px solid #cdcdcd;}
 tr.table-top {background: #e5e5e5; font-weight: bold;}
@@ -188,7 +188,7 @@ dt { font-weight:bold; }
 dd { margin-left:30px; }
 
 /* ostatni --------------------------------------------------------------------- */
-fieldset { margin:15px 0; padding:10px; border:1px solid #CCC; }
+fieldset { margin: 10px 0; padding:10px; border:1px solid #CCC; }
 legend { margin-left:10px; font-size:100%; font-weight:bold; color:#000; }
 abbr, acronym, .help { border-bottom:1px dotted #CCC; cursor:help; }
 blockquote { margin:15px 20px; font-style:italic; }
