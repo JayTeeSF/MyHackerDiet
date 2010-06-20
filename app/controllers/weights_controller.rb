@@ -144,6 +144,7 @@ class WeightsController < ApplicationController
   # PUT /weights/1.xml
   def update
     @weight = Weight.find(params[:id])
+    @weight.manual = 1
     @weight.calc_avg_weight
 
     weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')

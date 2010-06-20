@@ -18,12 +18,13 @@ class Withings < ActiveRecord::Base
 
     measures_full.measures.each do |measures|
       last_meas = measures.measures[0]
+
+      wipoint = Withings.new
+      wipoint.userid = userid
+
+      wipoint.rec_date = Time.at(measures.date)
+
       measures.measures.each do |last_meas|
-
-        wipoint = Withings.new
-        wipoint.userid = userid
-
-        wipoint.rec_date = Time.at(measures.date)
         type = last_meas['type'].to_i
         value = (last_meas['value'].to_i * (10 ** last_meas['unit'])).to_f
 
@@ -32,43 +33,42 @@ class Withings < ActiveRecord::Base
         elsif type == 1
           wipoint.weight = (value * 2.20462262).round(1)   # Convert kg to lb
         end
-
-        unless wipoint.weight == nil and wipoint.bodyfat == nil then
-          data_points << wipoint
-          wipoint.save
-        end
       end
-    end
 
-
-    # Combine like-records
-    recdates = data_points.collect { |p| p.rec_date }
-    recdates.each do |recdate|
-    
-      logs = Withings.find_all_by_rec_date(recdate)
-
-      if logs.size == 2 then
-        pa = logs[0]
-        pb = logs[1]
-
-        if pa.rec_date == pb.rec_date && pa.bodyfat == nil and pb.weight == nil and pb.bodyfat != nil then
-          pa.bodyfat = pb.bodyfat
-          pa.save!
-          pb.destroy
-        end
+      unless wipoint.weight == nil and wipoint.bodyfat == nil then
+        data_points << wipoint
+        wipoint.save
       end
     end
 
     recdates = Withings.find_all_by_userid(userid).collect{ |p| p.rec_date.to_date }
 
     # Insert weight records if they dont already exist
-    recdates.each do |recdate|
+    recdates.reverse.each do |recdate|
       weights = Weight.find(:all, :conditions => ["person_id = ? and rec_date = ?", 1, recdate], :order => 'rec_date ASC')
+      total_manual = 0
+
+      begin
+        if !weights || weights.size == 0 then
+          total_manual = 0
+        else
+          total_manual = weights.collect { |w| w.manual }
+        end
+      rescue
+        total_manual = 0
+      end
 
       #TODO remove outliers
       logged = Withings.find(:all, :conditions => ["rec_date between ? and ?", recdate, (recdate+1)])
 
-      if weights.size == 0 && logged.size > 0 then
+      if total_manual == 0 && logged.size > 0 then
+        logger.info "Averaging #{recdate} with #{logged.size} withings records"
+
+        # Remove the existing records and add a new [averaged] one
+        # This has the caveat of removing all records, so we assume
+        # that there should be just one.  No manual records are removed, however
+        weights.each do |w| w.destroy end
+
         avg_weight = Withings.average(:weight, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
         avg_bodyfat = Withings.average(:bodyfat, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
 
@@ -77,9 +77,9 @@ class Withings < ActiveRecord::Base
         w.person_id = 1
         w.weight = avg_weight.round(2)
         w.bodyfat = avg_bodyfat.round(2)
-        w.calc_avg_weight
         w.manual = false
         w.save
+        w.calc_avg_weight
       end
     end
 
