@@ -19,8 +19,13 @@ class PeopleController < ApplicationController
     if @person.save
       @session = @person.sessions.create
       session[:id] = @session.id
-      flash[:notice] = "Welcome #{@person.name}, you are now registered"
-      redirect_to(root_url)
+      flash[:notice] = "Welcome #{@person.name}, you are now registered!"
+
+      if params[:import_withings]
+        redirect_to :controller => :withings, :action => :import
+      else
+        redirect_to(root_url)
+      end
     else
       render(:action => 'new')
     end

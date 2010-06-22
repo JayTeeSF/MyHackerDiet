@@ -1,19 +1,19 @@
 class Withings < ActiveRecord::Base
 
-  def self.import_withings(userid, publickey)
-    m = WiScale.new(:userid => userid, :publickey => publickey).get_meas
-    parse_withings( userid, m )
+  def self.import_withings(uid, withings_userid, withings_publickey)
+    m = WiScale.new(:userid => withings_userid, :publickey => withings_publickey).get_meas
+    parse_withings( uid, withings_userid, m )
   end
 
-  def self.get_withings_single_date(userid, publickey, sdate, edate)
-    m = WiScale.new(:userid => userid, :publickey => publickey).get_meas(:startdate => sdate.to_i, :enddate => edate.to_i)
-    parse_withings( userid, m )
+  def self.get_withings_single_date(uid, withings_userid, withings_publickey, sdate, edate)
+    m = WiScale.new(:userid => withings_userid, :publickey => withings_publickey).get_meas(:startdate => sdate.to_i, :enddate => edate.to_i)
+    parse_withings( uid, withings_userid, m )
   end
 
 
   private
 
-  def self.parse_withings( userid, measures_full )
+  def self.parse_withings( uid, userid, measures_full )
     data_points = []
 
     measures_full.measures.each do |measures|
@@ -45,7 +45,7 @@ class Withings < ActiveRecord::Base
 
     # Insert weight records if they dont already exist
     recdates.reverse.each do |recdate|
-      weights = Weight.find(:all, :conditions => ["person_id = ? and rec_date = ?", 1, recdate], :order => 'rec_date ASC')
+      weights = Weight.find(:all, :conditions => ["person_id = ? and rec_date = ?", uid, recdate], :order => 'rec_date ASC')
       total_manual = 0
 
       begin
@@ -74,7 +74,7 @@ class Withings < ActiveRecord::Base
 
         w = Weight.new
         w.rec_date = recdate
-        w.person_id = 1
+        w.person_id = uid
         w.weight = avg_weight.round(2)
         w.bodyfat = avg_bodyfat.round(2)
         w.manual = false
