@@ -45,7 +45,7 @@ class Withings < ActiveRecord::Base
 
     # Insert weight records if they dont already exist
     recdates.reverse.each do |recdate|
-      weights = Weight.find(:all, :conditions => ["person_id = ? and rec_date = ?", uid, recdate], :order => 'rec_date ASC')
+      weights = Weight.find(:all, :conditions => ["user_id = ? and rec_date = ?", uid, recdate], :order => 'rec_date ASC')
       total_manual = 0
 
       begin
@@ -74,7 +74,7 @@ class Withings < ActiveRecord::Base
 
         w = Weight.new
         w.rec_date = recdate
-        w.person_id = uid
+        w.user_id = uid
         w.weight = avg_weight.round(2)
         w.bodyfat = avg_bodyfat.round(2)
         w.manual = false

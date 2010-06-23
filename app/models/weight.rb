@@ -1,5 +1,5 @@
 class Weight < ActiveRecord::Base
-  belongs_to :person
+  belongs_to :user
   #before_save :calc_avg_weight
 
   def bmi

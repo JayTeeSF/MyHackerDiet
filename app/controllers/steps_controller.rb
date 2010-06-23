@@ -12,16 +12,16 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @steps = Step.paginate_all_by_person_id(current_user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
+        @steps = Step.paginate_all_by_user_id(current_user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.mobile do
-        @steps = Step.paginate_all_by_person_id(current_user.id, :per_page => 5, :page => params[:page], :order => 'rec_date DESC')
+        @steps = Step.paginate_all_by_user_id(current_user.id, :per_page => 5, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.xml  { render :xml => @steps }
       format.csv do
-        @steps = Step.find(:all, :conditions => ["person_id = ?", current_user.id], :order => "rec_date");
+        @steps = Step.find(:all, :conditions => ["user_id = ?", current_user.id], :order => "rec_date");
         csv_string = CSV.generate do |csv|
           # header row
           csv << ["rec_date", "steps", "mod_steps", "mod_min"]
@@ -42,7 +42,7 @@ class StepsController < ApplicationController
     totalSteps = []
     modSteps = []
 
-    steps = Step.find(:all, :conditions => ["person_id = ?", current_user.id], :order => "rec_date DESC", :limit => 20);
+    steps = Step.find(:all, :conditions => ["user_id = ?", current_user.id], :order => "rec_date DESC", :limit => 20);
 
     steps.reverse.each do |c|
       c.steps = c.steps == nil ? 0 : c.steps
@@ -161,7 +161,7 @@ end
       c.steps=row[1]
       c.mod_steps=row[2]
       c.mod_min=row[3]
-      c.person_id = current_user.id
+      c.user_id = current_user.id
 
       if c.save
         n=n+1

@@ -11,15 +11,15 @@ class WeightsController < ApplicationController
     respond_to do |format|
       format.html do
         @graph = graph_code( 2.months.ago, '800x300' )
-        @weights = Weight.paginate_all_by_person_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+        @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
         @graph = graph_code( 7.days.ago, '800x300' )
-        @weights = Weight.paginate_all_by_person_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
+        @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
       format.csv do
-        @weights = Weight.find(:all, :conditions => ["person_id = ?", current_user.id])   # get all the weights, not just this page
+        @weights = Weight.find(:all, :conditions => ["user_id = ?", current_user.id])   # get all the weights, not just this page
 
         csv_string = CSV.generate do |csv|
           # header row
@@ -38,7 +38,7 @@ class WeightsController < ApplicationController
 
 
   def graph_code( show_days, graph_size )
-    weights = Weight.find(:all, :conditions => ["person_id = ?", current_user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
+    weights = Weight.find(:all, :conditions => ["user_id = ?", current_user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
     weightValues_below = ''
     weightValues_above = ''
@@ -144,7 +144,7 @@ class WeightsController < ApplicationController
     @weight.manual = 1
     @weight.calc_avg_weight
 
-    weights_after = Weight.find_all_by_person_id(current_user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
+    weights_after = Weight.find_all_by_user_id(current_user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
     weights_after.each do |w|
       w.calc_avg_weight
       w.save
@@ -182,7 +182,7 @@ class WeightsController < ApplicationController
       c.rec_date=row[0]
       c.weight=row[1]
       c.bodyfat=row[3]
-      c.person_id = current_user.id
+      c.user_id = current_user.id
 
       valid = true
       valid=false if c.weight == nil || c.weight == 0
@@ -196,8 +196,8 @@ class WeightsController < ApplicationController
     end
 
     # Recalculate the average weight
-    first_weight = Weight.find_by_person_id(current_user.id, :order => 'created_at ASC')
-    weights_after = Weight.find_all_by_person_id(current_user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
+    first_weight = Weight.find_by_user_id(current_user.id, :order => 'created_at ASC')
+    weights_after = Weight.find_all_by_user_id(current_user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
     weights_after.each do |w|
       w.calc_avg_weight
       w.save

@@ -1,3 +1,3 @@
 class Step < ActiveRecord::Base
-  has_one :person
+  belongs_to :user
 end

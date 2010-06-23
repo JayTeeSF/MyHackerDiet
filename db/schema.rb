@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100623003049) do
+ActiveRecord::Schema.define(:version => 20100623083857) do
 
   create_table "people", :force => true do |t|
     t.string   "name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20100623003049) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mod_min"
-    t.integer  "person_id"
+    t.integer  "user_id"
   end
 
   create_table "user_options", :force => true do |t|
@@ -82,11 +82,11 @@ ActiveRecord::Schema.define(:version => 20100623003049) do
     t.date     "rec_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id"
-    t.decimal  "weight",     :precision => 12, :scale => 2
-    t.decimal  "bodyfat",    :precision => 4,  :scale => 2
-    t.decimal  "avg_weight", :precision => 12, :scale => 2
-    t.boolean  "manual",                                    :default => true
+    t.integer  "user_id"
+    t.decimal  "weight"
+    t.decimal  "bodyfat"
+    t.decimal  "avg_weight"
+    t.boolean  "manual",     :default => true
   end
 
   create_table "withings", :force => true do |t|
