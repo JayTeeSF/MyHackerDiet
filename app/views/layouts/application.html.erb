@@ -21,7 +21,7 @@
               <li><%= link_to "Edit Account", edit_user_registration_path %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
-              <% if current_user.user_option.withings_userid && current_user.user_option.withings_publickey %>
+              <% if current_user.withings_userid && current_user.withings_publickey %>
                 <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
               <% end %>
               <li><%= link_to "Logout", destroy_user_session_path %></li>
@@ -54,6 +54,8 @@
     <div align="right" width="97%">
       <% if current_user %>
         Current User: <%=link_to current_user.email, edit_user_registration_path %>
+      <% else %>
+        <%= render :partial => "shared/devise_links" %>
       <% end %>
     </div>
 

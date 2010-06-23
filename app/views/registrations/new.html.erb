@@ -2,16 +2,66 @@
 
 <% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
   <%= f.error_messages %>
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
 
-  <p><%= f.label :password %></p>
-  <p><%= f.password_field :password %></p>
+  <table border="0" width="95%">
+    <tr valign="top"><td align="left">
+        <fieldset>
+          <legend>Login Credentials</legend>
+          <table border="0">
+            <tr>
+              <td><strong><label for="email">*Email Address:</label></strong></td>
+              <td><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+              <td><strong><label for="person_password">*Password:</label></strong></td>
+              <td><%= f.password_field :password %></td>
+            </tr>
+            <tr>
+              <td><strong><label for="person_password_confirmation">*Password Confirmation:</label></strong></td>
+              <td><%= f.password_field :password_confirmation %></td>
+            </tr>
+          </table>
+        </fieldset>
 
-  <p><%= f.label :password_confirmation %></p>
-  <p><%= f.password_field :password_confirmation %></p>
+      <fieldset>
+        <legend>General Health</legend>
+        <table border="0">
+            <tr>
+              <td><strong><label for="person_dob">*Date of Birth:</label></strong></td>
+              <td><%= f.date_select :dob, {:start_year => 1920} %>
+              </tr>
+              <tr>
+                <td><strong><label for="person_sex">*Sex:</label></strong></td>
+                <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
+              </tr>
+              <tr>
+                <td><strong><label for="person_height">*Height (inches):</label></strong></td>
+                <td><%= f.text_field :height %></td>
+              </tr>
+            </table>
+        </fieldset>
 
-  <p><%= f.submit "Sign up" %></p>
-<% end -%>
 
-<%= render :partial => "shared/devise_links" %>
+      </td>
+      <td align="left">
+        <fieldset>
+          <legend><a href="http://withings.com">Withings</a> Wifi Scale</a></legend>
+
+        <table border="0">
+            <tr>
+              <td><label for="withings_userid"> Userid</td>
+                <td></label> <%= f.text_field :withings_userid %></td>
+            </tr>
+            <tr>
+              <td><label for="withings_publickey">Publickey</label></td>
+              <td><%= f.text_field :withings_publickey %></td>
+            </tr>
+        </table>
+      </fieldset>
+    </td>
+  </tr>
+  <tr colspan="2">
+    <td align="center" colspan="2"><%= f.submit "Sign Up!" %></td>
+  </tr>
+</table>
+<% end %>

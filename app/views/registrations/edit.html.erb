@@ -13,64 +13,59 @@
               <td><%= f.text_field :email %></td>
             </tr>
             <tr>
-              <td><strong><label for="person_password">*Password:</label></strong></td>
+              <td><strong><label for="password">*Password:</label></strong></td>
               <td><%= f.password_field :password %></td>
             </tr>
             <tr>
-              <td><strong><label for="person_password_confirmation">*Password Confirmation:</label></strong></td>
+              <td><strong><label for="password_confirmation">*Password Confirmation:</label></strong></td>
               <td><%= f.password_field :password_confirmation %></td>
+            </tr>
+            <tr>
+              <td><label for="current_password"><strong>*Current Password</strong> <i>(to confirm its you!)</i>:</label></td>
+              <td><%= f.password_field :current_password %></td>
             </tr>
           </table>
         </fieldset>
-      <% end %>
 
-      <fieldset>
-        <legend>General Health</legend>
-        <table border="0">
-          <% form_for current_user.user_option do |f| %>
+        <fieldset>
+          <legend>General Health</legend>
+          <table border="0">
             <tr>
-              <td><strong><label for="person_dob">*Date of Birth:</label></strong></td>
+              <td><strong><label for="dob">*Date of Birth:</label></strong></td>
               <td><%= f.date_select :dob, {:start_year => 1920} %>
               </tr>
               <tr>
-                <td><strong><label for="person_sex">*Sex:</label></strong></td>
+                <td><strong><label for="sex">*Sex:</label></strong></td>
                 <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
               </tr>
               <tr>
-                <td><strong><label for="person_height">*Height (inches):</label></strong></td>
+                <td><strong><label for="height">*Height (inches):</label></strong></td>
                 <td><%= f.text_field :height %></td>
               </tr>
-              <tr>
-                <td colspan="2">
-                  <%= f.submit 'Update' %>
-                </td>
-              </tr>
             </table>
-          <% end %>
-        </fieldset>
+          </fieldset>
 
 
-      </td>
-      <td align="left">
-        <fieldset>
-          <legend><a href="http://withings.com">Withings</a> Wifi Scale</a></legend>
+        </td>
+        <td align="left">
+          <fieldset>
+            <legend><a href="http://withings.com">Withings</a> Wifi Scale</a></legend>
 
-        <table border="0">
-          <% form_for current_user.user_option do |f| %>
+          <table border="0">
             <tr>
               <td><label for="withings_userid"> Userid</td>
-              <td></label> <%= f.text_field :withings_userid %></td>
-          </tr>
-          <tr>
+                <td></label> <%= f.text_field :withings_userid %></td>
+            </tr>
+            <tr>
               <td><label for="withings_publickey">Publickey</label></td>
               <td><%= f.text_field :withings_publickey %></td>
             </tr>
-            <tr>
-              <td colspan="2"><%= f.submit "Update" %></td>
-            </tr>
-            <% end %>
           </table>
-          </fieldset>
-        </td>
-      </tr>
-    </table>
+        </fieldset>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><%= f.submit "Update" %></td>
+    </tr>
+  </table>
+<% end %>
