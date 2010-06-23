@@ -52,8 +52,8 @@
       <% end %>
     </div>
     <div align="right" width="97%">
-      <% if @user != nil %>
-        Current User:
+      <% if current_user %>
+        Current User: <%=link_to current_user.email, edit_user_registration_path %>
       <% end %>
     </div>
 
