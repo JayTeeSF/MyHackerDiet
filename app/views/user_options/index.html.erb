@@ -1,0 +1,32 @@
+<h1>Listing user_options</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Dob</th>
+    <th>Height</th>
+    <th>Sex</th>
+    <th>Withings userid</th>
+    <th>Withings publickey</th>
+  </tr>
+
+<% @user_options.each do |user_option| %>
+  <tr>
+    <td><%=h user_option.user_id %></td>
+    <td><%=h user_option.name %></td>
+    <td><%=h user_option.dob %></td>
+    <td><%=h user_option.height %></td>
+    <td><%=h user_option.sex %></td>
+    <td><%=h user_option.withings_userid %></td>
+    <td><%=h user_option.withings_publickey %></td>
+    <td><%= link_to 'Show', user_option %></td>
+    <td><%= link_to 'Edit', edit_user_option_path(user_option) %></td>
+    <td><%= link_to 'Destroy', user_option, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user_option', new_user_option_path %>

@@ -4,24 +4,24 @@ class StepsController < ApplicationController
   # GET /steps
   # GET /steps.xml
   # GET /steps.csv
-    before_filter :maintain_session_and_user
-    before_filter :ensure_login
+  before_filter :authenticate_user!
+
   def index
     @step = Step.new
 
 
     respond_to do |format|
       format.html do
-        @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
+        @steps = Step.paginate_all_by_person_id(current_user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.mobile do
-        @steps = Step.paginate_all_by_person_id(@user.id, :per_page => 5, :page => params[:page], :order => 'rec_date DESC')
+        @steps = Step.paginate_all_by_person_id(current_user.id, :per_page => 5, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.xml  { render :xml => @steps }
       format.csv do
-        @steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date");
+        @steps = Step.find(:all, :conditions => ["person_id = ?", current_user.id], :order => "rec_date");
         csv_string = CSV.generate do |csv|
           # header row
           csv << ["rec_date", "steps", "mod_steps", "mod_min"]
@@ -42,7 +42,7 @@ class StepsController < ApplicationController
     totalSteps = []
     modSteps = []
 
-    steps = Step.find(:all, :conditions => ["person_id = ?", @user.id], :order => "rec_date DESC", :limit => 20);
+    steps = Step.find(:all, :conditions => ["person_id = ?", current_user.id], :order => "rec_date DESC", :limit => 20);
 
     steps.reverse.each do |c|
       c.steps = c.steps == nil ? 0 : c.steps
@@ -53,7 +53,7 @@ class StepsController < ApplicationController
       modSteps << c.mod_steps
     end
 
-    manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=MyHackerDiet.com+Step+Chart+for+' + @user.name + '&chs=800x300&chd=t:'
+    manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=MyHackerDiet.com+Step+Chart+for+' + current_user.email + '&chs=800x300&chd=t:'
     manchart_suffix = '&chco=4d89f9,c6d9fd&chds=0,20000&chbh=20&chxt=x,y&chm=r,000000,0,0.498,0.501&chxl=1:|0|5k|10k|15k|20k|0:'
 
     dates = ''
@@ -161,7 +161,7 @@ end
       c.steps=row[1]
       c.mod_steps=row[2]
       c.mod_min=row[3]
-      c.person_id = @user.id
+      c.person_id = current_user.id
 
       if c.save
         n=n+1

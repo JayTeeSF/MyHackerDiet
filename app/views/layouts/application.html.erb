@@ -17,20 +17,20 @@
         <div id="navigation">
           <ul>
             <li><%= link_to "Home", "/" %></li>
-            <% if @user %>
-              <li><%= link_to "Edit Account", edit_person_path('account') %></li>
+            <% if current_user %>
+              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
-              <% if @user.withings_uid && @user.withings_publickey %>
+              <% if current_user.user_option.withings_userid && current_user.user_option.withings_publickey %>
                 <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
               <% end %>
-              <li><%= link_to "Logout", @application_session, :method => :delete %></li>
-                <% if mobile_device? %>
-                  <li><%= link_to "Full Site", :mobile => 0 %></li>
-                <% end %>
+              <li><%= link_to "Logout", destroy_user_session_path %></li>
+              <% if mobile_device? %>
+                <li><%= link_to "Full Site", :mobile => 0 %></li>
+              <% end %>
             <% else %>
-              <li><%= link_to "Login", new_session_path %></li>
-              <li><%= link_to "Register", new_person_path %></li>
+              <li><%= link_to "Sign in", user_session_path %></li>
+              <li><%= link_to 'Register', new_user_registration_path %></li>
             <% end %>
           </ul>
           <hr class="noscreen" />
@@ -53,7 +53,7 @@
     </div>
     <div align="right" width="97%">
       <% if @user != nil %>
-        Current User: <%=link_to @user.name, edit_person_path('account') %>
+        Current User:
       <% end %>
     </div>
 

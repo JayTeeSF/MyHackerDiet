@@ -3,26 +3,23 @@ require 'csv'
 class WeightsController < ApplicationController
   # GET /weights
   # GET /weights.xml
-  before_filter :maintain_session_and_user
-  before_filter :ensure_login
-
+  before_filter :authenticate_user!
 
   def index
     @weight = Weight.new # new empty weight if user wants to create a new record
-    
 
     respond_to do |format|
       format.html do
         @graph = graph_code( 2.months.ago, '800x300' )
-        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+        @weights = Weight.paginate_all_by_person_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
         @graph = graph_code( 7.days.ago, '800x300' )
-        @weights = Weight.paginate_all_by_person_id(@user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
+        @weights = Weight.paginate_all_by_person_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
       format.csv do
-        @weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id])   # get all the weights, not just this page
+        @weights = Weight.find(:all, :conditions => ["person_id = ?", current_user.id])   # get all the weights, not just this page
 
         csv_string = CSV.generate do |csv|
           # header row
@@ -41,7 +38,7 @@ class WeightsController < ApplicationController
 
 
   def graph_code( show_days, graph_size )
-    weights = Weight.find(:all, :conditions => ["person_id = ?", @user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
+    weights = Weight.find(:all, :conditions => ["person_id = ?", current_user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
     weightValues_below = ''
     weightValues_above = ''
@@ -81,7 +78,7 @@ class WeightsController < ApplicationController
     # minimum should be less than all the weights
     min = min - 1
 
-    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+#{@user.name}&chs=#{graph_size}&chd=t:"
+    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+#{current_user.email}&chs=#{graph_size}&chd=t:"
     manchart_suffix = "&chco=4d89f9,c6d9fd&chds=#{min},#{max}&chbh=20&chxt=x,y&chxl=1:|#{min}|#{max-((max-min)/2)}|#{max}|0:"
     manchart_areafill = '&chm=b,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 
@@ -147,7 +144,7 @@ class WeightsController < ApplicationController
     @weight.manual = 1
     @weight.calc_avg_weight
 
-    weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
+    weights_after = Weight.find_all_by_person_id(current_user.id, :conditions => ["rec_date > ?", @weight.rec_date], :order => 'rec_date ASC')
     weights_after.each do |w|
       w.calc_avg_weight
       w.save
@@ -185,7 +182,7 @@ class WeightsController < ApplicationController
       c.rec_date=row[0]
       c.weight=row[1]
       c.bodyfat=row[3]
-      c.person_id = @user.id
+      c.person_id = current_user.id
 
       valid = true
       valid=false if c.weight == nil || c.weight == 0
@@ -199,8 +196,8 @@ class WeightsController < ApplicationController
     end
 
     # Recalculate the average weight
-    first_weight = Weight.find_by_person_id(@user.id, :order => 'created_at ASC')
-    weights_after = Weight.find_all_by_person_id(@user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
+    first_weight = Weight.find_by_person_id(current_user.id, :order => 'created_at ASC')
+    weights_after = Weight.find_all_by_person_id(current_user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
     weights_after.each do |w|
       w.calc_avg_weight
       w.save

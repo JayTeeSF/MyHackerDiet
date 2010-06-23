@@ -16,7 +16,7 @@
 
       <% form_for(@step) do |f| %>
         <tr>
-          <%= f.hidden_field :person_id, :value => @user.id %>
+          <%= f.hidden_field :person_id, :value => current_user.id %>
           <td>&nbsp;</td>
           <td><%= select :step, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>(Date.today-1).to_s %></td>
           <td><%= f.text_field :steps, :size=>5 %></td>
