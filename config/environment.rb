@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "aws-s3", :lib => 'aws/s3'
   config.gem "wiscale", :lib => 'wiscale'
   config.gem "warden", :version => "0.10.7"
-  config.gem "devise", :version => "1.0.7"
+  config.gem "devise", :version => "1.0.8"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
