@@ -69,15 +69,13 @@
         <table>
           <% if Withings.authorized?(current_user.withings_userid, current_user.withings_publickey) %>
           <tr>
-            <td>Import Withings Data</td>
+            <td>Withings WiFi Scale</td>
             <td><%= link_to 'Import All Data', '/withings/import' %></td>
           </tr>
           <% end %>
           <tr>
             <td>
-              <label for="dump_file">
-                Select a CSV File :
-              </label>
+              <label for="dump_file">Select a CSV File</label>
             </td>
             <td >
               <%= f.file_field :file -%>
