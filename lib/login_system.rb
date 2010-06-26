@@ -28,7 +28,11 @@ module LoginSystem
   #    end
   #  end
   def protect?(action)
-    true
+    if ['ation', 'static'].include?(action)
+      return false
+    else
+      return true
+    end
   end
    
   # login_required filter. add 

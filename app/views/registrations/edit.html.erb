@@ -13,16 +13,20 @@
               <td><%= f.text_field :email %></td>
             </tr>
             <tr>
-              <td><strong><label for="password">*Password:</label></strong></td>
+              <td><label for="current_password"><strong>*Current Password</strong> <i>(to confirm its you!)</i>:</label></td>
+              <td><%= f.password_field :current_password %></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td><strong><label for="password">*New Password:</label></strong></td>
               <td><%= f.password_field :password %></td>
             </tr>
             <tr>
-              <td><strong><label for="password_confirmation">*Password Confirmation:</label></strong></td>
+              <td><strong><label for="password_confirmation">*Confirm New Password:</label></strong></td>
               <td><%= f.password_field :password_confirmation %></td>
-            </tr>
-            <tr>
-              <td><label for="current_password"><strong>*Current Password</strong> <i>(to confirm its you!)</i>:</label></td>
-              <td><%= f.password_field :current_password %></td>
             </tr>
           </table>
         </fieldset>

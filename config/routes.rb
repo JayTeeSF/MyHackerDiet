@@ -1,14 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :user_options
-
   map.devise_for :users
-
-  map.root :controller => "static", :action => "home"
 
   map.resources :sessions  
   map.resources :weights
   map.resources :steps
-  
   map.resources :withings_log
 
   map.import_weight_csv '/importWeight', :controller => 'weights', :action => 'csv_import'
@@ -18,7 +13,13 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.with_options :controller => 'static' do |static|
-    static.about 'about', :action => 'about'
+    static.home  '', :action => 'home'
+    static.about '', :action => 'about'
   end
+
+  map.root :controller => "static", :action => "home"
+
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
 
 end
