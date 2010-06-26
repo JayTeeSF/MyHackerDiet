@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :dob, :height, :sex, :withings_userid, :withings_publickey
 
   has_one :user_option
+
+  def age
+    age = Date.today.year - dob.year
+    age -= 1 if Date.today < dob + age.years
+
+    return age
+  end
 end
