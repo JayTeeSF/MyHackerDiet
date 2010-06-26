@@ -1,5 +1,14 @@
 class Withings < ActiveRecord::Base
 
+  def self.authorized?(withings_userid, withings_publickey)
+    m = WiScale.new(:userid => withings_userid, :publickey => withings_publickey)
+
+    return false if withings_userid == nil || withings_publickey == nil
+    return false if withings_userid == "" || withings_publickey == ""
+    return false if m.get_by_userid.class == Fixnum
+    return true
+  end
+
   def self.import_withings(uid, withings_userid, withings_publickey)
     m = WiScale.new(:userid => withings_userid, :publickey => withings_publickey).get_meas
     parse_withings( uid, withings_userid, m )

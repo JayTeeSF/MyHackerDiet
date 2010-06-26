@@ -23,7 +23,7 @@ class Weight < ActiveRecord::Base
   end
 
   def calc_avg_weight
-    datapool = Weight.find_all_by_person_id(person_id, :limit => 20, :conditions => ["rec_date <= ?", rec_date], :order => 'rec_date DESC')
+    datapool = Weight.find_all_by_user_id(user_id, :limit => 20, :conditions => ["rec_date <= ?", rec_date], :order => 'rec_date DESC')
     self[:avg_weight] = averageweight datapool
     self.save
   end

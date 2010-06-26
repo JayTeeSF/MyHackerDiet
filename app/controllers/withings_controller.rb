@@ -10,7 +10,7 @@ class WithingsController < ApplicationController
 
     @wlog.save
     
-    user = Person.find_by_withings_uid(@wlog.userid)
+    user = Person.find_by_withings_userid(@wlog.userid)
     email_user = 'jon@digital-drip.com'
 
     if user != nil then
@@ -22,13 +22,13 @@ class WithingsController < ApplicationController
   end
 
   def import
-    if @user.withings_uid == nil || @user.withings_uid == '' || @user.withings_publickey == nil || @user.withings_publickey == ''
+    if current_user.withings_userid == nil || current_user.withings_userid == '' || current_user.withings_publickey == nil || current_user.withings_publickey == ''
       flash[:notice] = 'You have not specified your Withings UID and Publickey.'
       redirect_to root_url
     else
-      Withings.import_withings(@user.id, @user.withings_uid, @user.withings_publickey)
+      Withings.import_withings(current_user.id, current_user.withings_userid, current_user.withings_publickey)
       flash[:info] = 'Withings measurements successfully imported'
-      redirect_to(root_url)
+      redirect_to(weights_url)
     end
   end
 end

@@ -63,8 +63,16 @@
 
         <br /><br />
 
+        <fieldset>
+          <legend>Import Data</legend>
         <% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
         <table>
+          <% if Withings.authorized?(current_user.withings_userid, current_user.withings_publickey) %>
+          <tr>
+            <td>Import Withings Data</td>
+            <td><%= link_to 'Import All Data', '/withings/import' %></td>
+          </tr>
+          <% end %>
           <tr>
             <td>
               <label for="dump_file">
@@ -82,9 +90,7 @@
           </tr>
         </table>
       <% end -%>
-    </td>
-    <td>
-      <img src="<%= @threeMonth_graph.to_s %>" />
+    </fieldset>
     </td>
   </tr>
 </table>
