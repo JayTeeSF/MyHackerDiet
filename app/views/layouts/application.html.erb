@@ -45,8 +45,15 @@
       <% end %>
       <% if flash[:warn] %>
         <center>
-          <div id="message">
+          <div id="warn">
             <%= "- #{flash[:warn]}" %>
+          </div>
+        </center>
+      <% end %>
+      <% if flash[:alert] %>
+        <center>
+          <div id="alert">
+            <%= "- #{flash[:alert]}" %>
           </div>
         </center>
       <% end %>

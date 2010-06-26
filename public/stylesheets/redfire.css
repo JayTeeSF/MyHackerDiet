@@ -68,6 +68,20 @@ h5 { font-size:100%; }
         text-align: center;
       }
 
+      #warn{
+        position: relative;
+        width: 75%;
+        background-color: lightyellow;
+        text-align: center;
+      }
+
+      #alert{
+        position: relative;
+        width: 75%;
+        background-color: pink;
+        text-align: center;
+      }
+
       #navigation{
         position: absolute;
         left: 270px;
