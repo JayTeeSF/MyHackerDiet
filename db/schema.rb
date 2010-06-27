@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100626183615) do
-
-  create_table "sessions", :force => true do |t|
-    t.integer  "person_id"
-    t.string   "ip_address"
-    t.string   "path"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20100623085311) do
 
   create_table "steps", :force => true do |t|
     t.date     "rec_date"
