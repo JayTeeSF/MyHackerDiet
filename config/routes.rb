@@ -11,7 +11,6 @@ ActionController::Routing::Routes.draw do |map|
   map.withings '/withings', :controller => 'withings', :action => 'log'
   map.withings_import '/withings/import', :controller => 'withings', :action => 'import'
 
-
   map.with_options :controller => 'static' do |static|
     static.home  '', :action => 'home'
     static.about '', :action => 'about'

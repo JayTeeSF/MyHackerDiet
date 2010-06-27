@@ -1,7 +1,7 @@
 <% title "Log Weight" %>
 
 <% form_for @weight do |f| %>
-  <%= f.hidden_field :person_id, :value=>@user.id %>
+  <%= f.hidden_field :person_id, :value=>current_user.id %>
     <ul class="rounded">
       <li><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :size=>20, :selected=>Date.today.to_s %></li>
       <li><%= f.text_field :weight,  :placeholder => 'Enter Your Weight' %></li>
