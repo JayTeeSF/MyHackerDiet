@@ -10,7 +10,7 @@ class WithingsController < ApplicationController
 
     @wlog.save
     
-    user = Person.find_by_withings_userid(@wlog.userid)
+    user = User.find_by_withings_userid(@wlog.userid)
     email_user = 'jon@digital-drip.com'
 
     if user != nil then
