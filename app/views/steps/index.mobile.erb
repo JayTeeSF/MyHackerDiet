@@ -1,7 +1,7 @@
 <% title "Log Steps" %>
 
 <% form_for @step do |f| %>
-  <%= f.hidden_field :person_id, :value=>@user.id %>
+  <%= f.hidden_field :user_id, :value=>@user.id %>
     <ul class="rounded">
       <li><%= select :step, :rec_date, date_menu_items(Date.today-31, Date.today+1), :size=>20, :selected=>(Date.today-1).to_s %></li>
       <li><%= f.text_field :steps,  :placeholder => 'Enter Total Steps Taken' %></li>
