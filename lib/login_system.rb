@@ -28,7 +28,7 @@ module LoginSystem
   #    end
   #  end
   def protect?(action)
-    if ['ation', 'static'].include?(action)
+    if ['action', 'static', 'withings'].include?(action)
       return false
     else
       return true
