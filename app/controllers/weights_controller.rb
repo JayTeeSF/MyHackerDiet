@@ -8,6 +8,8 @@ class WeightsController < ApplicationController
   def index
     @weight = Weight.new # new empty weight if user wants to create a new record
 
+    fail 'ahhhh!'
+
     respond_to do |format|
       format.html do
         @graph = graph_code( 2.months.ago, '800x300' )
