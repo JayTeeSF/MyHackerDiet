@@ -1,0 +1,65 @@
+
+<div align="left">
+  <h1>Welcome Back!</h1>
+  It has been <%= "#{@last_weighin_days} day".pluralize %> since your last weigh-in.
+
+  <center>
+  <table border='0'>
+    <tr>
+      <td>
+        <fieldset>
+          <legend>Current Weight</legend>
+          <center>
+            <% if @current_diff < 0 %>
+              <font style="color: green;">
+                <h1><%= @current_weight.avg_weight %></h1>
+                <%= @current_diff %> decrease
+              </font>
+            <% else %>
+              <font style="color: red;">
+                <h1><%= @current_weight.avg_weight %></h1>
+                <%= @current_diff %> increase
+              </font>
+            <% end %>
+          </center>
+        </fieldset>
+      </td>
+      <td>
+        <fieldset>
+          <legend>Steps 7 days</legend>
+          <center>
+            <% if @steps_7_days >= 10000 %>
+              <font style="color: green;"><h1><%= @steps_7_days %></h1></font>
+            <% elsif @steps_7_days >= 5000 %>
+              <font style="color: yellow;"><h1><%= @steps_7_days %></h1></font>
+            <% else %>
+              <font style="color: red;"><h1><%= @steps_7_days %></h1></font>
+            <% end %>
+            10,000 par
+          </center>
+        </fieldset>
+      </td>
+      <td>
+        <fieldset>
+          <legend>Steps per month</legend>
+          <table border='0'>
+            <tr>
+              <th>Month</th>
+              <th>Total Steps</th>
+              <th>Total Mod Steps</th>
+            </tr>
+          <% @steps_months.each do |step| %>
+            <tr>
+              <td><%= step['month'] %></td>
+              <td><%= step['steps'] %></td>
+              <td><%= step['mod_steps'] %></td>
+            </tr>
+          <% end %>
+        </table>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+</center>
+
+</div>
