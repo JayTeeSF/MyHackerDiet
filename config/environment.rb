@@ -51,3 +51,6 @@ ActionMailer::Base.sendmail_settings = {
     :location       => '/usr/sbin/sendmail', 
     :arguments      => '-i -t'
 } 
+
+ExceptionNotifier.exception_recipients = %w(jon@digital-drip.com)
+ExceptionNotifier.sender_address = %("MHD Error" <no-reply@digital-drip.com>)
