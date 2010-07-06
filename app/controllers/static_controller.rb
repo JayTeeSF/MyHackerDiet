@@ -12,7 +12,7 @@ class StaticController < ApplicationController
 
       @steps_7_days = Step.average(:steps, :conditions => ['user_id = ?', current_user.id], :limit => 7, :order => 'rec_date DESC')
 
-      steps_months_sql = 'select strftime("%m", rec_date) as month, sum(steps) as steps, sum(mod_steps) as mod_steps from steps group by strftime("%m", rec_date) limit 365'
+      steps_months_sql = 'select month(rec_date) as month, sum(steps) as steps, sum(mod_steps) as mod_steps from steps group by month(rec_date) limit 365'
       @steps_months = ActiveRecord::Base.connection.execute(steps_months_sql)
 
       render :home_user
