@@ -44,15 +44,19 @@
           <legend>Steps per month</legend>
           <table border='0'>
             <tr>
+              <th>Year</th>
               <th>Month</th>
               <th>Total Steps</th>
               <th>Total Mod Steps</th>
+              <th>Total Mod Min</th>
             </tr>
           <% @steps_months.each do |step| %>
-            <tr>
+            <tr align="right">
+              <td><%= step['year'] %></td>
               <td><%= step['month'] %></td>
               <td><%= step['steps'] %></td>
               <td><%= step['mod_steps'] %></td>
+              <td><%= step['mod_min'] %></td>
             </tr>
           <% end %>
         </table>
