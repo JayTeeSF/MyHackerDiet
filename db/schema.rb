@@ -54,17 +54,17 @@ ActiveRecord::Schema.define(:version => 20100623085311) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.decimal  "weight"
-    t.decimal  "bodyfat"
-    t.decimal  "avg_weight"
-    t.boolean  "manual",     :default => true
+    t.decimal  "weight",     :precision => 5, :scale => 2
+    t.decimal  "bodyfat",    :precision => 5, :scale => 2
+    t.decimal  "avg_weight", :precision => 5, :scale => 2
+    t.boolean  "manual",                                                  :default => true
   end
 
   create_table "withings", :force => true do |t|
     t.integer  "userid"
     t.datetime "rec_date"
-    t.decimal  "weight",     :precision => 12, :scale => 2
-    t.decimal  "bodyfat",    :precision => 12, :scale => 2
+    t.decimal  "weight",     :precision => 5, :scale => 2
+    t.decimal  "bodyfat",    :precision => 5, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
