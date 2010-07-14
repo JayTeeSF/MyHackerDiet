@@ -53,8 +53,26 @@
                 <td></label> <%= f.text_field :withings_userid %></td>
             </tr>
             <tr>
-              <td><label for="withings_publickey">Publickey</label></td>
-              <td><%= f.text_field :withings_publickey %></td>
+              <td><strong><label for="withings_publickey">Publickey</label></strong></td>
+              <td><%= f.text_field :withings_publickey, :onchange => "$('withings_link_check').onclick()" %></td>
+            </tr>
+            <tr>
+              <td><strong>Status</strong><br />
+                <center><small>
+                <%= link_to_remote("Validate",
+                                   {:url => {:controller => 'withings', :action => 'check_status'},
+                  :loading => "document.getElementById('withings_status').innerHTML = '<img src=\"/images/loader.gif\" />';",
+                  :with => 'serialize_fields()',
+                  :update => "withings_status"},
+                  { :id => 'withings_link_check' }) %>
+                </center></small>
+              </td>
+              <td>
+                <div id="withings_status" name="withings_status"></div>
+              </td>
+            </td>
+            </tr>
+          </table>
             </tr>
         </table>
       </fieldset>

@@ -31,4 +31,19 @@ class WithingsController < ApplicationController
       redirect_to(weights_url)
     end
   end
+
+  def check_status
+    withings_userid = params[:user][:withings_userid]
+    withings_publickey = params[:user][:withings_publickey]
+    
+    @scale = WiScale.new(:userid => withings_userid, :publickey => withings_publickey)
+
+    if @scale.user_update(1) == 0
+      @status = 1
+    else
+      @status = 0
+    end
+
+    render :partial => 'withings_status'
+  end
 end
