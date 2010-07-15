@@ -68,7 +68,7 @@ class Withings < ActiveRecord::Base
       end
 
       #TODO remove outliers
-      logged = Withings.find(:all, :conditions => ["rec_date between ? and ?", recdate, (recdate+1)])
+      logged = Withings.find(:all, :conditions => ["userid = ? and rec_date between ? and ?", userid, recdate, (recdate+1)])
 
       if total_manual == 0 && logged.size > 0 then
         logger.info "Averaging #{recdate} with #{logged.size} withings records"
@@ -78,8 +78,8 @@ class Withings < ActiveRecord::Base
         # that there should be just one.  No manual records are removed, however
         weights.each do |w| w.destroy end
 
-        avg_weight = Withings.average(:weight, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
-        avg_bodyfat = Withings.average(:bodyfat, :conditions => [ "rec_date between ? and ?", recdate, recdate+1 ]).to_f
+        avg_weight = Withings.average(:weight, :conditions => [ "userid = ? and rec_date between ? and ?", uid, recdate, recdate+1 ]).to_f
+        avg_bodyfat = Withings.average(:bodyfat, :conditions => [ "userid = ? and rec_date between ? and ?", uid, recdate, recdate+1 ]).to_f
 
         w = Weight.new
         w.rec_date = recdate
