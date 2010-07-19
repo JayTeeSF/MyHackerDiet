@@ -30,14 +30,17 @@ class Weight < ActiveRecord::Base
     end
 
     weight_diff = weight - max_rec.weight
+    bodyfat_diff = bodyfat - max_rec.bodyfat
     days_between = (rec_date - max_rec.rec_date).to_i
     weight_per_day = (weight_diff / days_between).to_f
+    bodyfat_per_day = (bodyfat_diff / days_between).to_f
 
     (1..(days_between-1)).each do |day|
       filler = Weight.new
       filler.user_id = user_id
       filler.rec_date = max_rec.rec_date + day
       filler.weight = max_rec.weight + (weight_per_day * day)
+      filler.bodyfat = max_rec.bodyfat + (bodyfat_per_day * day)
       filler.manual = 0
       filler.send(:create_without_callbacks)
       filler.calc_avg_weight
