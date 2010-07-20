@@ -20,10 +20,11 @@
             <th>Avg. BMI</th>
             <th>Avg. RMR</th>
             <th>Avg. TDEE</th>
+            <th>&nbsp;</th>
           </tr>
 
-          <tr>
-            <% form_for(@weight) do |f| %>
+          <% form_for(@weight) do |f| %>
+            <tr>
               <%= f.hidden_field :user_id, :value=>current_user.id %>
               <td>&nbsp;</td>
               <!-- <td><%= f.date_select :rec_date %></td> -->
@@ -35,12 +36,19 @@
               <td>&nbsp;</td>
               <td>&nbsp;</td>
               <td>&nbsp;</td>
-            <% end %>
-          </tr>
+            </tr>
+          <% end %>
 
           <% if @weights.size > 0 %>
             <% @weights.each do |weight| %>
-              <tr>
+              <% if weight.rec_type == RECTYPE['withings'] %>
+                <tr style="background-color: lightblue;">
+              <% elsif weight.rec_type == RECTYPE['filler'] %>
+                <tr style="background-color: lightgray;">
+              <% else %>
+                <tr>
+              <% end %>
+
                 <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
                 <td><%=h weight.rec_date %></td>
                 <td><%=h weight.weight %></td>

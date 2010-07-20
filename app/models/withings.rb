@@ -61,7 +61,7 @@ class Withings < ActiveRecord::Base
         if !weights || weights.size == 0 then
           total_manual = 0
         else
-          total_manual = weights.collect { |w| w.manual }
+          total_manual = weights.collect { |w| w.rec_type }
         end
       rescue
         total_manual = 0
@@ -86,7 +86,7 @@ class Withings < ActiveRecord::Base
         w.user_id = uid
         w.weight = avg_weight.round(2)
         w.bodyfat = avg_bodyfat.round(2)
-        w.manual = false
+        w.rec_type = RECTYPE['withings']
         w.save
         w.calc_avg_weight
       end
