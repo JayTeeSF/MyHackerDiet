@@ -6,7 +6,7 @@ jon:
   encrypted_password: '2326a57481517da1c118567243b99415b5dea618'
   password_salt: 'PVK7WuiNSmwJDFcWIDdV'
   confirmation_token: nil
-  confirmed_at: nil
+  confirmed_at: "2010-07-08 23:27:51"
   confirmation_sent_at: nil
   reset_password_token: nil
   remember_token: nil
