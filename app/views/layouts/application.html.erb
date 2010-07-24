@@ -19,7 +19,7 @@
         <div id="navigation">
           <ul>
             <% if current_user %>
-              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+              <li><%= link_to_colorbox "Edit Account", edit_user_registration_path %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
               <% if current_user.withings_userid && current_user.withings_publickey %>
