@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100720154242) do
+ActiveRecord::Schema.define(:version => 20100724190202) do
 
   create_table "steps", :force => true do |t|
     t.date     "rec_date"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20100720154242) do
     t.integer  "height"
     t.string   "withings_userid"
     t.string   "withings_publickey"
+    t.boolean  "steps"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
