@@ -11,7 +11,9 @@
   </head>
 
   <body>
+
     <div id="layout">
+
       <div id="header">
         <h1 id="logo"><a href="<%=h root_url %>" title="#">MyHackerDiet<span>.com</span></a></h1>
         <hr class="noscreen" />
@@ -61,6 +63,15 @@
         </center>
       <% end %>
     </div>
+
+    <% if ENV['RAILS_ENV'] != 'production' %>
+      <div id='banner'>
+        <% 3.times do %>
+          - <%= ENV['RAILS_ENV'].upcase %> -
+        <% end %>
+      </div>
+    <% end %>
+
     <div align="right" width="97%">
       <% if current_user %>
         Current User: <%=link_to_colorbox current_user.email, edit_user_registration_path %>
