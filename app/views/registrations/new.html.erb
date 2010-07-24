@@ -1,4 +1,4 @@
-<h2>Sign up now!</h2>
+<h2>Easy Registration</h2>
 
 <% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
   <%= f.error_messages %>
@@ -20,66 +20,11 @@
               <td><strong><label for="person_password_confirmation">*Password Confirmation:</label></strong></td>
               <td><%= f.password_field :password_confirmation %></td>
             </tr>
-          </table>
-        </fieldset>
-
-      <fieldset>
-        <legend>General Health</legend>
-        <table border="0">
             <tr>
-              <td><strong><label for="person_dob">*Date of Birth:</label></strong></td>
-              <td><%= f.date_select :dob, {:start_year => 1920} %>
-              </tr>
-              <tr>
-                <td><strong><label for="person_sex">*Sex:</label></strong></td>
-                <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
-              </tr>
-              <tr>
-                <td><strong><label for="person_height">*Height (inches):</label></strong></td>
-                <td><%= f.text_field :height %></td>
-              </tr>
-            </table>
-        </fieldset>
-
-
-      </td>
-      <td align="left">
-        <fieldset>
-          <legend><a href="http://withings.com">Withings</a> Wifi Scale</a></legend>
-
-        <table border="0">
-            <tr>
-              <td><label for="withings_userid"> Userid</td>
-                <td></label> <%= f.text_field :withings_userid %></td>
-            </tr>
-            <tr>
-              <td><strong><label for="withings_publickey">Publickey</label></strong></td>
-              <td><%= f.text_field :withings_publickey, :onchange => "$('withings_link_check').onclick()" %></td>
-            </tr>
-            <tr>
-              <td><strong>Status</strong><br />
-                <center><small>
-                <%= link_to_remote("Validate",
-                                   {:url => {:controller => 'withings', :action => 'check_status'},
-                  :loading => "document.getElementById('withings_status').innerHTML = '<img src=\"/images/loader.gif\" />';",
-                  :with => 'serialize_fields()',
-                  :update => "withings_status"},
-                  { :id => 'withings_link_check' }) %>
-                </center></small>
-              </td>
-              <td>
-                <div id="withings_status" name="withings_status"></div>
-              </td>
-            </td>
+              <td align="center" colspan="2"><%= f.submit "Sign Up!" %></td>
             </tr>
           </table>
-            </tr>
-        </table>
-      </fieldset>
-    </td>
-  </tr>
-  <tr colspan="2">
-    <td align="center" colspan="2"><%= f.submit "Sign Up!" %></td>
-  </tr>
-</table>
-<% end %>
+        </fieldset>
+      </tr>
+    </table>
+  <% end %>

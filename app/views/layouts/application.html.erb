@@ -13,14 +13,13 @@
   <body>
     <div id="layout">
       <div id="header">
-        <h1 id="logo"><a href="#" title="#">MyHackerDiet<span>.com</span></a></h1>
+        <h1 id="logo"><a href="<%=h root_url %>" title="#">MyHackerDiet<span>.com</span></a></h1>
         <hr class="noscreen" />
 
         <div id="navigation">
           <ul>
-            <li><%= link_to "Home", "/" %></li>
             <% if current_user %>
-              <li><%= link_to_colorbox "Edit Account", edit_user_registration_path %></li>
+              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
               <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
               <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
               <% if current_user.withings_userid && current_user.withings_publickey %>
@@ -31,8 +30,8 @@
                 <li><%= link_to "Full Site", :mobile => 0 %></li>
               <% end %>
             <% else %>
-              <li><%= link_to_colorbox "Sign in", user_session_path %></li>
-              <li><%= link_to_colorbox 'Register', new_user_registration_path %></li>
+              <li class="emph"><%= link_to_colorbox 'Create an Account', new_user_registration_path %></li>
+              <li><%= link_to_colorbox 'Sign in', user_session_path %></li>
             <% end %>
           </ul>
           <hr class="noscreen" />
