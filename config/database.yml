@@ -19,6 +19,16 @@ test:
   pool: 5
   timeout: 5000
 
+staging:
+  adapter: mysql
+  database: mhd
+  pool: 5
+  username: jon
+  password: password
+  socket: /var/run/mysqld/mysqld.sock
+  reconnect: true
+  timeout: 5000
+
 production:
   adapter: mysql
   database: mhd
@@ -28,3 +38,4 @@ production:
   socket: /var/run/mysqld/mysqld.sock
   reconnect: true
   timeout: 5000
+
