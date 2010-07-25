@@ -10,12 +10,22 @@ class WithingsController < ApplicationController
 
     @wlog.save
     
-    user = User.find_by_withings_userid(@wlog.userid)
-    email_user = 'jon@digital-drip.com'
+    begin
+      user = User.find_by_withings_userid(@wlog.userid)
+      email_user = user.email
+    rescue
+      logger.error "Unable to find a user for withings event for userid: #{@wlog.userid} from #{@wlog.sdate} to #{@wlog.edate}"
+      email_user = 'jon@digital-drip.com'
+    end
 
     if user != nil then
-      email_user = user.email
-      Emailer.deliver_contact(email_user, @wlog, "MyHackerDiet Event for User #{@wlog.userid}")
+      if user.withings_email_alerts
+        logger.info "Emailing #{email_user} about withings event for #{@wlog.userid}"
+        email_user = user.email
+        Emailer.deliver_contact(email_user, @wlog, "MyHackerDiet Event for User #{@wlog.userid}")
+      end
+
+      logger.info "Retrieving withings data for user #{user.id} from #{@wlog.sdate} to #{@wlog.edate}"
       Withings.get_withings_single_date(user.id, @wlog.userid, user.withings_publickey, @wlog.sdate, @wlog.edate)
     end
 

@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :dob, :height, :sex, :withings_userid, :withings_publickey, :steps
-
-  has_one :user_option
+  attr_accessible :email, :password, :password_confirmation, :dob, :height,
+    :sex, :withings_userid, :withings_publickey, :steps, :withings_email_alerts
 
   def age
     age = Date.today.year - dob.year
