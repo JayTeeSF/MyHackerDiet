@@ -74,7 +74,7 @@
 
     <div align="right" width="97%">
       <% if current_user %>
-        Current User: <%=link_to_colorbox current_user.email, edit_user_registration_path %>
+        <%=h current_user.email %> (<%= link_to 'not you?', destroy_user_session_path %>)
       <% else %>
         <%= render :partial => "shared/devise_links" %>
       <% end %>
