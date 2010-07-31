@@ -34,11 +34,11 @@
               <i>Not enough data for trending</i>
             <% else %>
               <% if @steps_7_days >= 10000 %>
-                <font style="color: green;"><h1><%= @steps_7_days %></h1></font>
+                <font style="color: green;"><h1><%= @steps_7_days.round(2) %></h1></font>
               <% elsif @steps_7_days >= 5000 %>
-                <font style="color: yellow;"><h1><%= @steps_7_days %></h1></font>
+                <font style="color: yellow;"><h1><%= @steps_7_days.round(2) %></h1></font>
               <% else %>
-                <font style="color: red;"><h1><%= @steps_7_days %></h1></font>
+                <font style="color: red;"><h1><%= @steps_7_days.round(2) %></h1></font>
               <% end %>
               10,000 par
             <% end %>
