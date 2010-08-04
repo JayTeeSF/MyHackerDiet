@@ -78,7 +78,7 @@ class WeightsController < ApplicationController
     # minimum should be less than all the weights
     min = min - 1
 
-    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=MyHackerDiet.com+Weight+Chart+for+#{current_user.email}&chs=#{graph_size}&chd=t:"
+    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=Weight+Chart+for+#{current_user.email}&chs=#{graph_size}&chd=t:"
     manchart_suffix = "&chco=4d89f9,c6d9fd&chds=#{min},#{max}&chbh=20&chxt=x,y&chxl=1:|#{min}|#{max-((max-min)/2)}|#{max}|0:"
     manchart_areafill = '&chm=b,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 

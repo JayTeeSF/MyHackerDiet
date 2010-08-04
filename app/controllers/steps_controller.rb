@@ -53,7 +53,7 @@ class StepsController < ApplicationController
       modSteps << c.mod_steps
     end
 
-    manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=MyHackerDiet.com+Step+Chart+for+' + current_user.email + '&chs=800x300&chd=t:'
+    manchart = 'http://chart.apis.google.com/chart?cht=bvs&chtt=Step+Chart+for+' + current_user.email + '&chs=800x300&chd=t:'
     manchart_suffix = '&chco=4d89f9,c6d9fd&chds=0,20000&chbh=20&chxt=x,y&chm=r,000000,0,0.498,0.501&chxl=1:|0|5k|10k|15k|20k|0:'
 
     dates = ''
