@@ -52,10 +52,6 @@ ActionMailer::Base.sendmail_settings = {
     :arguments      => '-i -t'
 } 
 
-ExceptionNotifier.exception_recipients = %w(jon@digital-drip.com)
-ExceptionNotifier.sender_address = %("MHD Error" <no-reply@digital-drip.com>)
-ExceptionNotifier.email_prefix = "[MyHackerDiet] "
-
 RECTYPE = Hash.new
 RECTYPE['withings'] = 0
 RECTYPE['manual']   = 1
