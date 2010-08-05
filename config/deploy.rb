@@ -5,22 +5,22 @@ set :scm, :git
 set :user, 'jon'
 set :branch, 'master'
 
-if ENV['DEPLOY'] == 'production'
+task :production do
   puts 'PRODUCTION DEPLOY'
   set :deploy_to, "/srv/#{application}"
 
   role :web, "myhackerdiet.com"                          # Your HTTP server, Apache/etc
   role :app, "myhackerdiet.com"                          # This may be the same as your `Web` server
   role :db,  "myhackerdiet.com", :primary => true # This is where Rails migrations will run
-elsif ENV['DEPLOY'] == 'staging'
+end
+
+task :staging do
   puts 'STAGING DEPLOY'
   set :deploy_to, "/srv/rails/#{application}"
 
   role :web, "97.107.129.119"                          # Your HTTP server, Apache/etc
   role :app, "97.107.129.119"                          # This may be the same as your `Web` server
   role :db,  "97.107.129.119", :primary => true # This is where Rails migrations will run
-else
-  fail 'ERROR!  No Deploy Environment Specified'
 end
 
 
