@@ -179,20 +179,35 @@ class WeightsController < ApplicationController
     n=0
     @parsed_file.each  do |row|
       c=Weight.new
-      c.rec_date=row[0]
-      c.weight=row[1]
-      c.bodyfat=row[3]
-      c.user_id = current_user.id
 
-      valid = true
-      valid=false if c.weight == nil || c.weight == 0
-      valid=false if c.bodyfat == nil || c.bodyfat == 0
+      begin
+        if row[0] =~ %r{(\d+)/(\d+)/(\d+)}
+          c.rec_date = Date.parse "#{$3.to_i}-#{$1.to_i}-#{$2.to_i}"
+        else
+          c.rec_date= row[0]
+        end
 
-      if valid && c.save
-        n=n+1
-        GC.start if n%50==0
+        c.weight=row[1]
+
+        if row[2].to_i < 100
+          c.bodyfat=row[2]
+        else
+          c.bodyfat=row[3]
+        end
+
+        c.user_id = current_user.id
+
+        valid = true
+        valid=false if c.weight == nil || c.weight == 0
+        #valid=false if c.bodyfat == nil || c.bodyfat == 0
+
+        if valid && c.save
+          n=n+1
+          GC.start if n%50==0
+        end
+      rescue
       end
-      flash[:notice]="CSV Import Successful,  #{n} new records added to data base"
+      flash[:notice]="CSV Import Successful,  #{n} new records added to database"
     end
 
     # Recalculate the average weight
