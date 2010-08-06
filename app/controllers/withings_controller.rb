@@ -15,7 +15,6 @@ class WithingsController < ApplicationController
       email_user = user.email
     rescue
       logger.error "Unable to find a user for withings event for userid: #{@wlog.userid} from #{@wlog.sdate} to #{@wlog.edate}"
-      email_user = 'jon@digital-drip.com'
     end
 
     if user != nil then
