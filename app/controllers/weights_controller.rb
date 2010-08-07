@@ -191,7 +191,7 @@ class WeightsController < ApplicationController
 
         if row[2].to_i < 100
           c.bodyfat=row[2]
-        else
+        elsif row.size >= 4  && row[3].to_i < 100
           c.bodyfat=row[3]
         end
 
@@ -211,8 +211,7 @@ class WeightsController < ApplicationController
     end
 
     # Recalculate the average weight
-    first_weight = Weight.find_by_user_id(current_user.id, :order => 'created_at ASC')
-    weights_after = Weight.find_all_by_user_id(current_user.id, :conditions => ["rec_date > ?", first_weight.rec_date], :order => 'rec_date ASC')
+    weights_after = Weight.find_all_by_user_id(current_user.id, :order => 'rec_date ASC')
     weights_after.each do |w|
       w.calc_avg_weight
       w.save

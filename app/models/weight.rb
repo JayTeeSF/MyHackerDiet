@@ -30,10 +30,14 @@ class Weight < ActiveRecord::Base
     end
 
     weight_diff = weight - max_rec.weight
-    bodyfat_diff = bodyfat - max_rec.bodyfat
+    
+    if bodyfat != nil && max_rec.bodyfat != nil
+      bodyfat_diff = bodyfat - max_rec.bodyfat
+    end
+
     days_between = (rec_date - max_rec.rec_date).to_i
     weight_per_day = (weight_diff / days_between).to_f
-    bodyfat_per_day = (bodyfat_diff / days_between).to_f
+    bodyfat_per_day = (bodyfat_diff / days_between).to_f if bodyfat_diff != nil
 
     (1..(days_between-1)).each do |day|
       filler = Weight.new
@@ -51,6 +55,7 @@ class Weight < ActiveRecord::Base
   def calc_avg_weight
     datapool = Weight.find_all_by_user_id(user_id, :limit => 20, :conditions => ["rec_date <= ?", rec_date], :order => 'rec_date DESC')
     self[:avg_weight] = averageweight datapool
+
     self.send(:update_without_callbacks)
   end
 
@@ -59,7 +64,7 @@ class Weight < ActiveRecord::Base
   def averageweight(weights)
     total = 0
 
-    return 0 if weights.length == 0
+    return 0 if weight == nil || weights.length == 0
 
     weights.each do |weight|
       total += weight.weight
