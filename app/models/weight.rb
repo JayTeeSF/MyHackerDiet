@@ -44,7 +44,7 @@ class Weight < ActiveRecord::Base
       filler.user_id = user_id
       filler.rec_date = max_rec.rec_date + day
       filler.weight = max_rec.weight + (weight_per_day * day)
-      filler.bodyfat = max_rec.bodyfat + (bodyfat_per_day * day)
+      filler.bodyfat = max_rec.bodyfat + (bodyfat_per_day * day) if bodyfat_diff != nil
       filler.rec_type = RECTYPE['filler']
       filler.send(:create_without_callbacks)
       filler.calc_avg_weight
