@@ -18,9 +18,9 @@ task :staging do
   puts 'STAGING DEPLOY'
   set :deploy_to, "/srv/rails/#{application}"
 
-  role :web, "97.107.129.119"                          # Your HTTP server, Apache/etc
-  role :app, "97.107.129.119"                          # This may be the same as your `Web` server
-  role :db,  "97.107.129.119", :primary => true # This is where Rails migrations will run
+  role :web, "staging.myhackerdiet.com"                          # Your HTTP server, Apache/etc
+  role :app, "staging.myhackerdiet.com"                          # This may be the same as your `Web` server
+  role :db,  "staging.myhackerdiet.com", :primary => true # This is where Rails migrations will run
 end
 
 
