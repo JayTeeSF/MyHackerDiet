@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :weights
+
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
   devise :registerable, :database_authenticatable, :recoverable, :confirmable,
