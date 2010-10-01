@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class WeightTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
-
   test "average no previous" do
     w = Weight.new
     w.rec_date = "2010-01-01".to_date
