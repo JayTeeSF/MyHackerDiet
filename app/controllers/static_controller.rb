@@ -8,7 +8,7 @@ class StaticController < ApplicationController
       # Weight summary information
       begin
         @current_weight = Weight.find_by_user_id(current_user.id, :order => 'rec_date DESC')
-        @one_week_ago_weight = Weight.find_by_user_id( 1, :conditions => ["rec_date >= '#{7.days.ago}'"] )
+        @one_week_ago_weight = Weight.find_by_user_id( current_user.id, :conditions => ['rec_date >= ?', 7.days.ago] )
 
         @last_weighin_days = (Date.today - @current_weight.rec_date).to_i
         @current_diff = (@current_weight.avg_weight - @one_week_ago_weight.avg_weight).to_f
