@@ -5,7 +5,7 @@
 	Please don't use without attribution - that isn't cool... Open-source is about giving!
 */
 
-$(document).ready(function() {
-	$(".iframe").colorbox({width:"80%", height:"80%", iframe:true});
-	$(".colorbox").colorbox();
+jQuery(document).ready(function() {
+	jQuery(".iframe").colorbox({width:"80%", height:"80%", iframe:true});
+	jQuery(".colorbox").colorbox();
 });
