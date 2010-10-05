@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724235037) do
+ActiveRecord::Schema.define(:version => 20101004161443) do
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "ip_address"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "steps", :force => true do |t|
     t.date     "rec_date"
@@ -20,6 +36,22 @@ ActiveRecord::Schema.define(:version => 20100724235037) do
     t.integer  "mod_min"
     t.integer  "user_id"
   end
+
+  create_table "system_messages", :force => true do |t|
+    t.string   "header"
+    t.string   "level"
+    t.text     "message"
+    t.boolean  "dismissed",        :default => false
+    t.boolean  "dismissable",      :default => false
+    t.datetime "expires"
+    t.integer  "messageable_id"
+    t.string   "messageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "system_messages", ["dismissed", "expires"], :name => "viewable_index"
+  add_index "system_messages", ["messageable_type", "messageable_id"], :name => "messageable"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -56,17 +88,17 @@ ActiveRecord::Schema.define(:version => 20100724235037) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.decimal  "weight",     :precision => 5, :scale => 2
-    t.decimal  "bodyfat",    :precision => 5, :scale => 2
-    t.decimal  "avg_weight", :precision => 5, :scale => 2
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 4,  :scale => 2
+    t.decimal  "avg_weight", :precision => 12, :scale => 2
     t.integer  "rec_type"
   end
 
   create_table "withings", :force => true do |t|
     t.integer  "userid"
     t.datetime "rec_date"
-    t.decimal  "weight",     :precision => 5, :scale => 2
-    t.decimal  "bodyfat",    :precision => 5, :scale => 2
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 12, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

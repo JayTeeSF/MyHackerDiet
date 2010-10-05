@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :weights
+  has_many :system_messages, :as => :messageable
+
 
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
