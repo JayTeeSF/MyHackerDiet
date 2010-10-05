@@ -18,4 +18,16 @@ class User < ActiveRecord::Base
 
     return age
   end
+
+  def self.create_month_message(level, header, message)
+
+    User.all.each do |usr|
+      msg = SystemMessage.new(:header => header, :message => message)
+      msg.expires = Time.now + 1.month
+      msg.level = level
+      msg.dismissable = true
+      msg.messageable = usr
+      msg.save!
+    end
+  end
 end
