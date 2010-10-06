@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(:version => 20101004161443) do
   end
 
   create_table "system_messages", :force => true do |t|
-    t.string   "header"
     t.string   "level"
     t.text     "message"
     t.boolean  "dismissed",        :default => false

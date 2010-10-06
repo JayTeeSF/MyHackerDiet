@@ -2,7 +2,6 @@ class CreateSystemMessages < ActiveRecord::Migration
   
   def self.up
     create_table :system_messages do |t|
-      t.string        :header
       t.string        :level
       t.text          :message
       t.boolean       :dismissed, :default => false

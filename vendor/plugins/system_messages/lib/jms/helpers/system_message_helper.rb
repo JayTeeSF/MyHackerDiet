@@ -27,11 +27,11 @@ module JMS
         SystemMessage.global.viewable.map {|msg| system_msg(msg, options)}.join("\n")
       end
   
-      def static_system_message(level, header, options={}, &block)
-        header = header_div(header, level)
+      def static_system_message(level, options={}, &block)
         body   = capture(&block)
+        header = header_div(body, level)
         
-        concat(content_tag(:div, header + body,
+        concat(content_tag(:div, body,
               {:class => "system-message #{level}"}.merge(options)), 
               block.binding)
       end

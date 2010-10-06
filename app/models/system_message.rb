@@ -1,6 +1,6 @@
 class SystemMessage < ActiveRecord::Base
   
-  validates_presence_of :level, :header, :message, :expires
+  validates_presence_of :level, :message, :expires
   
   named_scope :global,   :conditions => {:messageable_id => nil}
   named_scope :viewable, lambda { {:conditions => ["dismissed = ? AND expires > ?", false, Time.now]} } 
