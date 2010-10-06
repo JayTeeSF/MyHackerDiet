@@ -243,4 +243,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  app_name: ["MHD"] (Staging)
+  app_name: ["MHD (Staging)"]
