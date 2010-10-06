@@ -2,16 +2,15 @@ module JMS
   module Helpers
     module SystemMessageHelper
       def system_msg(message, options={})
-        header = header_div(message.header, message.level)
-        body = message.message
         base_options = {:class => "system-message #{message.level}", :id => "system_message_#{message.id}"}.merge(options)
         
         if message.dismissable?
-          body += content_tag(:p, link_to_remote("Dismiss", :url => {:controller => 'system_messages', :action => 'dismiss', 
-            :id => message.id}))
+          header = header_div(message.message + " " + link_to_remote("<i>(close)</i>", :url => {:controller => 'system_messages', :action => 'dismiss', :id => message.id}), message.level)
+        else
+          header = header_div(message.message, message.level)
         end
 
-        final_result = content_tag(:div, header + body, base_options)
+        final_result = content_tag(:div, header, base_options)
         final_result = final_result.gsub('&quot;', '"')
         final_result = final_result.gsub('&lt;', '<')
         final_result = final_result.gsub('&gt;', '>')

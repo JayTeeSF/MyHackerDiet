@@ -1,9 +1,9 @@
 .system-message{
   text-align: center;
-  margin: 10px;
-  width: 350px;
-  padding: 5px;
-  border: 1px solid black;
+  padding: 2px;
+  border: 0px solid black;
+  position: relative;
+  width: 75%;
 }
 
 .system-message-header{

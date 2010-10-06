@@ -50,6 +50,7 @@
           <hr class="noscreen" />
         </div>
       </div>
+
       <% if flash[:notice] %>
         <center>
           <div id="message">
@@ -72,11 +73,8 @@
         </center>
       <% end %>
     </div>
-      <% if current_user %>
-        <%= system_messages_for(current_user) %>
-        <%= system_messages %>
-      <% end %>
 
+    <!-- ENVIRONMENT READOUT -->
     <% if ENV['RAILS_ENV'] != 'production' %>
       <div id='banner'>
         <% 3.times do %>
@@ -85,13 +83,24 @@
       </div>
     <% end %>
 
-    <div align="right" width="97%">
+    <!-- SHOW USER LOGGED IN AS -->
+    <div id="logged_in_user">
       <% if current_user %>
         <%=h current_user.email %> (<%= link_to 'not you?', destroy_user_session_path %>)
       <% else %>
         <%= render :partial => "shared/devise_links" %>
       <% end %>
     </div>
+  </div>
+
+    <!-- SYSTEM and USER MESSAGES -->
+    <center>
+      <% if current_user %>
+        <br />
+        <%= system_messages_for(current_user) %>
+        <%= system_messages %>
+      <% end %>
+    </center>
 
 
     <div id="main">
