@@ -15,12 +15,12 @@
             <% elsif @current_diff < 0 %>
               <font style="color: green;">
                 <h1><%= @current_weight.avg_weight %></h1>
-                <%= @current_diff %> decrease
+                <strong><%= @current_diff %></strong> 7-day decrease
               </font>
             <% else %>
               <font style="color: red;">
                 <h1><%= @current_weight.avg_weight %></h1>
-                <%= @current_diff %> increase
+                <strong><%= @current_diff %></strong> 7-day increase
               </font>
             <% end %>
           </center>

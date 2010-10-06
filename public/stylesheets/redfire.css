@@ -40,6 +40,14 @@ h5 { font-size:100%; }
       font-weight: bold;
       font-size: 150%;
     }
+
+    #logged_in_user {
+      position: absolute;
+      width: 100%;
+      text-align: right;
+      margin: 0px 0px 0px -25px;
+      padding: 0px 0px 0px 0px;
+    }
   
       #logo {
         font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;

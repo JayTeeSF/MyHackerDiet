@@ -74,7 +74,7 @@ class Weight < ActiveRecord::Base
     total = total * 100
     total = total.round()
 
-    return total / 100;
+    return total.to_f / 100;
   end
 
 end

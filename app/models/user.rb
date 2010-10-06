@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :weights
+  has_many :system_messages, :as => :messageable
+
+
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
   devise :registerable, :database_authenticatable, :recoverable, :confirmable,
@@ -13,5 +17,15 @@ class User < ActiveRecord::Base
     age -= 1 if Date.today < dob + age.years
 
     return age
+  end
+
+  def self.create_month_message(level, message)
+
+    User.all.each do |usr|
+      msg = SystemMessage.new(:level => level, :message => message, :dismissable => true)
+      msg.expires = Time.now + 1.month
+      msg.messageable = usr
+      msg.save!
+    end
   end
 end
