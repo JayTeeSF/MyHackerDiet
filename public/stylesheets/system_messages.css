@@ -14,9 +14,9 @@
 
 .system-message-header.info{
   background: url(/images/info_warning_msg.png) no-repeat;
-  color: white;
+  color: black;
   padding-left: 20px;
-  background-color: #4AA02C;
+  background-color: lightgreen;
 }
 
 .system-message-header.warn{
