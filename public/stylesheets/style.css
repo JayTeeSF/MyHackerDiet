@@ -103,7 +103,7 @@ background:#eeeeee url(/images/login/login-bg2.png) repeat-x left bottom;}
 /* normal state */
 .big-btn {position:relative; display:block; cursor:pointer; float:left; height:28px; line-height:28px; padding:0 10px; font-size:11px; font-weight:bold; overflow:hidden; margin:10px 10px 10px 0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; text-decoration:none !important; text-align:center;}
 
-.sml-btn {font-size:9px; text-transform:uppercase; position:relative; display:block; cursor:pointer; height:22px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:0 5px; float:left; margin:10px 10px 10px 0; font-weight:bold; text-decoration:none !important; text-align:center;}
+.sml-btn {font-size:9px; text-transform:uppercase; position:relative; display:block; cursor:pointer; height:22px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:0 5px; float:left; margin:1px 1px 1px 0; font-weight:bold; text-decoration:none !important; text-align:center;}
 
 a.grey, .grey {background:#F5F5F5 url(/images/buttons/big-btn-bg.png) repeat-x top left; color:#222; border:#888 1px solid; text-shadow:#fff 0px 1px 0px;}
 a.grey:hover, .grey:hover {background:#dedede url(/images/buttons/big-btn-bg.png) repeat-x top left; color:#000; border:#666 1px solid; text-decoration:none;}
@@ -205,7 +205,7 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Pricing **/
 
-table td, table th {border-right:1px solid #BFBFBF; padding:10px; border-bottom:1px solid #BFBFBF;}
+table td, table th {border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF;}
 tr.even {background:url(/images/row-bg.png) repeat-x top left;}
 .pricing-table {width:960px;}
 .pricing-table .price {font-size:40px; font-weight:bold;}

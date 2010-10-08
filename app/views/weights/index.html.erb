@@ -58,7 +58,7 @@
               <td><%=h weight.bmi || 0 %></td>
               <td><%=h weight.rmr || 0 %></td>
               <td><%=h weight.tdee || 0 %></td>
-              <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+              <td><%= link_to 'Edit', edit_weight_path(weight), {:class => "sml-btn blue"} %></td>
             </tr>
           <% end %>
         <% else %>
