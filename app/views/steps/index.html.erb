@@ -1,10 +1,6 @@
-<fieldset>
-<legend>Log Steps</legend>
+<center><img src="<%= @graph.to_s %>" /></center>
 
-<table border="0" width="100%">
-  <tr valign="top">
-    <td>
-      <table border="1">
+      <table class='pricing-table'>
         <tr>
           <th>&nbsp;</th>
           <th>Rec date</th>
@@ -40,7 +36,7 @@
       <%= will_paginate(@steps) %>
       
       <% form_for :dump, :url=>{:controller=>"steps", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
-        <table>
+        <table class='pricing-table'>
           <tr>
             <td>
               <label for="dump_file">
@@ -58,12 +54,4 @@
           </tr>
         </table>
       <% end -%>
-
-    </td>
-    <td width="100%">  
-      <img src="<%= @graph.to_s %>" />
-    </td>
-  </tr>
-</table>
-</legend>
 

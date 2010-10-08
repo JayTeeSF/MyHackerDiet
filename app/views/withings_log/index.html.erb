@@ -1,16 +1,17 @@
-<fieldset>
-  <legend>Withings Logs</legend>
 
-    <table border='0' width="100%">
+    <table>
       <tr>
         <td width="50%" valign="top">
-  <fieldset>
-    <legend>Communication Logs</legend>
           <% if @logs.size == 0 then %>
             --- no logs present ---
 
           <% else %>
-            <table border="0">
+            <table width='100%'>
+              <thead>
+                <tr>
+                  <th colspan='5'>Communication Logs</th>
+                </tr>
+              </thead>
               <tr>
                 <th>ID</td>
                 <th>UserID</th>
@@ -31,17 +32,20 @@
               <% end %>
             </table>
           <% end %>
-        </fieldset>
       </td>
-      <td width="50%" valign="top">
-        <fieldset>
-          <legend>Measurements</legend>
+      <td width="50%">
 
           <% if @withings_logs.size == 0 then %>
             --- no logs present ---
 
           <% else %>
-            <table border="0">
+            <table >
+              <thead>
+                <tr>
+                  <th colspan='6'>Measurements</th>
+                </tr>
+              </thead>
+              <tbody>
               <tr>
                 <th>ID</td>
                 <th>UserID</th>
@@ -62,10 +66,9 @@
                 </tr>
 
               <% end %>
+            </tbody>
             </table>
           <% end %>
-        </fieldset>
       </td>
     </tr>
   </table>
-</fieldset>

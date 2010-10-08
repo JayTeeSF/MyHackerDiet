@@ -4,54 +4,43 @@
   It has been <%= "#{@last_weighin_days} day".pluralize %> since your last weigh-in.
 
   <center>
-  <table valign="top" border='0'>
-    <tr>
-      <td valign="top">
-        <fieldset>
-          <legend>Current Weight</legend>
           <center>
             <% if @current_diff == nil || @current_diff == 0 %>
               <i>Not enough data for trending</i>
             <% elsif @current_diff < 0 %>
               <font style="color: green;">
-                <h1><%= @current_weight.avg_weight %></h1>
+                <h5><%= @current_weight.avg_weight %></h5>
                 <strong><%= @current_diff %></strong> 7-day decrease
               </font>
             <% else %>
               <font style="color: red;">
-                <h1><%= @current_weight.avg_weight %></h1>
+                <h5><%= @current_weight.avg_weight %></h5>
                 <strong><%= @current_diff %></strong> 7-day increase
               </font>
             <% end %>
           </center>
-        </fieldset>
-      </td>
-      <td valign="top">
-        <fieldset>
-          <legend>Steps 7 Days</legend>
+
+          <br /><br /><br />
+
           <center>
             <% if @steps_7_days == nil or @steps_7_days == 0 %>
               <i>Not enough data for trending</i>
             <% else %>
               <% if @steps_7_days >= 10000 %>
-                <font style="color: green;"><h1><%= @steps_7_days.round(2) %></h1></font>
+                <font style="color: green;"><h5><%= @steps_7_days.round(2) %></h5></font>
               <% elsif @steps_7_days >= 5000 %>
-                <font style="color: yellow;"><h1><%= @steps_7_days.round(2) %></h1></font>
+                <font style="color: yellow;"><h5><%= @steps_7_days.round(2) %></h5></font>
               <% else %>
-                <font style="color: red;"><h1><%= @steps_7_days.round(2) %></h1></font>
+                <font style="color: red;"><h5><%= @steps_7_days.round(2) %></h5></font>
               <% end %>
               10,000 par
             <% end %>
           </center>
-        </fieldset>
-      </td>
-      <td valign="top">
-        <fieldset>
-          <legend>Steps Per Month</legend>
           <% if @steps_months == nil || @steps_months.size == 0 %>
             <i>Not enough data for trending</i>
           <% else %>
-          <table border='0'>
+
+          <table class='pricing-table'>
             <tr>
               <th>Year</th>
               <th>Month</th>
@@ -70,10 +59,6 @@
           <% end %>
         </table>
         <% end %>
-        </fieldset>
-      </td>
-    </tr>
-  </table>
 </center>
 
 </div>
