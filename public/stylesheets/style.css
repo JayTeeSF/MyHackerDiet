@@ -153,6 +153,18 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 .plan .content .price .inside span {font-size:12px;}
 .plan .content .price .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
 
+/** user averages **/
+
+#user_summaries {position:relative; margin-bottom:30px; height:auto; overflow:hidden;}
+.user_summary {position:relative; width:300px; height:auto; overflow:hidden; margin-right:30px; float:left; background:url("/images/plan-shadow.png") repeat-x scroll center bottom transparent; padding-bottom:19px;}
+.user_summary .title {height:45px; width:300px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background-color: black; repeat-x top left;}
+.user_summary .title h4 {color:#fff; padding:9px; margin-bottom:0;}
+.user_summary .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) repeat-x center bottom;}
+.user_summary .content .avg {width:150px; height: auto; position:relative; float:right; background:url(/images/price-bg.png) repeat-x left top;  color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
+.user_summary .content .avg .inside {padding:15px 15px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:17px;}
+.user_summary .content .avg .inside span {font-size:12px;}
+.user_summary .content .avg .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
+
 /** Content **/
 
 #content {height:auto; overflow:hidden; padding-bottom:35px; background:url(/images/content-bg.png) repeat-x left bottom;}
