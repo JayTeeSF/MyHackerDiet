@@ -1,200 +1,205 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset="UTF-8" />
-<title>Phenomenon | Company</title>
-<!-- CSS -->
-<link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
-<link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
-<link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" />
-<link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" />
-<link rel="stylesheet" href="/stylesheets/superfish.css" type="text/css" />
-<link rel="stylesheet" href="/stylesheets/fancybox/jquery.fancybox-1.3.1.css" type="text/css" />
-<!--[if IE]>
-<script src="/javascripts/html5.js"></script>
-<![endif]-->
-<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css">
-<![endif]-->
-<!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script src="/javascripts/cufon-yui.js"></script>
-<script src="/javascripts/jquery.easing.js"></script>
-<script src="/javascripts/Harabara.js"></script>
-<script src="/javascripts/superfish.js"></script>
-<script src="/javascripts/css_browser_selector.js"></script>
-<script src="/javascripts/jquery.cycle.all.js"></script>
-<script src="/javascripts/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-<script src="/javascripts/jquery.form.js"></script>
-<script src="/javascripts/tipsy.js"></script>
-<script src="/javascripts/bluz.js"></script>
-</head>
-<body id="sub-page">
-<!-- site-wrapper START here -->
-<div id="site-wrapper">
-  <!-- header START here -->
-  <header>
-    <!-- container START here -->
-    <div class="container">
-      <!-- logo START here -->
-      <div id="logo">
-        <h1><a href="index.html"><img src="/images/logo2.png" alt="" /></a></h1>
-      </div
-      <!-- logo END here -->
-      <div id="login-holder"> <a href="#login-box" class="sml-btn green">Login</a> </div>
-      <!-- navigation START here -->
-          <ul class="sf-menu">
-            <% if current_user %>
-              <li><%= link_to_colorbox "Edit Account", edit_user_registration_path %></li>
-              <% if current_user.steps %>
-                <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
-              <% end %>
-              <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
-              <% if current_user.withings_userid && current_user.withings_publickey %>
-                <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
-              <% end %>
-              <li><%= link_to "Logout", destroy_user_session_path %></li>
-              <% if mobile_device? %>
-                <li><%= link_to "Full Site", :mobile => 0 %></li>
-              <% end %>
-            <% else %>
-              <li class="emph"><%= link_to_colorbox 'Create an Account', new_user_registration_path %></li>
-              <li><%= link_to_colorbox 'Sign in', user_session_path %></li>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyHackerDiet.com</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/superfish.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/fancybox/jquery.fancybox-1.3.1.css" type="text/css" />
+    <!--[if IE]>
+    <script src="/javascripts/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css">
+    <![endif]-->
+    <!-- Scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="/javascripts/cufon-yui.js"></script>
+    <script src="/javascripts/jquery.easing.js"></script>
+    <script src="/javascripts/Harabara.js"></script>
+    <script src="/javascripts/superfish.js"></script>
+    <script src="/javascripts/css_browser_selector.js"></script>
+    <script src="/javascripts/jquery.cycle.all.js"></script>
+    <script src="/javascripts/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+    <script src="/javascripts/jquery.form.js"></script>
+    <script src="/javascripts/tipsy.js"></script>
+    <script src="/javascripts/bluz.js"></script>
+  </head>
+  <body id="sub-page">
+    <!-- site-wrapper START here -->
+    <div id="site-wrapper">
+      <!-- header START here -->
+      <header>
+      <!-- container START here -->
+      <div class="container">
+        <!-- logo START here -->
+        <div id="logo">
+          <h1><a href="index.html"><img src="/images/logo2.png" alt="" /></a></h1>
+        </div>
+        <!-- logo END here -->
+        <div id="login-holder">
+          <% if current_user %>
+            Signed in as: <%=h current_user.email %> <%=h link_to '(not you?)', destroy_session_path(current_user) %><br />
+            Last Sign in: <%=h current_user.last_sign_in_at %>
+          <% end %>
+        </div>
+        <!-- navigation START here -->
+        <ul class="sf-menu">
+          <% if current_user %>
+            <li><%= link_to_colorbox "Edit Account", edit_user_registration_path %></li>
+            <% if current_user.steps %>
+              <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
             <% end %>
+            <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
+            <% if current_user.withings_userid && current_user.withings_publickey %>
+              <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
+            <% end %>
+            <li><%= link_to "Logout", destroy_user_session_path %></li>
+            <% if mobile_device? %>
+              <li><%= link_to "Full Site", :mobile => 0 %></li>
+            <% end %>
+          <% else %>
+            <li class="emph"><%= link_to_colorbox 'Create an Account', new_user_registration_path %></li>
+            <li><%= link_to_colorbox 'Sign in', user_session_path %></li>
+          <% end %>
+        </ul>
+        <!-- navigation END here -->
+      </div>
+      <!-- container END here -->
+      </header>
+      <!-- header END here -->
+      <!-- content START here -->
+      <div id="content">
+        <!-- container START here -->
+        <div class="container">
+          <!-- main-colum START here -->
+          <div id="main-colum">
+            <% if flash[:notice] %>
+              <center>
+                <div class="success-box">
+                  <%= "- #{flash[:notice]}" %>
+                </div>
+              </center>
+            <% end %>
+            <% if flash[:warn] %>
+              <center>
+                <div class="warning-box">
+                  <%= "- #{flash[:warn]}" %>
+                </div>
+              </center>
+            <% end %>
+            <% if flash[:alert] %>
+              <center>
+                <div class="error-box">
+                  <%= "- #{flash[:alert]}" %>
+                </div>
+              </center>
+            <% end %>
+            <%= yield %>
+          </div>
+          <!-- main-colum END here -->
+        </div>
+        <!-- container END here -->
+      </div>
+      <!-- content END here -->
+    </div>
+    <!-- site-wrapper END here -->
+    <!-- footer START here -->
+    <footer>
+    <!-- container START here -->
+    <div class="container">
+      <div id="footer-colums">
+        <!-- footer-colum1 START here -->
+        <div class="footer-colum">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Jobs</a></li>
           </ul>
-      <!-- navigation END here -->
+        </div>
+        <!-- footer-colum1 END here -->
+        <!-- footer-colum2 START here -->
+        <div class="footer-colum">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Affiliate Sign Up</a></li>
+            <li><a href="#">Affiliate Login</a></li>
+            <li><a href="#">Control Panel Login</a></li>
+          </ul>
+        </div>
+        <!-- footer-colum2 END here -->
+        <!-- footer-colum3 START here -->
+        <div class="footer-colum">
+          <h4>Contact Methods</h4>
+          <ul>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">support@companyname.com</a></li>
+            <li><a href="#">1-800-MYCOPMANY - toll free</a></li>
+            <li><a href="#">1-234-567-8901 - Local Number</a></li>
+          </ul>
+        </div>
+        <!-- footer-colum3 END here -->
+        <!-- footer-colum4 START here -->
+        <div class="footer-colum no-margin">
+          <h4>From The Blog</h4>
+          <ul>
+            <li><a href="#">New hosting plan</a></li>
+            <li><a href="#">Buy hosting plan - get 1 domain for life.</a></li>
+            <li><a href="#">HostingCompany celebrates 2 years!</a></li>
+            <li><a href="#">August special offers</a></li>
+            <li><a href="#">Hiring! we are looking for designers</a></li>
+          </ul>
+        </div>
+        <!-- footer-colum4 END here -->
+      </div>
     </div>
     <!-- container END here -->
-  </header>
-  <!-- header END here -->
-  <!-- content START here -->
-  <div id="content">
-    <!-- container START here -->
-    <div class="container">
-      <!-- main-colum START here -->
-      <div id="main-colum">
-      <% if flash[:notice] %>
-        <center>
-          <div class="success-box">
-            <%= "- #{flash[:notice]}" %>
-          </div>
-        </center>
-      <% end %>
-      <% if flash[:warn] %>
-        <center>
-          <div class="warning-box">
-            <%= "- #{flash[:warn]}" %>
-          </div>
-        </center>
-      <% end %>
-      <% if flash[:alert] %>
-        <center>
-          <div class="error-box">
-            <%= "- #{flash[:alert]}" %>
-          </div>
-        </center>
-      <% end %>
-        <%= yield %>
+    <!-- bottom-footer START here -->
+    <div id="bottom-footer">
+      <!-- container START here -->
+      <div class="container">
+        <p class="alignleft">&copy; 2010 All Rights Reserved.</p>
+        <ul id="social-list" class="alignright">
+          <li><a href="#" rel="tipsy" title="Monthly Newsletter"><img src="/images/social-icons/email.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Facebook"><img src="/images/social-icons/facebook.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Twitter"><img src="/images/social-icons/twitter.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Flickr"><img src="/images/social-icons/flickr.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Last FM"><img src="/images/social-icons/lastfm.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Linked In"><img src="/images/social-icons/linkedin.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Myspace"><img src="/images/social-icons/myspace.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Skype"><img src="/images/social-icons/skype.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Stumble Upon"><img src="/images/social-icons/stumbleupon.png" alt="" /></a></li>
+          <li><a href="#" rel="tipsy" title="Youtube"><img src="/images/social-icons/youtube.png" alt="" /></a></li>
+        </ul>
       </div>
-      <!-- main-colum END here -->
+      <!-- container END here -->
     </div>
-    <!-- container END here -->
-  </div>
-  <!-- content END here -->
-</div>
-<!-- site-wrapper END here -->
-<!-- footer START here -->
-<footer>
-  <!-- container START here -->
-  <div class="container">
-    <div id="footer-colums">
-      <!-- footer-colum1 START here -->
-      <div class="footer-colum">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Jobs</a></li>
-        </ul>
+    <!-- bottom-footer END here -->
+    </footer>
+    <!-- footer END here -->
+    <div class="hidden">
+      <div id="login-box">
+        <form action="" method="post">
+          <label for="login-username">Username:</label>
+          <input type="text" name="login_username" id="login-username" />
+          <label for="login-password">Password:</label>
+          <input type="text" name="login_password" id="login-password" />
+          <div class="submit-block"> <span class="alignleft">
+              <input name="" type="checkbox" value="" class="checkbox" />
+              Remember me</span> <span class="alignright">
+              <input type="submit" name="submit" id="login-submit" value="Login" class="sml-btn grey" />
+          </span> </div>
+          <a href="#" class="lostpass">Lost your password or username?</a>
+        </form>
       </div>
-      <!-- footer-colum1 END here -->
-      <!-- footer-colum2 START here -->
-      <div class="footer-colum">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Affiliate Sign Up</a></li>
-          <li><a href="#">Affiliate Login</a></li>
-          <li><a href="#">Control Panel Login</a></li>
-        </ul>
-      </div>
-      <!-- footer-colum2 END here -->
-      <!-- footer-colum3 START here -->
-      <div class="footer-colum">
-        <h4>Contact Methods</h4>
-        <ul>
-          <li><a href="#">Live Chat</a></li>
-          <li><a href="#">support@companyname.com</a></li>
-          <li><a href="#">1-800-MYCOPMANY - toll free</a></li>
-          <li><a href="#">1-234-567-8901 - Local Number</a></li>
-        </ul>
-      </div>
-      <!-- footer-colum3 END here -->
-      <!-- footer-colum4 START here -->
-      <div class="footer-colum no-margin">
-        <h4>From The Blog</h4>
-        <ul>
-          <li><a href="#">New hosting plan</a></li>
-          <li><a href="#">Buy hosting plan - get 1 domain for life.</a></li>
-          <li><a href="#">HostingCompany celebrates 2 years!</a></li>
-          <li><a href="#">August special offers</a></li>
-          <li><a href="#">Hiring! we are looking for designers</a></li>
-        </ul>
-      </div>
-      <!-- footer-colum4 END here -->
     </div>
-  </div>
-  <!-- container END here -->
-  <!-- bottom-footer START here -->
-  <div id="bottom-footer">
-    <!-- container START here -->
-    <div class="container">
-      <p class="alignleft">&copy; 2010 All Rights Reserved.</p>
-      <ul id="social-list" class="alignright">
-        <li><a href="#" rel="tipsy" title="Monthly Newsletter"><img src="/images/social-icons/email.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Facebook"><img src="/images/social-icons/facebook.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Twitter"><img src="/images/social-icons/twitter.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Flickr"><img src="/images/social-icons/flickr.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Last FM"><img src="/images/social-icons/lastfm.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Linked In"><img src="/images/social-icons/linkedin.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Myspace"><img src="/images/social-icons/myspace.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Skype"><img src="/images/social-icons/skype.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Stumble Upon"><img src="/images/social-icons/stumbleupon.png" alt="" /></a></li>
-        <li><a href="#" rel="tipsy" title="Youtube"><img src="/images/social-icons/youtube.png" alt="" /></a></li>
-      </ul>
-    </div>
-    <!-- container END here -->
-  </div>
-  <!-- bottom-footer END here -->
-</footer>
-<!-- footer END here -->
-<div class="hidden">
-  <div id="login-box">
-    <form action="" method="post">
-      <label for="login-username">Username:</label>
-      <input type="text" name="login_username" id="login-username" />
-      <label for="login-password">Password:</label>
-      <input type="text" name="login_password" id="login-password" />
-      <div class="submit-block"> <span class="alignleft">
-        <input name="" type="checkbox" value="" class="checkbox" />
-        Remember me</span> <span class="alignright">
-        <input type="submit" name="submit" id="login-submit" value="Login" class="sml-btn grey" />
-        </span> </div>
-      <a href="#" class="lostpass">Lost your password or username?</a>
-    </form>
-  </div>
-</div>
-<script type="text/javascripts"> Cufon.now(); </script>
-<script src="/javascripts/init_form.js"></script>
-</body>
+    <script type="text/javascripts"> Cufon.now(); </script>
+    <script src="/javascripts/init_form.js"></script>
+  </body>
 </html>

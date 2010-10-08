@@ -63,8 +63,10 @@ header {position:relative;}
 ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:20px; text-align: center;}
 
 /* Login */
-#login-holder {position:absolute; top:45px; right:0;}
+#login-holder {position:absolute; top:25px; right:0; color: white;}
 #login-holder .sml-btn {margin-right:0;}
+#login-holder a {color: red; font-style: italic; font-weight: normal;}
+#login-holder a:hover {color: red; font-style: italic; font-weight: normal;}
 
 #login-box {width:230px;  padding:18px; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; overflow:hidden;
 background:#eeeeee url(/images/login/login-bg2.png) repeat-x left bottom;}
