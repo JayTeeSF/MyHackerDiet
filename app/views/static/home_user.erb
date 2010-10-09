@@ -10,7 +10,7 @@
           <h4>Weight Today</h4>
         </div>
         <div class="content">
-          <% if @current_diff == nil || @current_diff == 0 %>
+          <% if @current_diff == nil %>
             <i>Not enough data for trending</i>
           <% elsif @current_diff < 0 %>
               <div class="avg">
@@ -19,15 +19,22 @@
                 </div>
               </div>
               <strong><%= @current_diff %></strong> 7-day decrease
+            <% elsif @current_diff == 0 %>
+              <div class="avg">
+                <div class="inside">
+                  0<br />
+                  <span>maintaining</span>
+                </div>
+              </div>
+              You have maintained your weight for the past week.
           <% else %>
               <div class="avg">
                 <div class="inside">
                   <%= @current_weight.avg_weight %>
                 </div>
               </div>
-              You are gaining at a whopping rate of <%= @current_diff %> over the
-              last seven days.  At this rate you will be a fat pig in x days!  Slow
-              down on the gorge-fest my friend!
+              You are gaining at a rate of <%= @current_diff %> over the
+              last week.
           <% end %>
         </div>
       </div>
@@ -42,11 +49,12 @@
           <% else %>
             <div class="avg">
               <div class="inside">
-                <%= @steps_7_days.round(2) %>
+                <%= @steps_7_days.round() %><br />
                 <span>10,000 par</span>
               </div>
         </div>
-        This is some text we will use to talk to the user about how well they are doing with walking.  Over 10000 is the goal
+        Walking is a fantastic way to lose weight and maintain a healthy lifestyle.  According to
+        some doctors and nutritionists, setting a goal of 10,000 steps per day is ideal.
           <% end %>
         </div>
       </div>
