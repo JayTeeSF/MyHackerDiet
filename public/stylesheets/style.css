@@ -6,6 +6,8 @@
 
 html, body {margin:0px; padding:0px; font-family: Arial,Helvetica,sans-serif; font-size: 13px; position:relative; line-height: 1.67em; background: #fff; color:#555; text-align:left; height: 100%;}
 
+hr { margin-top: 10px; margin-bottom: 10px; }
+
 .clear {clear: both; height: 0; width: 0; line-height: 0; font-size: 0px;}
 
 .hidden {display:none;}
@@ -146,7 +148,7 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 /** Hosting Plans **/
 
 #hosting-plans {position:relative; margin-bottom:30px; height:auto; overflow:hidden;}
-.plan {position:relative; width:400px; height:auto; overflow:hidden; margin-right:30px; float:left; background:url("/images/plan-shadow.png") repeat-x scroll center bottom transparent; padding-bottom:19px;}
+.plan {position:relative; width:400px; height:auto; overflow:hidden; margin-right:30px; float:left;}
 .plan .title {height:45px; width:400px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background-color: black; repeat-x top left;}
 .plan .title h4 {color:#fff; padding:9px; margin-bottom:0;}
 .plan .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) repeat-x center bottom;}
@@ -154,6 +156,8 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 .plan .content .price .inside {padding:23px 10px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:17px;}
 .plan .content .price .inside span {font-size:12px;}
 .plan .content .price .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
+.plan .background { width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 0; } 
+.plan .stretch { width:100%; height:100%;}
 
 /** user averages **/
 
@@ -194,7 +198,7 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 #sidebar .widget {height:auto; position:relative; overflow:hidden; margin-bottom:35px; background:url(/images/widget-shadow.png) no-repeat scroll center bottom; padding-bottom:19px;}
 .widget .title {height:40px; width:280px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background:url(/images/widget-title.png) no-repeat top left;}
 .widget .title h5 {color:#fff; margin-bottom:0 !important; padding:11px;}
-.widget .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px; background:#fff url(/images/widget-bg.png) repeat-x center bottom;}
+.widget .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px; background:#fff url(/images/widget-bg.png); background-size: 100%}
 
 #sidebar blockquote {margin-bottom:0;}
 #sidebar blockquote p {padding-bottom:10px; background:none; padding-right:5px;}
@@ -219,7 +223,7 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Pricing **/
 
-table td, table th {border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF; text-align: center;}
+table td, table th {border-left: 1px solid #BFBFBF; border-top: 1px solid #BFBFBF; border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF; text-align: center;}
 tr.even {background:url(/images/row-bg.png) repeat-x top left;}
 .pricing-table {width:960px;}
 .pricing-table .price {font-size:40px; font-weight:bold;}
@@ -274,3 +278,4 @@ footer a:hover {color:#d9d9d9;}
 
 ul#social-list {overflow:visible; height:16px; display:block; position:relative;	}
 ul#social-list li {list-style:none; float:left; margin:0 2.5px;}
+
