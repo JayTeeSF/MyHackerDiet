@@ -18,7 +18,7 @@
           <td><%= f.text_field :steps, :size=>5 %></td>
           <td><%= f.text_field :mod_steps, :size=>5 %></td>
           <td><%= f.text_field :mod_min, :size=>5%></td>
-          <td><%= f.submit 'Create' %></td>
+          <td><%= f.submit 'Create', {:class => "sml-btn blue"} %></td>
         </tr>
       <% end %>
 
@@ -29,7 +29,7 @@
             <td><%=h step.steps %></td>
             <td><%=h step.mod_steps %></td>
             <td><%=h step.mod_min %></td>
-            <td><%= link_to 'Edit', edit_step_path(step) %></td>
+            <td><%= link_to 'Edit', edit_step_path(step), {:class => "sml-btn blue"} %></td>
           </tr>
         <% end %>
       </table>
