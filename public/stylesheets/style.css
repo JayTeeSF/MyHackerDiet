@@ -62,7 +62,7 @@ header {position:relative;}
 #logo {margin-bottom:16px; margin-left: -80px; position:relative; padding-top:40px;}
 #logo a {color:#fff;}
 
-ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:20px; text-align: center;}
+ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:1px; text-align: center;}
 
 /* Login */
 #login-holder {position:absolute; top:25px; right:0; color: white;}

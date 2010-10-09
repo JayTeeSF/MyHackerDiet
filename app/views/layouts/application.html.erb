@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/superfish.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/system_messages.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/fancybox/jquery.fancybox-1.3.1.css" type="text/css" />
     <!--[if IE]>
     <script src="/javascripts/html5.js"></script>
@@ -97,6 +98,17 @@
                 </div>
               </center>
             <% end %>
+
+            <!-- SYSTEM and USER MESSAGES -->
+            <center>
+              <% if current_user %>
+                <%= system_messages_for(current_user) %>
+                <%= system_messages %>
+                <br />
+              <% end %>
+            </center>
+
+
             <%= yield %>
         </div>
         <!-- container END here -->
