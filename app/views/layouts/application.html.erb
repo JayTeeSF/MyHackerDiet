@@ -38,7 +38,7 @@
       <div class="container">
         <!-- logo START here -->
         <div id="logo">
-          <h1><a href="index.html"><img src="/images/logo2.png" alt="" /></a></h1>
+          <%= link_to '<img src="/images/logo2.png" alt="" />', root_url %>
         </div>
         <!-- logo END here -->
         <div id="login-holder">
@@ -76,8 +76,6 @@
       <div id="content">
         <!-- container START here -->
         <div class="container">
-          <!-- main-colum START here -->
-          <div id="main-colum">
             <% if flash[:notice] %>
               <center>
                 <div class="success-box">
@@ -100,8 +98,6 @@
               </center>
             <% end %>
             <%= yield %>
-          </div>
-          <!-- main-colum END here -->
         </div>
         <!-- container END here -->
       </div>

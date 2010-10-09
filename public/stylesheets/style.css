@@ -57,7 +57,7 @@ img.icon {padding:0 !important; border:none !important; background:none !importa
 
 header {position:relative;}
 
-#logo {margin-bottom:16px; position:relative; padding-top:40px;}
+#logo {margin-bottom:16px; margin-left: -80px; position:relative; padding-top:40px;}
 #logo a {color:#fff;}
 
 ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:20px; text-align: center;}
@@ -219,7 +219,7 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Pricing **/
 
-table td, table th {border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF;}
+table td, table th {border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF; text-align: center;}
 tr.even {background:url(/images/row-bg.png) repeat-x top left;}
 .pricing-table {width:960px;}
 .pricing-table .price {font-size:40px; font-weight:bold;}
