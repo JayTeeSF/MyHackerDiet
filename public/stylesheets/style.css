@@ -105,7 +105,7 @@ background:#eeeeee url(/images/login/login-bg2.png) repeat-x left bottom;}
 
 /** Buttons **/
 /* normal state */
-.big-btn {position:relative; display:block; cursor:pointer; float:left; height:28px; line-height:28px; padding:0 10px; font-size:11px; font-weight:bold; overflow:hidden; margin:10px 10px 10px 0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; text-decoration:none !important; text-align:center;}
+.big-btn {position:relative; display:block; cursor:pointer; height:28px; line-height:28px; padding:0 10px; font-size:11px; font-weight:bold; overflow:hidden; margin:10px 10px 10px 0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; text-decoration:none !important; text-align:center;}
 
 .sml-btn {font-size:9px; text-transform:uppercase; position:relative; display:block; cursor:pointer; height:22px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:0 5px; float:left; margin:1px 1px 1px 0; font-weight:bold; text-decoration:none !important; text-align:center;}
 
