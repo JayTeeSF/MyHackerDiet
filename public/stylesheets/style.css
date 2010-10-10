@@ -6,15 +6,14 @@
 
 html, body {margin:0px; padding:0px; font-family: Arial,Helvetica,sans-serif; font-size: 13px; position:relative; line-height: 1.67em; background: #fff; color:#555; text-align:left; height: 100%;}
 
-hr { margin-top: 10px; margin-bottom: 10px; }
-
 .clear {clear: both; height: 0; width: 0; line-height: 0; font-size: 0px;}
 
 .hidden {display:none;}
 
 #site-wrapper {height: auto; position:relative; overflow:hidden; background:url(/images/styles/grunge.jpg) repeat-x top left;}
 
-.container {position:relative; margin:0 auto; width:960px;}
+.container {position:relative; margin:0 auto; width:97%;}
+.main_container {position:relative; margin:0 auto; width:960px;}
 .no-margin {margin-right:0 !important;}
 
 /** Typography **/
@@ -59,16 +58,15 @@ img.icon {padding:0 !important; border:none !important; background:none !importa
 
 header {position:relative;}
 
-#logo {margin-bottom:16px; margin-left: -80px; position:relative; padding-top:40px;}
+#logo {margin-bottom:16px; position:relative; margin-left: -50px; padding-top:40px;}
 #logo a {color:#fff;}
 
-ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:1px; text-align: center;}
+ul.sf-menu {background:url(/images/nav-bg.png) no-repeat top left; height:42px; width:960px; margin-bottom:20px;}
 
 /* Login */
-#login-holder {position:absolute; top:25px; right:0; color: white;}
+#login-holder {position:absolute; top:45px; right:0; color: white;}
+#login-holder a{color: red; font-weight: normal; font-style: italic;}
 #login-holder .sml-btn {margin-right:0;}
-#login-holder a {color: red; font-style: italic; font-weight: normal;}
-#login-holder a:hover {color: red; font-style: italic; font-weight: normal;}
 
 #login-box {width:230px;  padding:18px; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; overflow:hidden;
 background:#eeeeee url(/images/login/login-bg2.png) repeat-x left bottom;}
@@ -105,9 +103,9 @@ background:#eeeeee url(/images/login/login-bg2.png) repeat-x left bottom;}
 
 /** Buttons **/
 /* normal state */
-.big-btn {position:relative; display:block; cursor:pointer; height:28px; line-height:28px; padding:0 10px; font-size:11px; font-weight:bold; overflow:hidden; margin:10px 10px 10px 0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; text-decoration:none !important; text-align:center;}
+.big-btn {position:relative; display:block; cursor:pointer; float:left; height:28px; line-height:28px; padding:0 10px; font-size:11px; font-weight:bold; overflow:hidden; margin:10px 10px 10px 0; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-transform:uppercase; text-decoration:none !important; text-align:center;}
 
-.sml-btn {font-size:9px; text-transform:uppercase; position:relative; display:block; cursor:pointer; height:22px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:0 5px; float:left; margin:1px 1px 1px 0; font-weight:bold; text-decoration:none !important; text-align:center;}
+.sml-btn {font-size:9px; text-transform:uppercase; position:relative; display:block; cursor:pointer; height:22px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; padding:1px 5px; float:left; margin:1px 1px 1px 0; font-weight:bold; text-decoration:none !important; text-align:center;}
 
 a.grey, .grey {background:#F5F5F5 url(/images/buttons/big-btn-bg.png) repeat-x top left; color:#222; border:#888 1px solid; text-shadow:#fff 0px 1px 0px;}
 a.grey:hover, .grey:hover {background:#dedede url(/images/buttons/big-btn-bg.png) repeat-x top left; color:#000; border:#666 1px solid; text-decoration:none;}
@@ -148,29 +146,27 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 /** Hosting Plans **/
 
 #hosting-plans {position:relative; margin-bottom:30px; height:auto; overflow:hidden;}
-.plan {position:relative; width:400px; height:auto; overflow:hidden; margin-right:30px; float:left;}
-.plan .title {height:45px; width:400px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background-color: black; repeat-x top left;}
+.plan {position:relative; width:300px; height:auto; overflow:hidden; margin-right:30px; float:left; background:url("/images/plan-shadow.png") no-repeat scroll center bottom transparent; padding-bottom:19px;}
+.plan .title {height:45px; width:300px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background:url(/images/plan-title.png) no-repeat top left;}
 .plan .title h4 {color:#fff; padding:9px; margin-bottom:0;}
-.plan .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) repeat-x center bottom;}
+.plan .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) no-repeat center bottom;}
 .plan .content .price {width:75px; height:92px; position:relative; float:right; background:url(/images/price-bg.png) no-repeat left top;  color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
 .plan .content .price .inside {padding:23px 10px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:17px;}
 .plan .content .price .inside span {font-size:12px;}
 .plan .content .price .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
-.plan .background { width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 0; } 
-.plan .stretch { width:100%; height:100%;}
 
-/** user averages **/
+
+/** User Summaries **/
 
 #user_summaries {position:relative; margin-bottom:30px; height:auto; overflow:hidden;}
-.user_summary {position:relative; width:300px; height:auto; overflow:hidden; margin-right:30px; float:left; background:url("/images/plan-shadow.png") repeat-x scroll center bottom transparent; padding-bottom:19px;}
-.user_summary .title {height:45px; width:300px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background-color: black; repeat-x top left;}
+.user_summary {position:relative; width:280px; height:auto; overflow:hidden; margin-right:30px; float:left; background:url("/images/plan-shadow.png") no-repeat scroll center bottom transparent; padding-bottom:19px;}
+.user_summary .title {height:45px; width:280px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background:url(/images/plan-title.png) no-repeat top left;}
 .user_summary .title h4 {color:#fff; padding:9px; margin-bottom:0;}
-.user_summary .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) repeat-x center bottom;}
-.user_summary .content .avg {width:150px; height: auto; position:relative; float:right; background:url(/images/price-bg.png) repeat-x left top;  color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
-.user_summary .content .avg .inside {padding:15px 15px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:17px;}
+.user_summary .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) no-repeat center bottom;}
+.user_summary .content .avg {width:110px; height:60px; position:relative; float:right; background:url(/images/price-bg.png); background-size: 100% auto;  color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
+.user_summary .content .avg .inside {padding:23px 10px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:10px;}
 .user_summary .content .avg .inside span {font-size:12px;}
 .user_summary .content .avg .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
-
 /** Content **/
 
 #content {height:auto; overflow:hidden; padding-bottom:35px; background:url(/images/content-bg.png) repeat-x left bottom;}
@@ -188,17 +184,17 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Main-Colum **/
 
-#main-colum {height:auto; overflow:hidden; width:1024px; float:left;}
+#main-colum {height:auto; overflow:hidden; width:950px; float:left;}
 
 /** Sidebar **/
 
-#sidebar {height:auto; overflow:hidden; width:280px; float:left; padding-left:30px; font-size:12px;}
+#sidebar {height:auto; overflow:hidden; width:330px; float:left; padding-left:0px; font-size:12px;}
 #sidebar ul {list-style-type:none; list-style-position:outside; padding:0; margin:0;}
 
-#sidebar .widget {height:auto; position:relative; overflow:hidden; margin-bottom:35px; background:url(/images/widget-shadow.png) no-repeat scroll center bottom; padding-bottom:19px;}
+#sidebar .widget {height:auto; position:relative; overflow:hidden; margin-bottom:2px; padding-bottom:2px;}
 .widget .title {height:40px; width:280px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background:url(/images/widget-title.png) no-repeat top left;}
 .widget .title h5 {color:#fff; margin-bottom:0 !important; padding:11px;}
-.widget .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px; background:#fff url(/images/widget-bg.png); background-size: 100%}
+.widget .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px; background:#fff url(/images/widget-bg.png) repeat-x center bottom;}
 
 #sidebar blockquote {margin-bottom:0;}
 #sidebar blockquote p {padding-bottom:10px; background:none; padding-right:5px;}
@@ -223,13 +219,15 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Pricing **/
 
-table td, table th {border-left: 1px solid #BFBFBF; border-top: 1px solid #BFBFBF; border-right:1px solid #BFBFBF; padding:1px; border-bottom:1px solid #BFBFBF; text-align: center;}
+table td, table th {border:1px solid #BFBFBF; text-align: center;}
+th {background-color: #eeeeee;}
 tr.even {background:url(/images/row-bg.png) repeat-x top left;}
-.pricing-table {width:960px;}
+.pricing-table {width:900px; text-align: center; padding: 0px; margin: 0px;}
 .pricing-table .price {font-size:40px; font-weight:bold;}
-.pricing-table {border-left:1px solid #BFBFBF; border-top:1px solid #BFBFBF;}
+.pricing-table {border:1px solid #BFBFBF;}
 .pricing-table tr td {text-align:center;}
 .pricing-table tr td.colfirst {text-align:left;}
+
 
 /** Gallery **/
 
@@ -278,4 +276,3 @@ footer a:hover {color:#d9d9d9;}
 
 ul#social-list {overflow:visible; height:16px; display:block; position:relative;	}
 ul#social-list li {list-style:none; float:left; margin:0 2.5px;}
-

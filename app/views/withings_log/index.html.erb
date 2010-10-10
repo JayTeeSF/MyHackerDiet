@@ -1,74 +1,74 @@
 
-    <table>
+<% if @logs.size == 0 then %>
+  --- no logs present ---
+
+<% else %>
+  <table width='100%'>
+    <thead>
       <tr>
-        <td width="50%" valign="top">
-          <% if @logs.size == 0 then %>
-            --- no logs present ---
-
-          <% else %>
-            <table width='100%'>
-              <thead>
-                <tr>
-                  <th colspan='5'>Communication Logs</th>
-                </tr>
-              </thead>
-              <tr>
-                <th>ID</td>
-                <th>UserID</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Withings Notification Time</th>
-              </tr>
-              <% @logs.each do |f| %>
-
-                <tr>
-                  <td><%=h f.id %></td>
-                  <td><%=h f.userid %></td>
-                  <td><%=h f.sdate %></td>
-                  <td><%=h f.edate %></td>
-                  <td><%=h f.created_at %></td>
-                </tr>
-
-              <% end %>
-            </table>
-          <% end %>
-      </td>
-      <td width="50%">
-
-          <% if @withings_logs.size == 0 then %>
-            --- no logs present ---
-
-          <% else %>
-            <table >
-              <thead>
-                <tr>
-                  <th colspan='6'>Measurements</th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th>ID</td>
-                <th>UserID</th>
-                <th>Recorded Date</th>
-                <th>Weight (lbs)</th>
-                <th>Bodyfat</th>
-                <th>Timestamp</th>
-              </tr>
-              <% @withings_logs.each do |f| %>
-
-                <tr>
-                  <td><%=h f.id %></td>
-                  <td><%=h f.userid %></td>
-                  <td><%=h f.rec_date %></td>
-                  <td><%=h f.weight %></td>
-                  <td><%=h f.bodyfat %></td>
-                  <td><%=h f.created_at %></td>
-                </tr>
-
-              <% end %>
-            </tbody>
-            </table>
-          <% end %>
-      </td>
+        <th colspan='5'>Communication Logs</th>
+      </tr>
+    </thead>
+    <tr>
+      <th>ID</td>
+      <th>UserID</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Withings Notification Time</th>
     </tr>
+    <% @logs.each do |f| %>
+        <% if f.id % 2 == 0 %>
+          <tr class='even'>
+        <% else %>
+          <tr>
+        <% end %>
+        <td><%=h f.id %></td>
+        <td><%=h f.userid %></td>
+        <td><%=h f.sdate %></td>
+        <td><%=h f.edate %></td>
+        <td><%=h f.created_at %></td>
+      </tr>
+
+    <% end %>
   </table>
+<% end %>
+
+<br />
+
+<% if @withings_logs.size == 0 then %>
+  --- no logs present ---
+
+<% else %>
+  <table width='100%'>
+    <thead>
+      <tr>
+        <th colspan='6'>Measurements</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>ID</td>
+        <th>UserID</th>
+        <th>Recorded Date</th>
+        <th>Weight (lbs)</th>
+        <th>Bodyfat</th>
+        <th>Timestamp</th>
+      </tr>
+      <% @withings_logs.each do |f| %>
+        <% if f.id % 2 == 0 %>
+          <tr class='even'>
+        <% else %>
+          <tr>
+        <% end %>
+          <td><%=h f.id %></td>
+          <td><%=h f.userid %></td>
+          <td><%=h f.rec_date %></td>
+          <td><%=h f.weight %></td>
+          <td><%=h f.bodyfat %></td>
+          <td><%=h f.created_at %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

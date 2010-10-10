@@ -1,4 +1,7 @@
 <div align="center"><img src="<%= @graph.to_s %>" /></div>
+<br /><br />
+
+<div id='main-colum'>
 
 <table class='pricing-table'>
   <thead>
@@ -70,7 +73,8 @@
     </table>
     <%= will_paginate(@weights) %>
 
-    <br /><br />
+  </div>
+  <div id='sidebar'>
 
     <div id="hosting-plans">
       <!-- container START here -->
@@ -89,8 +93,9 @@
               </div>
               <hr>
               <div style="overflow:hidden;">
-                <label for="dump_file">CSV File</label> <%= f.file_field :file -%>
-                <%= submit_tag 'Submit', {:class => "sml-btn blue"} -%>
+                <label for="dump_file">CSV File</label><br />
+                <%= f.file_field :file, {:size => 10} %><br />
+                <%= submit_tag 'Submit', {:class => "sml-btn blue"} %>
               </div>
             <% end %>
           </div>
@@ -112,4 +117,4 @@
       </div>
     </div>
   </div>
-
+</div>
