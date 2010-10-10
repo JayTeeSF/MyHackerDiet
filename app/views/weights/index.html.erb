@@ -46,7 +46,7 @@
               <tr>
               <% end %>
 
-              <td><%= link_to '<img src="/images/mini-icons/error.png" />', weight, :confirm => 'Are you sure?', :method => :delete %></td>
+              <td><%= link_to '<img src="/images/mini-icons/error.png" width=10 height=10 />', weight, :confirm => 'Are you sure?', :method => :delete %></td>
 
               <% if weight.rec_type == RECTYPE['withings'] %>
                 <td><img src="/images/homeWifi.png" alt="Withings Measurement" width=20 height=10 /></td>
@@ -61,7 +61,7 @@
               <td><%=h weight.bmi || 0 %></td>
               <td><%=h weight.rmr || 0 %></td>
               <td><%=h weight.tdee || 0 %></td>
-              <td><%= link_to 'Edit', edit_weight_path(weight), {:class => "sml-btn blue"} %></td>
+              <td><%= link_to 'Edit', edit_weight_path(weight), {:class => "sml-btn-tight blue"} %></td>
             </tr>
           <% end %>
         <% else %>
