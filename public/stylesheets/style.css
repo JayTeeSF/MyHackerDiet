@@ -5,6 +5,8 @@
 * {margin:0; padding:0;}
 
 html, body {margin:0px; padding:0px; font-family: Arial,Helvetica,sans-serif; font-size: 13px; position:relative; line-height: 1.67em; background: #fff; color:#555; text-align:left; height: 100%;}
+h4 a {color: blue;}
+h4 a:visited{color: blue;}
 
 .clear {clear: both; height: 0; width: 0; line-height: 0; font-size: 0px;}
 
@@ -187,6 +189,8 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 #main-colum {height:auto; overflow:hidden; width:950px; float:left;}
 
 /** Sidebar **/
+#sidebar_min {height:auto; overflow:hidden; width:280px; float:left; padding-left:0px; font-size:12px;}
+#sidebar_min .widget {height:auto; position:relative; overflow:hidden; margin-bottom:2px; padding-bottom:2px;}
 
 #sidebar {height:auto; overflow:hidden; width:330px; float:left; padding-left:0px; font-size:12px;}
 #sidebar ul {list-style-type:none; list-style-position:outside; padding:0; margin:0;}
