@@ -145,5 +145,6 @@
     </footer>
     <script type="text/javascripts"> Cufon.now(); </script>
     <script src="/javascripts/init_form.js"></script>
+    <%= render :partial => 'shared/analytics' if RAILS_ENV == 'production' %>
   </body>
 </html>
