@@ -31,8 +31,10 @@ h1, h2, h3, h4, h5, h6 {margin-bottom:12px; color:#333; padding-left:1px;}
 #sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6{margin-bottom:12px;}
 p {margin-bottom:18px; height:auto;}
 
-#content ul, .plan ul {list-style:disc; list-style-position:inside; margin-bottom:15px;}
-#content ol, .plan ol {list-style:decimal; list-style-position:inside; margin-bottom:15px;}
+.plan ul {list-style:disc; list-style-position:inside; margin-bottom:15px;}
+.plan ol {list-style:decimal; list-style-position:inside; margin-bottom:15px;}
+#content ul {list-style:none; list-style-position:inside; margin-bottom:15px;}
+#content ol {list-style:none; list-style-position:inside; margin-bottom:15px;}
 
 blockquote {font-style:italic; margin-bottom:15px; font-size:12px;}
 blockquote p {font-family:Georgia, "Times New Roman", Times, serif;}
@@ -181,19 +183,19 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 .colum {height:auto; width:280px; padding:0 25px 0 0; float:left; margin-right:25px;}
 #home-colums .no-margin {padding-right:0; background:none;}
 
-ul#services-list {list-style:none; list-style-position:outside;}
-ul#services-list li {padding-bottom:13px; background:url(/images/service-seperator.png) no-repeat left bottom; margin-bottom:10px;}
+ul#services-list {list-style:none; list-style-type: none; list-style-position:outside;}
+ul#services-list li {padding-bottom:13px; background:url(/images/service-seperator.png) no-repeat left bottom; margin-bottom:10px; list-style-type: none; list-style: none;}
 ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-right:7px;}
 
 /** Main-Colum **/
 
-#main-colum {height:auto; overflow:hidden; width:900px; float:left;}
+#main-colum {height:auto; width:900px; float:left;}
 
 /** Sidebar **/
 #sidebar_min {height:auto; overflow:hidden; width:280px; float:left; padding-left:0px; font-size:12px;}
 #sidebar_min .widget {height:auto; position:relative; overflow:hidden; margin-bottom:2px; padding-bottom:2px;}
 
-#sidebar {height:auto; overflow:hidden; width:330px; float:left; padding-left:0px; font-size:12px;}
+#sidebar {height:auto; overflow:hidden; width:320px; float:right; margin-right:0px; padding-left:0px; font-size:12px;}
 #sidebar ul {list-style-type:none; list-style-position:outside; padding:0; margin:0;}
 
 #sidebar .widget {height:auto; position:relative; overflow:hidden; margin-bottom:2px; padding-bottom:2px;}
