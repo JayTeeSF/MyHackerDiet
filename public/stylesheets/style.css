@@ -15,7 +15,7 @@ h4 a:visited{color: blue;}
 #site-wrapper {height: auto; position:relative; overflow:hidden; background:url(/images/styles/grunge.jpg) repeat-x top left;}
 
 .container {position:relative; margin:0 auto; width:97%;}
-.main_container {position:relative; margin:0 auto; width:960px;}
+.main_container {position:relative; margin:0 auto; width:900px;}
 .no-margin {margin-right:0 !important;}
 
 /** Typography **/
@@ -187,7 +187,7 @@ ul#services-list li img {float:left; list-style:none; margin-top:8px; margin-rig
 
 /** Main-Colum **/
 
-#main-colum {height:auto; overflow:hidden; width:950px; float:left;}
+#main-colum {height:auto; overflow:hidden; width:900px; float:left;}
 
 /** Sidebar **/
 #sidebar_min {height:auto; overflow:hidden; width:280px; float:left; padding-left:0px; font-size:12px;}
