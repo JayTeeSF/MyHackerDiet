@@ -9,4 +9,5 @@ gem 'wiscale'
 gem 'warden', '0.10.7'
 gem 'devise', '1.0.8'
 gem 'newrelic_rpm'
+gem 'mynyml-redgreen', :require => 'redgreen'
 
