@@ -68,9 +68,13 @@ class WeightsController < ApplicationController
             weightValues_below << c.avg_weight.to_s + ','
           end
 
-          # Set the minimum and maximum values for the chart
+          # Set the minimum and maximum values for the chart (actual weight)
           if c.weight.round < min then min = c.weight.round end
           if c.weight.round > max then max = c.weight.round end
+           
+          # Set the minimum and maximum values for the chart (avg weight)
+          if c.avg_weight.round < min then min = c.avg_weight.round end
+          if c.avg_weight.round > max then max = c.avg_weight.round end
         end
       end
     end
