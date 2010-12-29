@@ -1,4 +1,11 @@
-<div align="center"><img src="<%= @graph.to_s %>" /></div>
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_week_big.to_s %>"><img src="<%= @graph_week.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_two_weeks_big.to_s %>"><img src="<%= @graph_two_weeks.to_s %>" /></a>
+</div>
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_two_months_big.to_s %>"><img src="<%= @graph_two_months.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_three_months_big.to_s %>"<img src="<%= @graph_three_months.to_s %>" />
+</div>
 <br /><br />
 
 <div id='main-colum'>
