@@ -23,7 +23,6 @@ class WeightsController < ApplicationController
         @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
-        @graph = graph_code( 7.days.ago, '800x300' )
         @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
@@ -45,6 +44,16 @@ class WeightsController < ApplicationController
     end
   end
 
+  def weight_graphs
+    respond_to do |format|
+      format.mobile do
+        @graph_week = graph_code( 'Last Week', 1.week.ago, '400x150' )
+        @graph_two_weeks = graph_code( 'Last 2 Weeks', 2.weeks.ago, '400x150' )
+        @graph_two_months = graph_code( 'Last 2 Months', 2.months.ago, '400x150' )
+        @graph_three_months = graph_code( 'Last 3 Months', 3.months.ago, '400x150' )
+      end
+    end
+  end
 
   def graph_code( title, show_days, graph_size )
     weights = Weight.find(:all, :conditions => ["user_id = ?", current_user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
