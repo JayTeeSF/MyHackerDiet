@@ -47,10 +47,10 @@ class WeightsController < ApplicationController
   def weight_graphs
     respond_to do |format|
       format.mobile do
-        @graph_week = graph_code( 'Last Week', 1.week.ago, '400x150' )
-        @graph_two_weeks = graph_code( 'Last 2 Weeks', 2.weeks.ago, '400x150' )
-        @graph_two_months = graph_code( 'Last 2 Months', 2.months.ago, '400x150' )
-        @graph_three_months = graph_code( 'Last 3 Months', 3.months.ago, '400x150' )
+        @graph_week_big = graph_code( 'Last Week', 1.week.ago, '800x300' )
+        @graph_two_weeks_big = graph_code( 'Last 2 Weeks', 2.weeks.ago, '800x300' )
+        @graph_two_months_big = graph_code( 'Last 2 Months', 2.months.ago, '800x300' )
+        @graph_three_months_big = graph_code( 'Last 3 Months', 3.months.ago, '800x300' )
       end
     end
   end
