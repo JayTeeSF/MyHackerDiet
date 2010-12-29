@@ -1,0 +1,11 @@
+.sf-menu li li:hover, .sf-menu li li.sfHover {
+color:#fff !important;
+outline:0;
+background:#353535; 
+}
+
+.sf-menu li li a {height:100%; /* FIX for IE7 */}
+
+#logo {margin-bottom:22px;}
+
+#sidebar {height:500px; height:auto;}

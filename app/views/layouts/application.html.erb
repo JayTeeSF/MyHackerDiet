@@ -1,119 +1,147 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>MyHackerDiet.com | Login</title>
-    <%= stylesheet_link_tag "redfire" %>
-    <%= stylesheet_link_tag 'system_messages' %>
-    <meta name="google-site-verification" content="I9Gso7D25pSU-cTWdKdnhSA5l1wAqjeJU2wdbDUEDCs" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-    <script language="text/javascript">
-      jQuery = $.noConflict();
-    </script>
-
-    <%= include_colorbox_assets %>
-    <%= javascript_include_tag :defaults %>
+    <meta charset="UTF-8" />
+    <title>MyHackerDiet.com</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/custom.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/tipsy.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/superfish.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/system_messages.css" type="text/css" />
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/lightbox.css" type="text/css" />
+    <!--[if IE]>
+    <script src="/javascripts/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css">
+    <![endif]-->
+    <!-- Scripts -->
+    <script src="/javascripts/cufon-yui.js"></script>
+    <script src="/javascripts/jquery.easing.js"></script>
+    <script src="/javascripts/Harabara.js"></script>
+    <script src="/javascripts/superfish.js"></script>
+    <script src="/javascripts/css_browser_selector.js"></script>
+    <script src="/javascripts/prototype.js"></script>
+    <script src="/javascripts/scriptaculous.js"></script>
+    <script src="/javascripts/effects.js"></script>
+    <script src="/javascripts/builder.js"></script>
+    <script src="/javascripts/lightbox.js"></script>
   </head>
-
-  <body>
-    <div style="float: right; z-index:12;">
+  <body id="sub-page">
+    <div style="position:absolute; right:0px; z-index:12;">
       <a href="http://github.com/JGaudette/MyHackerDiet"><img src="/images/forkme.png" /></a>
     </div>
 
-    <div id="layout">
-
-      <div id="header">
-        <h1 id="logo"><a href="<%=h root_url %>" title="#">MyHackerDiet<span>.com</span></a></h1>
-        <hr class="noscreen" />
-
-        <div id="navigation">
-          <ul>
-            <% if current_user %>
-              <li><%= link_to_colorbox "Edit Account", edit_user_registration_path %></li>
-              <% if current_user.steps %>
-                <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
-              <% end %>
-              <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
-              <% if current_user.withings_userid && current_user.withings_publickey %>
-                <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
-              <% end %>
-              <li><%= link_to "Logout", destroy_user_session_path %></li>
-              <% if mobile_device? %>
-                <li><%= link_to "Full Site", :mobile => 0 %></li>
-              <% end %>
-            <% else %>
-              <li class="emph"><%= link_to_colorbox 'Create an Account', new_user_registration_path %></li>
-              <li><%= link_to_colorbox 'Sign in', user_session_path %></li>
-            <% end %>
-          </ul>
-          <hr class="noscreen" />
+    <!-- site-wrapper START here -->
+    <div id="site-wrapper">
+      <!-- header START here -->
+      <header>
+      <!-- container START here -->
+      <div class="main_container">
+        <!-- logo START here -->
+        <div id="logo">
+          <%= link_to '<img src="/images/logo2.png" alt="" />', root_url %>
         </div>
+        <!-- logo END here -->
+        <div id="login-holder">
+          <% if current_user %>
+            Signed in as: <%=h current_user.email %> <%=h link_to '(not you?)', destroy_session_path(current_user) %><br />
+            Last Sign in: <%=h current_user.last_sign_in_at %>
+          <% else %>
+            <h5><%= link_to 'Create an Account', new_user_registration_path, {:class => 'big-btn black', :style => 'font-decoration: none; font-weight: bold;'} %></h5>
+          <% end %>
+        </div>
+        <!-- navigation START here -->
+        <ul class="sf-menu">
+          <% if current_user %>
+            <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+            <% if current_user.steps %>
+              <li><%= link_to "Log Steps", {:controller => 'steps'} %></li>
+            <% end %>
+            <li><%= link_to "Log Weights", {:controller => 'weights'} %></li>
+            <% if current_user.withings_userid && current_user.withings_publickey %>
+              <li><%= link_to "Withings API Log", {:controller => 'withings_log'} %></li>
+            <% end %>
+            <li><%= link_to "Logout", destroy_user_session_path %></li>
+            <% if mobile_device? %>
+              <li><%= link_to "Full Site", :mobile => 0 %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to 'Create an Account', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', user_session_path %></li>
+          <% end %>
+        </ul>
+        <!-- navigation END here -->
       </div>
-
-      <% if flash[:notice] %>
-        <center>
-          <div id="message">
-            <%= "- #{flash[:notice]}" %>
-          </div>
-        </center>
-      <% end %>
-      <% if flash[:warn] %>
-        <center>
-          <div id="warn">
-            <%= "- #{flash[:warn]}" %>
-          </div>
-        </center>
-      <% end %>
-      <% if flash[:alert] %>
-        <center>
-          <div id="alert">
-            <%= "- #{flash[:alert]}" %>
-          </div>
-        </center>
-      <% end %>
     </div>
+      <!-- container END here -->
+      </header>
+      <!-- header END here -->
+      <!-- content START here -->
+      <div id="content">
+        <!-- container START here -->
+        <div class="container">
+            <% if flash[:notice] %>
+              <center>
+                <div class="success-box">
+                  <%= "- #{flash[:notice]}" %>
+                </div>
+              </center>
+            <% end %>
+            <% if flash[:warn] %>
+              <center>
+                <div class="warning-box">
+                  <%= "- #{flash[:warn]}" %>
+                </div>
+              </center>
+            <% end %>
+            <% if flash[:alert] %>
+              <center>
+                <div class="error-box">
+                  <%= "- #{flash[:alert]}" %>
+                </div>
+              </center>
+            <% end %>
 
-    <!-- ENVIRONMENT READOUT -->
-    <% if ENV['RAILS_ENV'] != 'production' %>
-      <div id='banner'>
-        <% 3.times do %>
-          - <%= ENV['RAILS_ENV'].upcase %> -
-        <% end %>
+            <!-- SYSTEM and USER MESSAGES -->
+            <center>
+              <% if current_user %>
+                <%= system_messages_for(current_user) %>
+                <%= system_messages %>
+                <br />
+              <% end %>
+            </center>
+
+
+            <%= yield %>
+        </div>
+        <!-- container END here -->
       </div>
-    <% end %>
-
-    <!-- SHOW USER LOGGED IN AS -->
-    <div id="logged_in_user">
-      <% if current_user %>
-        <%=h current_user.email %> (<%= link_to 'not you?', destroy_user_session_path %>)
-      <% else %>
-        <%= render :partial => "shared/devise_links" %>
-      <% end %>
+      <!-- content END here -->
     </div>
-  </div>
-
-    <!-- SYSTEM and USER MESSAGES -->
-    <center>
-      <% if current_user %>
-        <br />
-        <%= system_messages_for(current_user) %>
-        <%= system_messages %>
-      <% end %>
-    </center>
-
-
-    <div id="main">
-      <%= yield %>
+    <!-- site-wrapper END here -->
+    <!-- footer START here -->
+    <footer>
+    <!-- bottom-footer START here -->
+    <div id="bottom-footer">
+      <!-- container START here -->
+      <div class="container">
+        <p class="alignleft">&copy; 2010 All Rights Reserved.</p>
+        <ul id="social-list" class="alignright">
+          <li><a href="mailto:jon@digital-drip.com" rel="tipsy" title="Email Me"><img src="/images/social-icons/email.png" alt="" /></a></li>
+          <li><a href="http://twitter.com/jongaudette" rel="tipsy" title="Twitter"><img src="/images/social-icons/twitter.png" alt="" /></a></li>
+          <li><a href="http://www.linkedin.com/in/jongaudette" rel="tipsy" title="Linked In"><img src="/images/social-icons/linkedin.png" alt="" /></a></li>
+        </ul>
+      </div>
+      <!-- container END here -->
     </div>
-
-    <div id="footer">
-      <div id="footer-inside">
-        <p id="copyright">&copy; 2009 - <a href="/">Jon Gaudette</a> - Original concept and diet by <a href="http://www.fourmilab.ch/hackdiet/">John Walker</a>.  Website iteration original concept by Matt of <a href="http://physicsdiet.com/">PhysicsDiet.com</a></p>
-        <p id="dont-delete-this">Design by <a href="http://www.davidkohout.cz">David Kohout</a> | Our tip: <a href="http://www.goodmood.cz" title="Absinthe, Becherovka, Slivovitz store">Absinthe Store</a></p>
-    </div><div style="clear: both;"></div></div>
-  </div>
-  <%= render :partial => 'shared/analytics' if RAILS_ENV == 'production' %>
-</body>
+    <!-- bottom-footer END here -->
+    </footer>
+    <script type="text/javascripts"> Cufon.now(); </script>
+    <script src="/javascripts/init_form.js"></script>
+    <%= render :partial => 'shared/analytics' if RAILS_ENV == 'production' %>
+  </body>
 </html>
-

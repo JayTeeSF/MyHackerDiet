@@ -1,10 +1,9 @@
-<fieldset>
-<legend>Log Steps</legend>
+<div align="center"><img src="<%= @graph.to_s %>" /></div>
+<br /><br />
 
-<table border="0" width="100%">
-  <tr valign="top">
-    <td>
-      <table border="1">
+<div id='main-colum'>
+
+      <table class='pricing-table'>
         <tr>
           <th>&nbsp;</th>
           <th>Rec date</th>
@@ -22,48 +21,56 @@
           <td><%= f.text_field :steps, :size=>5 %></td>
           <td><%= f.text_field :mod_steps, :size=>5 %></td>
           <td><%= f.text_field :mod_min, :size=>5%></td>
-          <td><%= f.submit 'Create' %></td>
+          <td><%= f.submit 'Create', {:class => "sml-btn blue"} %></td>
         </tr>
       <% end %>
 
         <% @steps.each do |step| %>
           <tr>
-            <td><%= link_to 'X', step, :confirm => 'Are you sure?', :method => :delete %></td>
+            <td><%= link_to '<img src="/images/mini-icons/error.png" />', step, :confirm => 'Are you sure?', :method => :delete %></td>
             <td nowrap="nowrap"><%=h step.rec_date %></td>
             <td><%=h step.steps %></td>
             <td><%=h step.mod_steps %></td>
             <td><%=h step.mod_min %></td>
-            <td><%= link_to 'Edit', edit_step_path(step) %></td>
+            <td><%= link_to 'Edit', edit_step_path(step), {:class => "sml-btn blue"} %></td>
           </tr>
         <% end %>
       </table>
       <%= will_paginate(@steps) %>
+    </div>
+    <div id='sidebar'>
       
-      <% form_for :dump, :url=>{:controller=>"steps", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
-        <table>
-          <tr>
-            <td>
-              <label for="dump_file">
-                Select a CSV File :
-              </label>
-            </td>
-            <td >
-              <%= f.file_field :file -%>
-            </td>
-          </tr>
-          <tr>
-            <td colspan='2'>
-              <%= submit_tag 'Submit' -%>
-            </td>
-          </tr>
-        </table>
-      <% end -%>
+    <div id="hosting-plans">
+      <!-- container START here -->
+      <div class="container">
+        <div class="plan">
+          <div class="title">
+            <h4>Import Data</h4>
+          </div>
 
-    </td>
-    <td width="100%">  
-      <img src="<%= @graph.to_s %>" />
-    </td>
-  </tr>
-</table>
-</legend>
+          <div class="content">
+            <% form_for :dump, :url=>{:controller=>"steps", :action=>"csv_import"}, :html => { :multipart => true } do |f| %>
+              <div style="overflow:hidden;">
+                <label for="dump_file">CSV File</label><br />
+                <%= f.file_field :file, {:size => 10} %><br />
+                <%= submit_tag 'Submit', {:class => "sml-btn blue"} %>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
+        <div class="container">
+          <div class="plan">
+            <div class="title">
+              <h4>Export Data</h4>
+            </div>
+            <div class="content">
+              <div style="overflow:hidden;">
+                <%=h link_to 'CSV File', "#{steps_url}.csv", {:class => "sml-btn blue"} %>
+              </div>
+              <br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,12 +1,8 @@
 <% form_for resource_name, resource, :url => registration_path(resource_name), :html => { :method => :put } do |f| -%>
   <%= f.error_messages %>
 
-
-  <table border="0" width="95%">
-    <tr valign="top"><td align="left">
-        <fieldset>
-          <legend>Login Credentials</legend>
           <table border="0">
+            <tr><th colspan="2">Login Credentials</th></tr>
             <tr>
               <td><strong><label for="email">*Email Address:</label></strong></td>
               <td><%= f.text_field :email %></td>
@@ -32,11 +28,11 @@
               <td><%= f.password_field :password_confirmation %></td>
             </tr>
           </table>
-        </fieldset>
-
-        <fieldset>
-          <legend>General Health</legend>
+        
+            <br /> 
+        
           <table border="0">
+            <tr><th colspan="2">General Health</th></tr>
             <tr>
               <td><strong><label for="dob">*Date of Birth:</label></strong></td>
               <td><%= f.date_select :dob, {:start_year => 1920} %>
@@ -46,17 +42,16 @@
                 <td><%= f.radio_button :sex, "m" %> Male &nbsp;&nbsp;&nbsp;<%= f.radio_button :sex, "f" %> Female</td>
               </tr>
               <tr>
-                <td><strong><label for="height">*Height (inches):</label></strong></td>
-                <td><%= f.text_field :height %></td>
+                <td><strong><label for="height">*Height:</label></strong></td>
+                <td><%= f.text_field :height, {:size => 4} %> inches</td>
               </tr>
             </table>
-          </fieldset>
+          
+            <br /> 
 
-        </td>
-        <td align="left">
-          <fieldset>
-            <legend>Functionality</legend>
+          
             <table border="0">
+              <tr><th colspan="2">Functionality</th></tr>
               <tr>
                 <td>Weight Logging</td>
                 <td><i>Weight logging is enabled by default</i></td>
@@ -66,12 +61,12 @@
                 <td><%= f.check_box :steps %></td>
               </tr>
             </table>
-          </fieldset>
+          
 
-          <fieldset>
-            <legend><a href="http://withings.com">Withings</a> Wifi Scale</a></legend>
+            <br /> 
 
           <table border="0">
+            <tr><th colspan="2"><a href="http://withings.com">Withings</a> Wifi Scale</a></th></tr>
             <tr>
               <td><strong><label for="withings_userid">Userid</label></strong></td>
                 <td><%= f.text_field :withings_userid, :onchange => "$('withings_link_check').onclick()" %></td>
@@ -100,11 +95,6 @@
               <td><%= f.label :withings_email_alerts, 'Email Alerts' %></td>
               <td><%= f.check_box :withings_email_alerts %></td>
           </table>
-        </fieldset>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" colspan="2"><%= f.submit "Update" %></td>
-    </tr>
-  </table>
+        
+          <%= f.submit "Update", {:class => 'big-btn blue'} %>
 <% end %>

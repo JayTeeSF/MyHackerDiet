@@ -10,11 +10,19 @@ class WeightsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @graph = graph_code( 2.months.ago, '800x300' )
+        @graph_week = graph_code( 'Last Week', 1.week.ago, '400x150' )
+        @graph_two_weeks = graph_code( 'Last 2 Weeks', 2.weeks.ago, '400x150' )
+        @graph_two_months = graph_code( 'Last 2 Months', 2.months.ago, '400x150' )
+        @graph_three_months = graph_code( 'Last 3 Months', 3.months.ago, '400x150' )
+
+        @graph_week_big = graph_code( 'Last Week', 1.week.ago, '800x300' )
+        @graph_two_weeks_big = graph_code( 'Last 2 Weeks', 2.weeks.ago, '800x300' )
+        @graph_two_months_big = graph_code( 'Last 2 Months', 2.months.ago, '800x300' )
+        @graph_three_months_big = graph_code( 'Last 3 Months', 3.months.ago, '800x300' )
+
         @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
-        @graph = graph_code( 7.days.ago, '800x300' )
         @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
       end
       format.xml  { render :xml => @weights }
@@ -36,8 +44,18 @@ class WeightsController < ApplicationController
     end
   end
 
+  def weight_graphs
+    respond_to do |format|
+      format.mobile do
+        @graph_week_big = graph_code( 'Last Week', 1.week.ago, '800x300' )
+        @graph_two_weeks_big = graph_code( 'Last 2 Weeks', 2.weeks.ago, '800x300' )
+        @graph_two_months_big = graph_code( 'Last 2 Months', 2.months.ago, '800x300' )
+        @graph_three_months_big = graph_code( 'Last 3 Months', 3.months.ago, '800x300' )
+      end
+    end
+  end
 
-  def graph_code( show_days, graph_size )
+  def graph_code( title, show_days, graph_size )
     weights = Weight.find(:all, :conditions => ["user_id = ?", current_user.id], :order => 'rec_date ASC')   # get all the weights, not just this page
     weightDates = ''
     weightValues_below = ''
@@ -48,7 +66,7 @@ class WeightsController < ApplicationController
     weightedDates = ''
     weighted_weights = []
 
-    weights.each do |c|
+    weights.each_with_index do |c,index|
       unless c.rec_date == nil || c.weight == nil then
         weighted_weights.push(c.weight.round);
         if weighted_weights.length > 20 then weighted_weights.shift end #remove first weight when over limit
@@ -57,8 +75,10 @@ class WeightsController < ApplicationController
           # For each weight keep a running string for each of the lines (below average, average, above average)
           # our strings will each end with an extra comma, which will need to be chopped when appended to the full
           # google chart string
-          weightDates  << '|' + c.rec_date.to_date.day.to_s
-          weightedDates << c.avg_weight.to_s + ','
+          unless index % 2 == 0
+            weightDates  << '|' + c.rec_date.to_date.day.to_s
+            weightedDates << c.avg_weight.to_s + ','
+          end
           
           if c.weight < c.avg_weight then
             weightValues_below << c.weight.to_s + ','
@@ -68,9 +88,13 @@ class WeightsController < ApplicationController
             weightValues_below << c.avg_weight.to_s + ','
           end
 
-          # Set the minimum and maximum values for the chart
+          # Set the minimum and maximum values for the chart (actual weight)
           if c.weight.round < min then min = c.weight.round end
           if c.weight.round > max then max = c.weight.round end
+           
+          # Set the minimum and maximum values for the chart (avg weight)
+          if c.avg_weight.round < min then min = c.avg_weight.round end
+          if c.avg_weight.round > max then max = c.avg_weight.round end
         end
       end
     end
@@ -78,7 +102,7 @@ class WeightsController < ApplicationController
     # minimum should be less than all the weights
     min = min - 1
 
-    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=Weight+Chart+for+#{current_user.email}&chs=#{graph_size}&chd=t:"
+    manchart = "http://chart.apis.google.com/chart?cht=lc&chtt=#{title.gsub(' ', '+')}&chs=#{graph_size}&chd=t:"
     manchart_suffix = "&chco=4d89f9,c6d9fd&chds=#{min},#{max}&chbh=20&chxt=x,y&chxl=1:|#{min}|#{max-((max-min)/2)}|#{max}|0:"
     manchart_areafill = '&chm=b,0000FF,0,-1,10.0|b,80C65A,0,1,0|b,FF0000,1,2,0'
 

@@ -5,3 +5,5 @@ config/database.yml
 config/deploy.rb
 *.un~
 *.swp
+.bundle
+Gemfile.lock

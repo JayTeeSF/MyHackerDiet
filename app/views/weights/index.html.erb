@@ -1,133 +1,127 @@
-<fieldset>
-  <legend>Log Weights</legend>
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_week_big.to_s %>"><img src="<%= @graph_week.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_two_weeks_big.to_s %>"><img src="<%= @graph_two_weeks.to_s %>" /></a>
+</div>
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_two_months_big.to_s %>"><img src="<%= @graph_two_months.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_three_months_big.to_s %>"<img src="<%= @graph_three_months.to_s %>" />
+</div>
+<br /><br />
 
-<table border="1" width="100%">
-  <tr>
-    <td width="100%" valign="top">
-      <img src="<%= @graph.to_s %>" />
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <table border="0" width="2">
-        <tr>
-          <td>
-        <table border="1">
-          <tr>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th>Rec date</th>
-            <th>Weight</th>
-            <th>Avg Weight</th>
-            <th>Body Fat %</th>
-            <th>&nbsp;</th>
-            <th>Avg. BMI</th>
-            <th>Avg. RMR</th>
-            <th>Avg. TDEE</th>
-            <th>&nbsp;</th>
-          </tr>
+<div id='main-colum'>
 
-          <% form_for(@weight) do |f| %>
-            <tr>
-              <%= f.hidden_field :user_id, :value=>current_user.id %>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-              <!-- <td><%= f.date_select :rec_date %></td> -->
-              <td><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>Date.today.to_s %>
-              <td><%= f.text_field :weight, :size=>6 %></td>
-              <td>&nbsp;</td>
-              <td><%= f.text_field :bodyfat, :size=>6 %></td>
-              <td><%= f.submit 'Create' %></td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-          <% end %>
+<table class='pricing-table'>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>Rec date</th>
+      <th>Weight</th>
+      <th>Avg Weight</th>
+      <th>Body Fat %</th>
+      <th>&nbsp;</th>
+      <th>Avg. BMI</th>
+      <th>Avg. RMR</th>
+      <th>Avg. TDEE</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% form_for(@weight) do |f| %>
+      <tr>
+        <%= f.hidden_field :user_id, :value=>current_user.id %>
+        <td class='colfirst'>&nbsp;</td>
+        <td>&nbsp;</td>
+        <!-- <td><%= f.date_select :rec_date %></td> -->
+        <td><%= select :weight, :rec_date, date_menu_items(Date.today-31, Date.today+1), :selected=>Date.today.to_s %>
+          <td><%= f.text_field :weight, :size=>6 %></td>
+          <td>&nbsp;</td>
+          <td><%= f.text_field :bodyfat, :size=>6 %></td>
+          <td><%= f.submit 'Create', {:class => "sml-btn blue"} %></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      <% end %>
 
-          <% if @weights.size > 0 %>
-            <% @weights.each do |weight| %>
-              <% if weight.rec_type == RECTYPE['filler'] %>
-                <tr style="background-color: lightgray;">
-              <% else %>
-                <tr>
+      <% if @weights.size > 0 %>
+        <% @weights.each do |weight| %>
+          <% if weight.rec_type == RECTYPE['filler'] %>
+            <tr style="background-color: lightgray;">
+            <% else %>
+              <tr>
               <% end %>
 
-                <td><%= link_to 'X', weight, :confirm => 'Are you sure?', :method => :delete %></td>
+              <td><%= link_to '<img src="/images/mini-icons/error.png" width=10 height=10 />', weight, :confirm => 'Are you sure?', :method => :delete %></td>
 
-                <% if weight.rec_type == RECTYPE['withings'] %>
-                  <td><img src="/images/homeWifi.png" alt="Withings Measurement" width=20 height=10 /></td>
-                <% else %>
-                  <td>&nbsp;</td>
-                <% end %>
-                <td><%=h weight.rec_date %></td>
-                <td><%=h weight.weight %></td>
-                <td><%=h weight.avg_weight %></td>
-                <td><%=h weight.bodyfat %></td>
+              <% if weight.rec_type == RECTYPE['withings'] %>
+                <td><img src="/images/homeWifi.png" alt="Withings Measurement" width=20 height=10 /></td>
+              <% else %>
                 <td>&nbsp;</td>
-                <td><%=h weight.bmi || 0 %></td>
-                <td><%=h weight.rmr || 0 %></td>
-                <td><%=h weight.tdee || 0 %></td>
-                <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr><td colspan='9'>
-            --- no weight records found ---
-            </td></tr>
+              <% end %>
+              <td><%=h weight.rec_date %></td>
+              <td><%=h weight.weight %></td>
+              <td><%=h weight.avg_weight %></td>
+              <td><%=h weight.bodyfat %></td>
+              <td>&nbsp;</td>
+              <td><%=h weight.bmi || 0 %></td>
+              <td><%=h weight.rmr || 0 %></td>
+              <td><%=h weight.tdee || 0 %></td>
+              <td><%= link_to 'Edit', edit_weight_path(weight), {:class => "sml-btn-tight blue"} %></td>
+            </tr>
           <% end %>
-        </table>
-        <%= will_paginate(@weights) %>
-  </td></tr></table>
+        <% else %>
+          <tr><td colspan='9'>
+              --- no weight records found ---
+          </td></tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate(@weights) %>
 
-        <br /><br />
+  </div>
+  <div id='sidebar'>
 
-        <table>
-          <tr>
-            <td>
-              <fieldset>
-                <legend>Import Data</legend>
-                <% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
-                  <table>
-                    <% if Withings.authorized?(current_user.withings_userid, current_user.withings_publickey) %>
-                      <tr>
-                        <td>Withings WiFi Scale</td>
-                        <td><%= link_to 'Import All Data', '/withings/import' %></td>
-                      </tr>
-                    <% end %>
-                    <tr>
-                      <td>
-                        <label for="dump_file">Select a CSV File</label>
-                      </td>
-                      <td >
-                        <%= f.file_field :file -%>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan='2'>
-                        <%= submit_tag 'Submit' -%>
-                      </td>
-                    </tr>
-                  </table>
-                  </td><td valign="top">
-              <fieldset>
-                <legend>Export Data</legend>
-                  <table>
-                    <tr>
-                      <td>
-                        All Weights
-                      </td>
-                      <td>
-                        <%=h link_to 'CSV File', "#{weights_url}.csv" %>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-      <% end -%>
-    </fieldset>
-    </td>
-  </tr>
-</table>
+    <div id="hosting-plans">
+      <!-- container START here -->
+      <div class="container">
+        <div class="plan">
+          <div class="title">
+            <h4>Import Data</h4>
+          </div>
 
-</fieldset>
+          <div class="content">
+            <% form_for :dump, :url=>{:controller=>"weights", :action=>"csv_import"}, :html => { :multipart => true } do |f| -%>
+              <div style="overflow:hidden;">
+                <% if Withings.authorized?(current_user.withings_userid, current_user.withings_publickey) %>
+                  <%= link_to 'Import All Withings Data', '/withings/import', {:class => "sml-btn blue"} %>
+                <% end %>
+              </div>
+              <hr>
+              <div style="overflow:hidden;">
+                <label for="dump_file">CSV File</label><br />
+                <%= f.file_field :file, {:size => 10} %><br />
+                <%= submit_tag 'Submit', {:class => "sml-btn blue"} %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="plan">
+            <div class="title">
+              <h4>Export Data</h4>
+            </div>
+            <div class="content">
+              <div style="overflow:hidden;">
+                <%=h link_to 'CSV File', "#{weights_url}.csv", {:class => "sml-btn blue"} %>
+              </div>
+              <br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
