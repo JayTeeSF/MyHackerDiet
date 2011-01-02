@@ -12,7 +12,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @steps = Step.paginate_all_by_user_id(current_user.id, :per_page => 14, :page => params[:page], :order => 'rec_date DESC')
+        @steps = Step.paginate_all_by_user_id(current_user.id, :per_page => 30, :page => params[:page], :order => 'rec_date DESC')
         @graph = graph_code()
       end
       format.mobile do
