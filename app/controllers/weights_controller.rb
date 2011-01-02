@@ -20,7 +20,7 @@ class WeightsController < ApplicationController
         @graph_two_months_big = graph_code( 'Last 2 Months', 2.months.ago, '800x300' )
         @graph_three_months_big = graph_code( 'Last 3 Months', 3.months.ago, '800x300' )
 
-        @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>15, :page => params[:page], :order => 'rec_date DESC')
+        @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>30, :page => params[:page], :order => 'rec_date DESC')
       end
       format.mobile do
         @weights = Weight.paginate_all_by_user_id(current_user.id, :per_page=>5, :page => params[:page], :order => 'rec_date DESC')
