@@ -1,0 +1,66 @@
+    <script src="/javascripts/prototype.js"></script>
+    <script src="/javascripts/scriptaculous.js"></script>
+    <script src="/javascripts/effects.js"></script>
+    <script src="/javascripts/builder.js"></script>
+    <script src="/javascripts/lightbox.js"></script>
+
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_week_big.to_s %>"><img src="<%= @graph_week.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_two_weeks_big.to_s %>"><img src="<%= @graph_two_weeks.to_s %>" /></a>
+</div>
+<div align="center">
+  <a rel='lightbox' href="<%= @graph_two_months_big.to_s %>"><img src="<%= @graph_two_months.to_s %>" /></a>
+  <a rel='lightbox' href="<%= @graph_three_months_big.to_s %>"<img src="<%= @graph_three_months.to_s %>" />
+</div>
+<br /><br />
+
+<div id='main-colum'>
+
+<table class='pricing-table'>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Rec date</th>
+      <th>Weight</th>
+      <th>Avg Weight</th>
+      <th>Body Fat %</th>
+      <th>&nbsp;</th>
+      <th>Avg. BMI</th>
+      <th>Avg. RMR</th>
+      <th>Avg. TDEE</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <% if @weights.size > 0 %>
+        <% @weights.each do |weight| %>
+          <% if weight.rec_type == RECTYPE['filler'] %>
+            <tr style="background-color: lightgray;">
+            <% else %>
+              <tr>
+              <% end %>
+
+              <% if weight.rec_type == RECTYPE['withings'] %>
+                <td><img src="/images/homeWifi.png" alt="Withings Measurement" width=20 height=10 /></td>
+              <% else %>
+                <td>&nbsp;</td>
+              <% end %>
+              <td><%=h weight.rec_date %></td>
+              <td><%=h weight.weight %></td>
+              <td><%=h weight.avg_weight %></td>
+              <td><%=h weight.bodyfat %></td>
+              <td>&nbsp;</td>
+              <td><%=h weight.bmi || 0 %></td>
+              <td><%=h weight.rmr || 0 %></td>
+              <td><%=h weight.tdee || 0 %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr><td colspan='9'>
+              --- no weight records found ---
+          </td></tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate(@weights) %>
+

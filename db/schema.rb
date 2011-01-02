@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004161443) do
+ActiveRecord::Schema.define(:version => 20110102161658) do
+
+  create_table "sessions", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "ip_address"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "steps", :force => true do |t|
     t.date     "rec_date"
@@ -60,10 +68,13 @@ ActiveRecord::Schema.define(:version => 20101004161443) do
     t.string   "withings_publickey"
     t.boolean  "steps"
     t.boolean  "withings_email_alerts"
+    t.boolean  "public"
+    t.string   "public_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["public_id"], :name => "index_users_on_public_id", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "weights", :force => true do |t|
@@ -71,17 +82,17 @@ ActiveRecord::Schema.define(:version => 20101004161443) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.decimal  "weight",     :precision => 5, :scale => 2
-    t.decimal  "bodyfat",    :precision => 5, :scale => 2
-    t.decimal  "avg_weight", :precision => 5, :scale => 2
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 4,  :scale => 2
+    t.decimal  "avg_weight", :precision => 12, :scale => 2
     t.integer  "rec_type"
   end
 
   create_table "withings", :force => true do |t|
     t.integer  "userid"
     t.datetime "rec_date"
-    t.decimal  "weight",     :precision => 5, :scale => 2
-    t.decimal  "bodyfat",    :precision => 5, :scale => 2
+    t.decimal  "weight",     :precision => 12, :scale => 2
+    t.decimal  "bodyfat",    :precision => 12, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

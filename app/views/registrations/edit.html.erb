@@ -9,6 +9,10 @@
               <td><%= f.text_field :email %></td>
             </tr>
             <tr>
+              <td><strong><label for="email">*Public Profile:</label></strong></td>
+              <td><%= f.check_box :public %></td>
+            </tr>
+            <tr>
               <td>
                 <label for="current_password">
                   <strong>*Current Password</strong>

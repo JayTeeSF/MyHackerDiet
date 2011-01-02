@@ -77,4 +77,5 @@ class Weight < ActiveRecord::Base
     return total.to_f / 100;
   end
 
+
 end

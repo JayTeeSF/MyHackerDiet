@@ -39,6 +39,12 @@
         <div id="login-holder">
           <% if current_user %>
             Signed in as: <%=h current_user.email %> <%=h link_to '(not you?)', destroy_session_path(current_user) %><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <% if current_user.public? %>
+              Public Link: <%= link_to "#{root_url}public/#{current_user.public_id}", "#{root_url}public/#{current_user.public_id}" %><br />
+            <% else %>
+              <%= link_to 'Share your progress with others!', edit_registration_path( current_user ) %><br />
+            <% end %>
             Last Sign in: <%=h current_user.last_sign_in_at %>
           <% else %>
             <h5><%= link_to 'Create an Account', new_user_registration_path, {:class => 'big-btn black', :style => 'font-decoration: none; font-weight: bold;'} %></h5>
