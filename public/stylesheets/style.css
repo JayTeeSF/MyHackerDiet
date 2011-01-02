@@ -168,7 +168,7 @@ a.orange, .orange {background:#DF4E00 url(/images/buttons/big-btn-bg.png) repeat
 .user_summary .title {height:45px; width:280px; -moz-border-radius-topleft:10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; background:url(/images/plan-title.png) no-repeat top left;}
 .user_summary .title h4 {color:#fff; padding:9px; margin-bottom:0;}
 .user_summary .content {border:#a0a0a0 1px solid; -moz-border-radius-bottomleft:10px; -moz-border-radius-bottomright:10px; -webkit-border-bottom-left-radius:10px; -webkit-border-bottom-right-radius:10px; height:auto; padding:10px 10px 0px; background:#fff url(/images/plan-bg.png) no-repeat center bottom;}
-.user_summary .content .avg {width:110px; height:60px; position:relative; float:right; background:url(/images/price-bg.png); background-size: 100% auto;  color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
+.user_summary .content .avg {width:130px; height:60px; position:relative; float:right; background:#222200; color:#FFFFFF; font-weight:bold; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; font-size:30px;}
 .user_summary .content .avg .inside {padding:23px 10px 5px; text-shadow: #1a1a1a 0px -1px 0px; text-align:center; line-height:10px;}
 .user_summary .content .avg .inside span {font-size:12px;}
 .user_summary .content .avg .sml-btn {position:absolute; bottom:-1px; margin:0 !important;}
