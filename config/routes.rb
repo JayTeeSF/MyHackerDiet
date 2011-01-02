@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :public
+
   map.devise_for :users
 
   map.resources :sessions  
